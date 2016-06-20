@@ -7,4 +7,7 @@
 //
 
 import Foundation
+import UIKit
+
+let heroSize: CGSize = CGSizeMake(CGFloat(20), CGFloat(70))
 
