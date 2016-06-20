@@ -17,6 +17,7 @@
 		4C0373361D188AB50060A7D1 /* ForgottenTrailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373351D188AB50060A7D1 /* ForgottenTrailTests.swift */; };
 		4C0373411D188AB50060A7D1 /* ForgottenTrailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373401D188AB50060A7D1 /* ForgottenTrailUITests.swift */; };
 		B52B01281D18A159005BDB77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B01271D18A159005BDB77 /* Constants.swift */; };
+		C982307F1D18AD3C00BBCBB3 /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C982307E1D18AD3C00BBCBB3 /* StartScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		4C0373401D188AB50060A7D1 /* ForgottenTrailUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgottenTrailUITests.swift; sourceTree = "<group>"; };
 		4C0373421D188AB50060A7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52B01271D18A159005BDB77 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C982307E1D18AD3C00BBCBB3 /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartScene.swift; path = ../StartScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				4C03731C1D188AB50060A7D1 /* AppDelegate.swift */,
 				4C03731E1D188AB50060A7D1 /* GameScene.sks */,
 				4C0373201D188AB50060A7D1 /* GameScene.swift */,
+				C982307E1D18AD3C00BBCBB3 /* StartScene.swift */,
 				4C0373221D188AB50060A7D1 /* GameViewController.swift */,
 				4C0373241D188AB50060A7D1 /* Main.storyboard */,
 				4C0373271D188AB50060A7D1 /* Assets.xcassets */,
@@ -269,6 +272,7 @@
 				4C0373211D188AB50060A7D1 /* GameScene.swift in Sources */,
 				4C0373231D188AB50060A7D1 /* GameViewController.swift in Sources */,
 				4C03731D1D188AB50060A7D1 /* AppDelegate.swift in Sources */,
+				C982307F1D18AD3C00BBCBB3 /* StartScene.swift in Sources */,
 				B52B01281D18A159005BDB77 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
