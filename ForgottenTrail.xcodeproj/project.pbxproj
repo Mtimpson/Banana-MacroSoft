@@ -11,13 +11,14 @@
 		4C03731F1D188AB50060A7D1 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4C03731E1D188AB50060A7D1 /* GameScene.sks */; };
 		4C0373211D188AB50060A7D1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373201D188AB50060A7D1 /* GameScene.swift */; };
 		4C0373231D188AB50060A7D1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373221D188AB50060A7D1 /* GameViewController.swift */; };
-		4C0373261D188AB50060A7D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C0373241D188AB50060A7D1 /* Main.storyboard */; };
 		4C0373281D188AB50060A7D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0373271D188AB50060A7D1 /* Assets.xcassets */; };
 		4C03732B1D188AB50060A7D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C0373291D188AB50060A7D1 /* LaunchScreen.storyboard */; };
 		4C0373361D188AB50060A7D1 /* ForgottenTrailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373351D188AB50060A7D1 /* ForgottenTrailTests.swift */; };
 		4C0373411D188AB50060A7D1 /* ForgottenTrailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373401D188AB50060A7D1 /* ForgottenTrailUITests.swift */; };
 		B52B01281D18A159005BDB77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B01271D18A159005BDB77 /* Constants.swift */; };
 		B52B012A1D18AC29005BDB77 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B01291D18AC29005BDB77 /* Hero.swift */; };
+		C9147C7A1D1C4AD100294AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9147C791D1C4AD100294AAB /* Main.storyboard */; };
+		C9147C7C1D1C7C2100294AAB /* HeroInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +44,6 @@
 		4C03731E1D188AB50060A7D1 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		4C0373201D188AB50060A7D1 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4C0373221D188AB50060A7D1 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		4C0373251D188AB50060A7D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C0373271D188AB50060A7D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C03732A1D188AB50060A7D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C03732C1D188AB50060A7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +55,8 @@
 		4C0373421D188AB50060A7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52B01271D18A159005BDB77 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B52B01291D18AC29005BDB77 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		C9147C791D1C4AD100294AAB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroInfoController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +110,9 @@
 				4C03731C1D188AB50060A7D1 /* AppDelegate.swift */,
 				4C03731E1D188AB50060A7D1 /* GameScene.sks */,
 				4C0373201D188AB50060A7D1 /* GameScene.swift */,
-				C982307E1D18AD3C00BBCBB3 /* StartScene.swift */,
 				4C0373221D188AB50060A7D1 /* GameViewController.swift */,
-				4C0373241D188AB50060A7D1 /* Main.storyboard */,
+				C9147C791D1C4AD100294AAB /* Main.storyboard */,
+				C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */,
 				4C0373271D188AB50060A7D1 /* Assets.xcassets */,
 				4C0373291D188AB50060A7D1 /* LaunchScreen.storyboard */,
 				4C03732C1D188AB50060A7D1 /* Info.plist */,
@@ -245,7 +247,7 @@
 				4C03731F1D188AB50060A7D1 /* GameScene.sks in Resources */,
 				4C03732B1D188AB50060A7D1 /* LaunchScreen.storyboard in Resources */,
 				4C0373281D188AB50060A7D1 /* Assets.xcassets in Resources */,
-				4C0373261D188AB50060A7D1 /* Main.storyboard in Resources */,
+				C9147C7A1D1C4AD100294AAB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +275,8 @@
 				B52B012A1D18AC29005BDB77 /* Hero.swift in Sources */,
 				4C0373211D188AB50060A7D1 /* GameScene.swift in Sources */,
 				4C0373231D188AB50060A7D1 /* GameViewController.swift in Sources */,
+				C9147C7C1D1C7C2100294AAB /* HeroInfoController.swift in Sources */,
 				4C03731D1D188AB50060A7D1 /* AppDelegate.swift in Sources */,
-				C982307F1D18AD3C00BBCBB3 /* StartScene.swift in Sources */,
 				B52B01281D18A159005BDB77 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,14 +313,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4C0373241D188AB50060A7D1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C0373251D188AB50060A7D1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4C0373291D188AB50060A7D1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
