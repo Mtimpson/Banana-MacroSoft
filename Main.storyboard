@@ -10,6 +10,7 @@
         <!--View Controller-->
         <scene sceneID="jdX-DZ-4cD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqL-9E-YNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Iu9-7p-lxc" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b8x-hd-bdd"/>
@@ -100,9 +101,8 @@
                         </variation>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wqL-9E-YNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759" y="634"/>
+            <point key="canvasLocation" x="-876" y="584"/>
         </scene>
         <!--HeroInfoController-->
         <scene sceneID="VoB-ub-lO7">
@@ -460,8 +460,7 @@
                                         <exclude reference="iWS-bY-bKE"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="236" width="181" height="128"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="iWS-bY-bKE"/>
                                     </mask>
@@ -471,9 +470,6 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.21028602190000001" green="1" blue="0.74453714100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Previous"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="285" width="81" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="nextAct:" destination="y29-WU-Cj3" eventType="touchUpInside" id="IhR-43-D7b"/>
                                     <action selector="previousAct:" destination="y29-WU-Cj3" eventType="touchUpInside" id="IDq-Uq-6Or"/>
@@ -483,9 +479,6 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.21028602190000001" green="1" blue="0.74453714100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Next"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="299" y="285" width="81" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="nextAct:" destination="y29-WU-Cj3" eventType="touchUpInside" id="ZjV-0J-5Gp"/>
                                 </connections>
