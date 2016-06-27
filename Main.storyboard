@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Iu9-7p-lxc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Iu9-7p-lxc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -526,14 +526,6 @@
                                 <exclude reference="CJi-rh-H1X"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GSU-G8-1Q2"/>
-                                <exclude reference="QrM-GO-Pfc"/>
-                                <exclude reference="Dw4-Hk-8Lm"/>
-                                <exclude reference="moJ-2d-3RG"/>
-                                <exclude reference="oPe-hW-D2u"/>
-                                <exclude reference="4yQ-53-qLp"/>
-                                <exclude reference="OWb-4n-H60"/>
-                                <exclude reference="oxd-Rf-qt0"/>
                                 <exclude reference="JVJ-jL-ALL"/>
                                 <exclude reference="LPE-SN-L3z"/>
                                 <exclude reference="e9N-ou-Hv1"/>
@@ -541,11 +533,17 @@
                                 <exclude reference="1f8-pZ-S3r"/>
                                 <exclude reference="KDz-Wz-cXJ"/>
                                 <exclude reference="vf8-pJ-pak"/>
+                                <exclude reference="4yQ-53-qLp"/>
+                                <exclude reference="OWb-4n-H60"/>
+                                <exclude reference="oxd-Rf-qt0"/>
                                 <exclude reference="4M7-TV-ITI"/>
                                 <exclude reference="4te-5f-AI4"/>
                                 <exclude reference="sZW-R4-YFp"/>
                                 <exclude reference="GSU-G8-1Q2"/>
                                 <exclude reference="QrM-GO-Pfc"/>
+                                <exclude reference="Dw4-Hk-8Lm"/>
+                                <exclude reference="moJ-2d-3RG"/>
+                                <exclude reference="oPe-hW-D2u"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -558,14 +556,6 @@
                                 <include reference="CJi-rh-H1X"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GSU-G8-1Q2"/>
-                                <include reference="QrM-GO-Pfc"/>
-                                <include reference="Dw4-Hk-8Lm"/>
-                                <include reference="moJ-2d-3RG"/>
-                                <include reference="oPe-hW-D2u"/>
-                                <include reference="4yQ-53-qLp"/>
-                                <include reference="OWb-4n-H60"/>
-                                <include reference="oxd-Rf-qt0"/>
                                 <include reference="JVJ-jL-ALL"/>
                                 <include reference="LPE-SN-L3z"/>
                                 <include reference="e9N-ou-Hv1"/>
@@ -573,11 +563,17 @@
                                 <include reference="1f8-pZ-S3r"/>
                                 <include reference="KDz-Wz-cXJ"/>
                                 <include reference="vf8-pJ-pak"/>
+                                <include reference="4yQ-53-qLp"/>
+                                <include reference="OWb-4n-H60"/>
+                                <include reference="oxd-Rf-qt0"/>
                                 <include reference="4M7-TV-ITI"/>
                                 <include reference="4te-5f-AI4"/>
                                 <include reference="sZW-R4-YFp"/>
                                 <include reference="GSU-G8-1Q2"/>
                                 <include reference="QrM-GO-Pfc"/>
+                                <include reference="Dw4-Hk-8Lm"/>
+                                <include reference="moJ-2d-3RG"/>
+                                <include reference="oPe-hW-D2u"/>
                             </mask>
                         </variation>
                     </view>
@@ -656,7 +652,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DmI-dO-JIU"/>
-        <segue reference="wEc-h2-apM"/>
+        <segue reference="esH-Sg-J1t"/>
+        <segue reference="zjK-QY-Bsi"/>
     </inferredMetricsTieBreakers>
 </document>
