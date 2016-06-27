@@ -19,6 +19,7 @@
 		B52B012A1D18AC29005BDB77 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B01291D18AC29005BDB77 /* Hero.swift */; };
 		C9147C7A1D1C4AD100294AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9147C791D1C4AD100294AAB /* Main.storyboard */; };
 		C9147C7C1D1C7C2100294AAB /* HeroInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */; };
+		C9147C821D21D1DB00294AAB /* SelectHeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C811D21D1DB00294AAB /* SelectHeroController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B52B01291D18AC29005BDB77 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		C9147C791D1C4AD100294AAB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroInfoController.swift; sourceTree = "<group>"; };
+		C9147C811D21D1DB00294AAB /* SelectHeroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHeroController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				4C0373201D188AB50060A7D1 /* GameScene.swift */,
 				4C0373221D188AB50060A7D1 /* GameViewController.swift */,
 				C9147C791D1C4AD100294AAB /* Main.storyboard */,
+				C9147C811D21D1DB00294AAB /* SelectHeroController.swift */,
 				C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */,
 				4C0373271D188AB50060A7D1 /* Assets.xcassets */,
 				4C0373291D188AB50060A7D1 /* LaunchScreen.storyboard */,
@@ -275,6 +278,7 @@
 				B52B012A1D18AC29005BDB77 /* Hero.swift in Sources */,
 				4C0373211D188AB50060A7D1 /* GameScene.swift in Sources */,
 				4C0373231D188AB50060A7D1 /* GameViewController.swift in Sources */,
+				C9147C821D21D1DB00294AAB /* SelectHeroController.swift in Sources */,
 				C9147C7C1D1C7C2100294AAB /* HeroInfoController.swift in Sources */,
 				4C03731D1D188AB50060A7D1 /* AppDelegate.swift in Sources */,
 				B52B01281D18A159005BDB77 /* Constants.swift in Sources */,
