@@ -9,14 +9,16 @@
 import Foundation
 import SpriteKit
 
-enum HeroType {
-    case Pirate
-    case ArabianGirl
-    case Death
-    case Drow
-    case PurpleGuy
-    case German
-    case Hooded
+enum HeroType: String {
+    case Pirate = "pirate"
+    case ArabianGirl = "arabiangirl"
+    case Death = "death"
+    case Drow = "drow"
+    case PurpleGuy = "purpleGuy"
+    case German = "german"
+    case Hooded = "hooded"
+    
+    static let allHeros = [Pirate, ArabianGirl, Death, Drow, PurpleGuy, German, Hooded]
 }
 
 enum HeroDirection {
