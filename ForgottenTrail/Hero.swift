@@ -17,6 +17,7 @@ enum HeroType {
     case PurpleGuy
     case German
     case Hooded
+    case Witch
 }
 
 enum HeroDirection {
