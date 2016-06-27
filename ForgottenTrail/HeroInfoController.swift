@@ -15,6 +15,9 @@ class HeroInfoController : UIViewController {
     
     override func viewDidLoad() {
         scroller.contentSize.height = 1000
+        
+        
+        
     }
     
     
