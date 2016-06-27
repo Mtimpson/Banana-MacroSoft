@@ -43,6 +43,9 @@
                                     <segue destination="y29-WU-Cj3" kind="show" id="wEc-h2-apM"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Frogotten Trail Background" translatesAutoresizingMaskIntoConstraints="NO" id="wsd-bZ-Z1V">
+                                <rect key="frame" x="28" y="-184" width="640" height="1136"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -102,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wqL-9E-YNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-759" y="634"/>
+            <point key="canvasLocation" x="-875" y="584"/>
         </scene>
         <!--HeroInfoController-->
         <scene sceneID="VoB-ub-lO7">
@@ -574,6 +577,9 @@
             <point key="canvasLocation" x="1305" y="-137"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Frogotten Trail Background" width="640" height="1136"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vkv-m2-dMC"/>
         <segue reference="wEc-h2-apM"/>
