@@ -10,6 +10,7 @@
         <!--View Controller-->
         <scene sceneID="jdX-DZ-4cD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqL-9E-YNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Iu9-7p-lxc" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b8x-hd-bdd"/>
@@ -43,9 +44,6 @@
                                     <segue destination="y29-WU-Cj3" kind="show" id="wEc-h2-apM"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Frogotten Trail Background" translatesAutoresizingMaskIntoConstraints="NO" id="wsd-bZ-Z1V">
-                                <rect key="frame" x="28" y="-184" width="640" height="1136"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -103,9 +101,8 @@
                         </variation>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wqL-9E-YNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-875" y="584"/>
+            <point key="canvasLocation" x="-876" y="584"/>
         </scene>
         <!--HeroInfoController-->
         <scene sceneID="VoB-ub-lO7">
@@ -463,8 +460,7 @@
                                         <exclude reference="iWS-bY-bKE"/>
                                     </mask>
                                 </variation>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="110" y="236" width="181" height="128"/>
+                                <variation key="widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="iWS-bY-bKE"/>
                                     </mask>
@@ -474,9 +470,6 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.21028602190000001" green="1" blue="0.74453714100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Previous"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="285" width="81" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="nextAct:" destination="y29-WU-Cj3" eventType="touchUpInside" id="IhR-43-D7b"/>
                                     <action selector="previousAct:" destination="y29-WU-Cj3" eventType="touchUpInside" id="IDq-Uq-6Or"/>
@@ -486,9 +479,6 @@
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.21028602190000001" green="1" blue="0.74453714100000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Next"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="299" y="285" width="81" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="nextAct:" destination="y29-WU-Cj3" eventType="touchUpInside" id="ZjV-0J-5Gp"/>
                                 </connections>
@@ -529,14 +519,6 @@
                                 <exclude reference="CJi-rh-H1X"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GSU-G8-1Q2"/>
-                                <exclude reference="QrM-GO-Pfc"/>
-                                <exclude reference="Dw4-Hk-8Lm"/>
-                                <exclude reference="moJ-2d-3RG"/>
-                                <exclude reference="oPe-hW-D2u"/>
-                                <exclude reference="4yQ-53-qLp"/>
-                                <exclude reference="OWb-4n-H60"/>
-                                <exclude reference="oxd-Rf-qt0"/>
                                 <exclude reference="JVJ-jL-ALL"/>
                                 <exclude reference="LPE-SN-L3z"/>
                                 <exclude reference="e9N-ou-Hv1"/>
@@ -544,11 +526,17 @@
                                 <exclude reference="1f8-pZ-S3r"/>
                                 <exclude reference="KDz-Wz-cXJ"/>
                                 <exclude reference="vf8-pJ-pak"/>
+                                <exclude reference="4yQ-53-qLp"/>
+                                <exclude reference="OWb-4n-H60"/>
+                                <exclude reference="oxd-Rf-qt0"/>
                                 <exclude reference="4M7-TV-ITI"/>
                                 <exclude reference="4te-5f-AI4"/>
                                 <exclude reference="sZW-R4-YFp"/>
                                 <exclude reference="GSU-G8-1Q2"/>
                                 <exclude reference="QrM-GO-Pfc"/>
+                                <exclude reference="Dw4-Hk-8Lm"/>
+                                <exclude reference="moJ-2d-3RG"/>
+                                <exclude reference="oPe-hW-D2u"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -561,14 +549,6 @@
                                 <include reference="CJi-rh-H1X"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GSU-G8-1Q2"/>
-                                <include reference="QrM-GO-Pfc"/>
-                                <include reference="Dw4-Hk-8Lm"/>
-                                <include reference="moJ-2d-3RG"/>
-                                <include reference="oPe-hW-D2u"/>
-                                <include reference="4yQ-53-qLp"/>
-                                <include reference="OWb-4n-H60"/>
-                                <include reference="oxd-Rf-qt0"/>
                                 <include reference="JVJ-jL-ALL"/>
                                 <include reference="LPE-SN-L3z"/>
                                 <include reference="e9N-ou-Hv1"/>
@@ -576,11 +556,17 @@
                                 <include reference="1f8-pZ-S3r"/>
                                 <include reference="KDz-Wz-cXJ"/>
                                 <include reference="vf8-pJ-pak"/>
+                                <include reference="4yQ-53-qLp"/>
+                                <include reference="OWb-4n-H60"/>
+                                <include reference="oxd-Rf-qt0"/>
                                 <include reference="4M7-TV-ITI"/>
                                 <include reference="4te-5f-AI4"/>
                                 <include reference="sZW-R4-YFp"/>
                                 <include reference="GSU-G8-1Q2"/>
                                 <include reference="QrM-GO-Pfc"/>
+                                <include reference="Dw4-Hk-8Lm"/>
+                                <include reference="moJ-2d-3RG"/>
+                                <include reference="oPe-hW-D2u"/>
                             </mask>
                         </variation>
                     </view>
@@ -658,11 +644,8 @@
             <point key="canvasLocation" x="1305" y="-137"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Frogotten Trail Background" width="640" height="1136"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DmI-dO-JIU"/>
+        <segue reference="vkv-m2-dMC"/>
         <segue reference="wEc-h2-apM"/>
     </inferredMetricsTieBreakers>
 </document>
