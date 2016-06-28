@@ -18,7 +18,7 @@ enum HeroType: String {
     case German = "german"
     case Hooded = "hooded"
     
-    static let allHeros = [Pirate, ArabianGirl, Death, Drow, PurpleGuy, German, Hooded]
+    static let allHeros = [ArabianGirl, Death, Drow, PurpleGuy, German, Hooded]
 }
 
 enum HeroDirection {
