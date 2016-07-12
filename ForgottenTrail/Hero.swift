@@ -34,8 +34,8 @@ class Hero: SKSpriteNode {
     var actionsLeft: UInt32 = 3
     
     init(type: HeroType) {
-        
-        heroName = heroNames[HeroType.RawValue]
+
+        //heroName = heroNames[HeroType.RawValue]
         
         let imageName = ""
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: heroSize)

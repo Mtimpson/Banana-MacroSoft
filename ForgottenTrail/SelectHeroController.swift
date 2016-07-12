@@ -22,6 +22,7 @@ var heroWalkingFrames : [SKTexture]!
 
 class SelectHeroController : UIViewController {
     
+    @IBOutlet weak var bground: UIImageView!
     
     @IBOutlet weak var previousBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
@@ -34,6 +35,11 @@ class SelectHeroController : UIViewController {
     
     
     override func viewDidLoad() {
+        
+        let width = UIScreen.mainScreen().bounds.size.width
+        let height = UIScreen.mainScreen().bounds.size.height
+        
+        bground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         
         updateInfo()
         walkHeroForward()
@@ -77,8 +83,8 @@ class SelectHeroController : UIViewController {
         heroWalkingFrames = walkFrames
         
         // Create Hero Sprite, Setup Position in middle of the screen
-        let temp : SKTexture = heroWalkingFrames[0]
-        hero = SKSpriteNode(texture: temp)
+        //let temp : SKTexture = heroWalkingFrames[0]
+        //hero = SKSpriteNode(texture: temp)
         //hero.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidX(self.frame))
         
         walkHero()
