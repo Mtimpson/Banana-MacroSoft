@@ -8,16 +8,36 @@
 
 import SpriteKit
 
-var you : SKSpriteNode!
-
 
 class GameScene: SKScene {
+    var you : SKSpriteNode!
+    var isCreated = false
+    var world : SKNode?
+    var overlay : SKNode?
+    var sceneCamera : SKNode?
     override func didMoveToView(view: SKView) {
         
-        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        if !isCreated {
+            isCreated = true
+            self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+            self.world = SKNode()
+            self.world?.name = "world"
+            addChild(self.world!)
+            
+            self.sceneCamera = SKNode()
+            self.sceneCamera!.name = "sceneCamera"
+            self.world?.addChild(self.sceneCamera!)
 
-        you = SKSpriteNode(imageNamed: "pirateBack")
-        self.addChild(you)
+            self.overlay = SKNode()
+            self.overlay?.zPosition = 10
+            self.overlay!.name = "overlay"
+            addChild(self.overlay!)
+        }
+        //moves camera around the scene
+        self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(100, 50), duration: 0.5))
+
+        self.you = SKSpriteNode(imageNamed: "pirateBack")
+        self.world!.addChild(self.you)
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.respondToSwipeGesture(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
@@ -77,4 +97,17 @@ class GameScene: SKScene {
             }
         }
     }
+    
+    override func didSimulatePhysics() {
+        if self.sceneCamera != nil {
+            self.centerOnNode(self.sceneCamera!)
+        }
+    }
+    
+    func centerOnNode(node: SKNode) {
+        let cameraPositionInScene: CGPoint = node.scene!.convertPoint(node.position, fromNode: node.parent!)
+        
+        node.parent!.position = CGPoint(x:node.parent!.position.x - cameraPositionInScene.x, y:node.parent!.position.y - cameraPositionInScene.y)
+    }
+
 }
