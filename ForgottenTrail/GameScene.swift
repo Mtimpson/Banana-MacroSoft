@@ -7,19 +7,18 @@
 //
 
 import SpriteKit
-
-var you : SKSpriteNode!
-var you2 : Hero!
-
+import UIKit
 
 class GameScene: SKScene {
-    var you : SKSpriteNode!
+    var you : Hero!
     var isCreated = false
     var world : SKNode?
     var overlay : SKNode?
     var sceneCamera : SKNode?
+    var heroWalkingFrames : [SKTexture]!
+    
     override func didMoveToView(view: SKView) {
-        you2 = Hero(type: HeroType.Pirate)
+        you = Hero(type: HeroType.Pirate)
         
         if !isCreated {
             isCreated = true
@@ -37,10 +36,12 @@ class GameScene: SKScene {
             self.overlay!.name = "overlay"
             addChild(self.overlay!)
         }
+        
         //moves camera around the scene
         self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(100, 50), duration: 0.5))
 
-        self.you = SKSpriteNode(imageNamed: "pirateBack")
+        self.you = Hero(type: HeroType.Pirate)
+        updateTextureAtlas()
         self.world!.addChild(self.you)
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.respondToSwipeGesture(_:)))
@@ -74,10 +75,10 @@ class GameScene: SKScene {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
-            you2.turn(swipeGesture.direction.rawValue)
+            you.turn(swipeGesture.direction.rawValue)
             
             you.removeFromParent()
-            you = SKSpriteNode(imageNamed: you2.getAtlas())
+            updateTextureAtlas()
             self.addChild(you)
         }
     }
@@ -92,6 +93,19 @@ class GameScene: SKScene {
         let cameraPositionInScene: CGPoint = node.scene!.convertPoint(node.position, fromNode: node.parent!)
         
         node.parent!.position = CGPoint(x:node.parent!.position.x - cameraPositionInScene.x, y:node.parent!.position.y - cameraPositionInScene.y)
+    }
+    
+    func updateTextureAtlas() {
+        let atlasName = SKTextureAtlas(named: you.getAtlas())
+        var walkFrames = [SKTexture]()
+        
+        let numImages = atlasName.textureNames.count
+        for var i = 1; i <= numImages / 2; i++ {
+            let textureName = String(atlasName) + String(i)
+            walkFrames.append(atlasName.textureNamed(textureName))
+        }
+        heroWalkingFrames = walkFrames
+        
     }
 
 }
