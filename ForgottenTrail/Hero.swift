@@ -21,23 +21,19 @@ enum HeroType: String {
     static let allHeros = [ArabianGirl, Death, Drow, PurpleGuy, German, Hooded]
 }
 
-enum HeroDirection {
-    case Up, Down, Left, Right
-}
 
 class Hero: SKSpriteNode {
     
-    var heroName : String!
+    var heroType : HeroType!
+    var heroDirection : String!
+    var actionsLeft : UInt!
     
-    
-    var heroDirection: HeroDirection = .Down
-    var actionsLeft: UInt32 = 3
-    
-    init(type: HeroType) {
-
-        //heroName = heroNames[HeroType.RawValue]
+    init(type: HeroType, direction: String = "Back") {
         
+        heroType = type
         let imageName = ""
+        heroDirection = direction
+        actionsLeft = 3
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: heroSize)
         
     }
@@ -56,20 +52,36 @@ class Hero: SKSpriteNode {
       //  HeroType.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: 0.1, resize: false, restore: true)))
     //}
     
-    func turn(direction: HeroDirection) {
-        if (heroDirection == direction) ||
-            (direction == HeroDirection.Down && heroDirection == HeroDirection.Up) ||
-            (direction == HeroDirection.Up && heroDirection == HeroDirection.Down) ||
-            (direction == HeroDirection.Left && heroDirection == HeroDirection.Right) ||
-            (direction == HeroDirection.Right && heroDirection == HeroDirection.Left)
+    func turn(direction: UInt) {
+        if ((direction == 8 && heroDirection == "Back") ||
+            (direction == 4 && heroDirection == "Front") ||
+            (direction == 2 && heroDirection == "Right") ||
+            (direction == 1 && heroDirection == "Left"))
         {
+            // Don't allow turning 180 degrees
             return
         }
         
-        heroDirection = direction
+        switch direction {
+        case 1:
+            heroDirection = "Right"
+        case 2:
+            heroDirection = "Left"
+        case 4:
+            heroDirection = "Back"
+        case 8:
+            heroDirection = "Front"
+        default:
+            heroDirection = "Front"
+        }
+
     }
     
-    func setName(){
-        
+    func getName() -> String {
+        return heroNames[heroType.rawValue]!
+    }
+    
+    func getAtlas() -> String {
+        return heroType.rawValue + heroDirection
     }
 }

@@ -9,10 +9,12 @@
 import SpriteKit
 
 var you : SKSpriteNode!
+var you2 : Hero!
 
 
 class GameScene: SKScene {
     override func didMoveToView(view: SKView) {
+        you2 = Hero(type: HeroType.Pirate)
         
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
 
@@ -50,31 +52,11 @@ class GameScene: SKScene {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
-            switch swipeGesture.direction {
-                
-            case UISwipeGestureRecognizerDirection.Right:
-                you.removeFromParent()
-                you = SKSpriteNode(imageNamed: "pirateRight")
-                self.addChild(you)
-                
-            case UISwipeGestureRecognizerDirection.Down:
-                you.removeFromParent()
-                you = SKSpriteNode(imageNamed: "pirateFront")
-                self.addChild(you)
-                
-            case UISwipeGestureRecognizerDirection.Left:
-                you.removeFromParent()
-                you = SKSpriteNode(imageNamed: "pirateLeft")
-                self.addChild(you)
-                
-            case UISwipeGestureRecognizerDirection.Up:
-                you.removeFromParent()
-                you = SKSpriteNode(imageNamed: "pirateBack")
-                self.addChild(you)
-                
-            default:
-                break
-            }
+            you2.turn(swipeGesture.direction.rawValue)
+            
+            you.removeFromParent()
+            you = SKSpriteNode(imageNamed: you2.getAtlas())
+            self.addChild(you)
         }
     }
 }

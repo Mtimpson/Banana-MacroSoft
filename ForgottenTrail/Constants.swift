@@ -11,5 +11,13 @@ import UIKit
 
 let heroSize: CGSize = CGSizeMake(CGFloat(20), CGFloat(70))
 
-
+let heroNames: [String:String] = [
+    "pirate" : "Pirate",
+]
+let heroDescriptions: [String:String] = [
+    "pirate" : "Pirate",
+]
+let heroVariants: [String:Int] = [
+    "pirate" : 1
+]
 
