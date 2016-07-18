@@ -27,10 +27,15 @@ enum HeroDirection {
 
 class Hero: SKSpriteNode {
     
+    var heroName : String!
+    
+    
     var heroDirection: HeroDirection = .Down
     var actionsLeft: UInt32 = 3
     
     init(type: HeroType) {
+
+        //heroName = heroNames[HeroType.RawValue]
         
         let imageName = ""
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: heroSize)
@@ -62,5 +67,9 @@ class Hero: SKSpriteNode {
         }
         
         heroDirection = direction
+    }
+    
+    func setName(){
+        
     }
 }
