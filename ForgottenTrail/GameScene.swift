@@ -42,6 +42,7 @@ class GameScene: SKScene {
 
         self.you = Hero(type: HeroType.Pirate)
         updateTextureAtlas()
+        walkHero()
         self.world!.addChild(self.you)
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.respondToSwipeGesture(_:)))
@@ -106,6 +107,10 @@ class GameScene: SKScene {
         }
         heroWalkingFrames = walkFrames
         
+    }
+    
+    func walkHero() {
+        you.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: 0.1)))
     }
 
 }
