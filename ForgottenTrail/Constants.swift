@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-let heroSize: CGSize = CGSizeMake(CGFloat(20), CGFloat(70))
+let heroSize: CGSize = CGSizeMake(CGFloat(64), CGFloat(64))
 
 let heroNames: [String:String] = [
     "pirate" : "Pirate",
@@ -20,4 +20,5 @@ let heroDescriptions: [String:String] = [
 let heroVariants: [String:Int] = [
     "pirate" : 1
 ]
+
 

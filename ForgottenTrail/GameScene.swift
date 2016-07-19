@@ -16,9 +16,9 @@ class GameScene: SKScene {
     var overlay : SKNode?
     var sceneCamera : SKNode?
     var heroWalkingFrames : [SKTexture]!
+    var tempTexture : SKTexture!
     
     override func didMoveToView(view: SKView) {
-        you = Hero(type: HeroType.Pirate)
         
         if !isCreated {
             isCreated = true
@@ -39,10 +39,11 @@ class GameScene: SKScene {
         
         //moves camera around the scene
         self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(100, 50), duration: 0.5))
-
-        self.you = Hero(type: HeroType.Pirate)
+        
+        
+        self.you = Hero(type: HeroType.GoldKnight)
         updateTextureAtlas()
-        walkHero()
+        you.texture = heroWalkingFrames[0]
         self.world!.addChild(self.you)
         
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.respondToSwipeGesture(_:)))
@@ -76,11 +77,12 @@ class GameScene: SKScene {
         
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             
-            you.turn(swipeGesture.direction.rawValue)
+            if (you.turn(swipeGesture.direction.rawValue)) {
             
-            you.removeFromParent()
-            updateTextureAtlas()
-            self.addChild(you)
+                you.removeFromParent()
+                updateTextureAtlas()
+                self.addChild(you)
+            }
         }
     }
     
@@ -101,11 +103,14 @@ class GameScene: SKScene {
         var walkFrames = [SKTexture]()
         
         let numImages = atlasName.textureNames.count
-        for var i = 1; i <= numImages / 2; i++ {
-            let textureName = String(atlasName) + String(i)
+        print(numImages)
+        for var i = 1; i < numImages; i++ {
+            let textureName : String = you.getAtlas() + String(i)
             walkFrames.append(atlasName.textureNamed(textureName))
+            print(textureName)
         }
         heroWalkingFrames = walkFrames
+        walkHero()
         
     }
     
