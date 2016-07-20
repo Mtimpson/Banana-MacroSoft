@@ -17,6 +17,7 @@ enum HeroType: String {
     case PurpleGuy = "purpleGuy"
     case German = "german"
     case Hooded = "hooded"
+    case GoldKnight = "gold"
     
     static let allHeros = [ArabianGirl, Death, Drow, PurpleGuy, German, Hooded]
 }
@@ -52,14 +53,18 @@ class Hero: SKSpriteNode {
       //  HeroType.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: 0.1, resize: false, restore: true)))
     //}
     
-    func turn(direction: UInt) {
+    func turn(direction: UInt) -> Bool {
         if ((direction == 8 && heroDirection == "Back") ||
+            (direction == 8 && heroDirection == "Front") ||
+            (direction == 4 && heroDirection == "Back") ||
             (direction == 4 && heroDirection == "Front") ||
             (direction == 2 && heroDirection == "Right") ||
+            (direction == 2 && heroDirection == "Left") ||
+            (direction == 1 && heroDirection == "Right") ||
             (direction == 1 && heroDirection == "Left"))
         {
             // Don't allow turning 180 degrees
-            return
+            return false
         }
         
         switch direction {
@@ -74,6 +79,7 @@ class Hero: SKSpriteNode {
         default:
             heroDirection = "Front"
         }
+        return true
 
     }
     
