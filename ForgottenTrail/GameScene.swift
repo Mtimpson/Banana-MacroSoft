@@ -19,7 +19,9 @@ class GameScene: SKScene {
     var tempTexture : SKTexture!
     
     override func didMoveToView(view: SKView) {
+
         
+        // adds a 'world', 'camera' to that world and 'you' to that world
         if !isCreated {
             isCreated = true
             self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -37,15 +39,14 @@ class GameScene: SKScene {
             addChild(self.overlay!)
         }
         
-        //moves camera around the scene
-        self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(100, 50), duration: 0.5))
+        //creates your current heros animation
         
-        
-        self.you = Hero(type: HeroType.GoldKnight)
+        self.you = Hero(type: heroChosen)
         updateTextureAtlas()
-        you.texture = heroWalkingFrames[0]
+        //you.texture = heroWalkingFrames[0]
         self.world!.addChild(self.you)
         
+        //changes direction upon recognition of a swipe
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.respondToSwipeGesture(_:)))
         swipeRight.direction = UISwipeGestureRecognizerDirection.Right
         self.view!.addGestureRecognizer(swipeRight)
@@ -71,6 +72,11 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        changeHeroPostion()
+        //moves camera around the scene
+        self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(you.position.x, you.position.y), duration: 0.5))
+
+        
     }
     
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
@@ -88,26 +94,24 @@ class GameScene: SKScene {
     
     override func didSimulatePhysics() {
         if self.sceneCamera != nil {
-            self.centerOnNode(self.sceneCamera!)
+           //self.centerOnNode(self.sceneCamera!)
         }
     }
     
     func centerOnNode(node: SKNode) {
-        let cameraPositionInScene: CGPoint = node.scene!.convertPoint(node.position, fromNode: node.parent!)
+        let cameraPositionInScene: CGPoint = you.scene!.convertPoint(you.position, fromNode: you.parent!)
         
-        node.parent!.position = CGPoint(x:node.parent!.position.x - cameraPositionInScene.x, y:node.parent!.position.y - cameraPositionInScene.y)
+        you.parent!.position = CGPoint(x:you.parent!.position.x - cameraPositionInScene.x, y:you.parent!.position.y - cameraPositionInScene.y)
     }
     
     func updateTextureAtlas() {
         let atlasName = SKTextureAtlas(named: you.getAtlas())
         var walkFrames = [SKTexture]()
-        
         let numImages = atlasName.textureNames.count
-        print(numImages)
+        
         for var i = 1; i < numImages; i++ {
             let textureName : String = you.getAtlas() + String(i)
             walkFrames.append(atlasName.textureNamed(textureName))
-            print(textureName)
         }
         heroWalkingFrames = walkFrames
         walkHero()
@@ -116,6 +120,26 @@ class GameScene: SKScene {
     
     func walkHero() {
         you.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: 0.1)))
+    }
+    
+    func changeHeroPostion() {
+        var move : SKAction!
+        
+        //deterines which way to move the sprite depending on which way it is facing
+        if you.heroDirection == "Right" {
+            move = SKAction.moveByX(0.4, y: 0, duration: 0.1)
+        }
+        if you.heroDirection == "Left" {
+            move = SKAction.moveByX(-0.4, y: 0, duration: 0.1)
+        }
+        if you.heroDirection == "Front" {
+            move = SKAction.moveByX(0, y: -0.4, duration: 0.1)
+        }
+        if you.heroDirection == "Back" {
+            move = SKAction.moveByX(0, y: 0.4, duration: 0.1)
+        }
+        you.runAction(move)
+
     }
 
 }

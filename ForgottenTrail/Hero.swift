@@ -15,6 +15,7 @@ enum HeroType: String {
     case Orc = "orc"
     
     static let allHeros = [GoldKnight, IcePrincess, Orc]
+    
 }
 
 
@@ -80,6 +81,10 @@ class Hero: SKSpriteNode {
     
     func getName() -> String {
         return heroNames[heroType.rawValue]!
+    }
+    
+    func getDescription () -> String {
+        return heroDescriptions[heroType.rawValue]!
     }
     
     func getAtlas() -> String {
