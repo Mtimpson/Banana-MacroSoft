@@ -119,7 +119,7 @@ class GameScene: SKScene {
     }
     
     func walkHero() {
-        you.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: 0.1)))
+        you.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: 0.07)))
     }
     
     func changeHeroPostion() {

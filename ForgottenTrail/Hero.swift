@@ -13,8 +13,9 @@ enum HeroType: String {
     case IcePrincess = "ice"
     case GoldKnight = "gold"
     case Orc = "orc"
+    case Soldier0 = "soldier0"
     
-    static let allHeros = [GoldKnight, IcePrincess, Orc]
+    static let allHeros = [GoldKnight, IcePrincess, Orc, Soldier0]
     
 }
 
@@ -43,11 +44,6 @@ class Hero: SKSpriteNode {
         let moveDown = SKAction.moveByX(0, y: starSpeed, duration: 1)
         runAction(SKAction.repeatActionForever(moveDown))
     }
-    
-    //func walkHero() {
-        // General runAction method to make the chopper blades spin.
-      //  HeroType.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: 0.1, resize: false, restore: true)))
-    //}
     
     func turn(direction: UInt) -> Bool {
         if ((direction == 8 && heroDirection == "Back") ||
