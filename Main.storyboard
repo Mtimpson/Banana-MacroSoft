@@ -383,6 +383,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="56" y="415" width="276" height="100"/>
+                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hero Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNk-1F-54O">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -414,6 +417,9 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kxO-sZ-EUr">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="139" y="225" width="122" height="150"/>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -514,16 +520,16 @@
                                 <include reference="y7l-i6-ZGx"/>
                                 <include reference="gZD-B3-Qjd"/>
                                 <include reference="hJ3-1V-tJp"/>
-                                <include reference="urw-0B-kJm"/>
+                                <exclude reference="urw-0B-kJm"/>
                                 <include reference="Hjh-Q1-kkU"/>
                                 <include reference="Uuj-O9-YsW"/>
                                 <exclude reference="bKh-gB-Kdg"/>
                                 <include reference="80X-Bw-ep6"/>
                                 <include reference="cPl-8G-Jvx"/>
                                 <include reference="1NH-WQ-H4c"/>
-                                <include reference="29m-qp-7FR"/>
+                                <exclude reference="29m-qp-7FR"/>
                                 <include reference="5w5-Qb-I5B"/>
-                                <include reference="89J-UH-Bld"/>
+                                <exclude reference="89J-UH-Bld"/>
                                 <include reference="Bat-Zl-SY9"/>
                             </mask>
                         </variation>
@@ -560,7 +566,7 @@
     </scenes>
     <resources>
         <image name="backArrow" width="50" height="50"/>
-        <image name="bground" width="871" height="1197"/>
+        <image name="bground" width="862" height="1200"/>
         <image name="nextArrow" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>

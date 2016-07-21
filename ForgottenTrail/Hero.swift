@@ -12,8 +12,9 @@ import SpriteKit
 enum HeroType: String {
     case IcePrincess = "ice"
     case GoldKnight = "gold"
+    case Orc = "orc"
     
-    static let allHeros = [GoldKnight, IcePrincess]
+    static let allHeros = [GoldKnight, IcePrincess, Orc]
 }
 
 

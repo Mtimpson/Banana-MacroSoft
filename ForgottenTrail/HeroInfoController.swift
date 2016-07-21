@@ -15,10 +15,7 @@ class HeroInfoController : UIViewController {
     
     
     override func viewDidLoad() {
-        let width = UIScreen.mainScreen().bounds.size.width
-        let height = UIScreen.mainScreen().bounds.size.height
-        
-        bground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
         
         
     }
