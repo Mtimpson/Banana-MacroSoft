@@ -13,13 +13,6 @@ import UIKit
 import SpriteKit
 
 
-
-var heroWalking : SKSpriteNode!
-
-var heroWalkingFrames : [SKTexture]!
-
-
-
 class SelectHeroController : UIViewController {
     
     @IBOutlet weak var bground: UIImageView!
@@ -29,7 +22,7 @@ class SelectHeroController : UIViewController {
     @IBOutlet weak var charImage: UIImageView!
     
     var indx = 0
-    var hero = SKSpriteNode()
+    var imageList = [UIImage]()
 
     
     
@@ -42,7 +35,7 @@ class SelectHeroController : UIViewController {
         bground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         
         updateInfo()
-        walkHeroForward()
+        
         
     
     }
@@ -57,54 +50,35 @@ class SelectHeroController : UIViewController {
         
     }
     
-    @IBAction func previousAct(sender: AnyObject) {
+    @IBAction func previousAct(sender: UIButton) {
+        print(indx)
         if indx == 0 {
             indx = HeroType.allHeros.count - 1
         } else {
-            indx -= 1
+            if indx-2 == -1 {
+                indx = HeroType.allHeros.count - 1
+            } else {
+                indx -= 2
+            }
         }
         
         updateInfo()
         
     }
+   
     
-    func walkHeroForward() {
-        let heroWalking : SKTextureAtlas = SKTextureAtlas(named: "Sprites")
-        
-        var walkFrames = [SKTexture]();
-        let numImages : Int = heroWalking.textureNames.count
-        
-        for var i = 1; i <= numImages; i += 1 {
-            let heroTextureName = "purpleGuy\(i)"
-            walkFrames.append(heroWalking.textureNamed(heroTextureName))
+    func updateInfo() {
+        imageList.removeAll()
+        for i in 1...8 {
+            let imageName = HeroType.allHeros[indx].rawValue + "Front\(i)"
+            imageList.append(UIImage(named: imageName)!)
             
         }
         
-        heroWalkingFrames = walkFrames
+        charImage.animationImages = imageList
+        charImage.animationDuration = 1
+        charImage.startAnimating()
         
-        // Create Hero Sprite, Setup Position in middle of the screen
-        //let temp : SKTexture = heroWalkingFrames[0]
-        //hero = SKSpriteNode(texture: temp)
-        //hero.position = CGPoint(x: CGRectGetMidX(self.frame), y: CGRectGetMidX(self.frame))
-        
-        walkHero()
-        
-        
-    }
-    
-    //Function to Animate the hero walking
-    func walkHero() {
-        // Run Action method to make the hero animate in one place on the screen.
-        hero.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: 0.1, resize: false, restore: true)))
-}
-    
-    func updateInfo() {
-        var imageName = HeroType.allHeros[indx].rawValue
-        
-        imageName = imageName.stringByReplacingOccurrencesOfString(" ", withString: "")
-        imageName += "Front-1"
-        charImage.image = UIImage(named: imageName)
-
     }
     
     

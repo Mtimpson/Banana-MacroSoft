@@ -10,16 +10,10 @@ import Foundation
 import SpriteKit
 
 enum HeroType: String {
-    case Pirate = "pirate"
-    case ArabianGirl = "arabiangirl"
-    case Death = "death"
-    case Drow = "drow"
-    case PurpleGuy = "purpleGuy"
-    case German = "german"
-    case Hooded = "hooded"
+    case IcePrincess = "ice"
     case GoldKnight = "gold"
     
-    static let allHeros = [ArabianGirl, Death, Drow, PurpleGuy, German, Hooded]
+    static let allHeros = [GoldKnight, IcePrincess]
 }
 
 
