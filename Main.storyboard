@@ -363,14 +363,14 @@
                                     <segue destination="DZU-bZ-qjQ" kind="show" id="8PC-eD-t9b"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJi-rh-H1X">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJi-rh-H1X">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="nextArrow"/>
                                 <connections>
                                     <action selector="nextAct:" destination="y29-WU-Cj3" eventType="touchUpInside" id="ZjV-0J-5Gp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlX-4a-fkB">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlX-4a-fkB">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" image="backArrow"/>
                                 <connections>
@@ -564,6 +564,6 @@
         <image name="nextArrow" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="esH-Sg-J1t"/>
+        <segue reference="DmI-dO-JIU"/>
     </inferredMetricsTieBreakers>
 </document>
