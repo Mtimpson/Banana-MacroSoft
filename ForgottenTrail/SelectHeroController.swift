@@ -56,12 +56,10 @@ class SelectHeroController : UIViewController {
     
     //called when 'previousBtn' pressed, moves array to the left. code is different becasue pressing the prevBtn calls both this function AND the one above
     @IBAction func previousAct(sender: UIButton) {
-        if indx == 0 {
-            indx = HeroType.allHeros.count - 2
-        } else if indx - 2 < 0 {
+        if indx == 0  {
             indx = HeroType.allHeros.count - 1
         } else {
-            indx -= 2
+            indx -= 1
         }
         //print(indx)
         updateInfo()

@@ -14,7 +14,7 @@ class StartScreenController : UIViewController {
     @IBOutlet weak var bground: UIImageView!
     
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
     }
     
     

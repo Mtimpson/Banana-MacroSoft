@@ -19,7 +19,6 @@ class GameScene: SKScene {
     var tempTexture : SKTexture!
     
     override func didMoveToView(view: SKView) {
-
         
         // adds a 'world', 'camera' to that world and 'you' to that world
         if !isCreated {
@@ -74,7 +73,8 @@ class GameScene: SKScene {
         /* Called before each frame is rendered */
         changeHeroPostion()
         //moves camera around the scene
-        self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(you.position.x, you.position.y), duration: 0.5))
+        //self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(you.position.x, you.position.y), duration: 0))
+       
 
         
     }
@@ -94,14 +94,14 @@ class GameScene: SKScene {
     
     override func didSimulatePhysics() {
         if self.sceneCamera != nil {
-           //self.centerOnNode(self.sceneCamera!)
+           self.centerOnNode(self.sceneCamera!)
         }
     }
     
     func centerOnNode(node: SKNode) {
-        let cameraPositionInScene: CGPoint = you.scene!.convertPoint(you.position, fromNode: you.parent!)
+        let cameraPositionInScene: CGPoint = node.scene!.convertPoint(node.position, fromNode: node.parent!)
         
-        you.parent!.position = CGPoint(x:you.parent!.position.x - cameraPositionInScene.x, y:you.parent!.position.y - cameraPositionInScene.y)
+        node.parent!.position = CGPoint(x:node.parent!.position.x - cameraPositionInScene.x, y:node.parent!.position.y - cameraPositionInScene.y)
     }
     
     func updateTextureAtlas() {
