@@ -23,7 +23,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuM-x9-Sa9">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.32500907709999999" green="0.72912427550000003" blue="0.31439785419999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Heros">
+                                <state key="normal" title="Characters">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -409,16 +409,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bground" translatesAutoresizingMaskIntoConstraints="NO" id="FFT-fT-UKS" userLabel="Bground">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heros" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKh-cB-RYt">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Characters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKh-cB-RYt">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="87" id="uMr-1M-4Of"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -443,17 +440,12 @@
                         <constraints>
                             <constraint firstItem="SKh-cB-RYt" firstAttribute="top" secondItem="l1w-TQ-why" secondAttribute="bottom" id="41F-Sj-vbZ"/>
                             <constraint firstItem="SKh-cB-RYt" firstAttribute="leading" secondItem="wFI-FE-cn8" secondAttribute="leading" id="6F1-L6-Pnv"/>
-                            <constraint firstItem="FFT-fT-UKS" firstAttribute="centerY" secondItem="BbJ-9W-WkW" secondAttribute="centerY" id="FKY-zO-mom"/>
                             <constraint firstItem="SKh-cB-RYt" firstAttribute="centerX" secondItem="BbJ-9W-WkW" secondAttribute="centerX" id="If2-Xy-cSS"/>
-                            <constraint firstItem="FFT-fT-UKS" firstAttribute="bottom" secondItem="4aw-4z-rpA" secondAttribute="top" id="LEH-9h-gVs"/>
-                            <constraint firstItem="FFT-fT-UKS" firstAttribute="centerX" secondItem="BbJ-9W-WkW" secondAttribute="centerX" id="Wex-aF-147"/>
                             <constraint firstItem="SKh-cB-RYt" firstAttribute="trailing" secondItem="wFI-FE-cn8" secondAttribute="trailing" id="gE0-eN-DyH"/>
                             <constraint firstAttribute="bottom" secondItem="wFI-FE-cn8" secondAttribute="bottom" constant="20" symbolic="YES" id="hjY-Uu-Kbs"/>
-                            <constraint firstItem="FFT-fT-UKS" firstAttribute="leading" secondItem="BbJ-9W-WkW" secondAttribute="leading" id="yQg-OP-hsp"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="FFT-fT-UKS"/>
                                 <exclude reference="SKh-cB-RYt"/>
                                 <exclude reference="wFI-FE-cn8"/>
                             </mask>
@@ -463,15 +455,10 @@
                                 <exclude reference="6F1-L6-Pnv"/>
                                 <exclude reference="If2-Xy-cSS"/>
                                 <exclude reference="gE0-eN-DyH"/>
-                                <exclude reference="FKY-zO-mom"/>
-                                <exclude reference="LEH-9h-gVs"/>
-                                <exclude reference="Wex-aF-147"/>
-                                <exclude reference="yQg-OP-hsp"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="FFT-fT-UKS"/>
                                 <include reference="SKh-cB-RYt"/>
                                 <include reference="wFI-FE-cn8"/>
                             </mask>
@@ -481,16 +468,9 @@
                                 <include reference="6F1-L6-Pnv"/>
                                 <include reference="If2-Xy-cSS"/>
                                 <include reference="gE0-eN-DyH"/>
-                                <include reference="FKY-zO-mom"/>
-                                <include reference="LEH-9h-gVs"/>
-                                <include reference="Wex-aF-147"/>
-                                <include reference="yQg-OP-hsp"/>
                             </mask>
                         </variation>
                     </view>
-                    <connections>
-                        <outlet property="bground" destination="FFT-fT-UKS" id="KL2-Q2-mc1"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rr2-kz-4ff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -860,12 +840,11 @@
     </scenes>
     <resources>
         <image name="backArrow" width="50" height="50"/>
-        <image name="bground" width="1448" height="1197"/>
         <image name="figure" width="128" height="128"/>
         <image name="lines" width="265" height="43"/>
         <image name="nextArrow" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="DmI-dO-JIU"/>
+        <segue reference="vkv-m2-dMC"/>
     </inferredMetricsTieBreakers>
 </document>
