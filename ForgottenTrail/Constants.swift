@@ -21,4 +21,9 @@ let heroVariants: [String:Int] = [
     "ice" : 1, "gold" : 1,
 ]
 
+let worldWidth: CGFloat = 1000
+let worldHeight: CGFloat = 2000
+let tileSize: CGFloat = 50
+
+
 

@@ -25,6 +25,7 @@ class Hero: SKSpriteNode {
     
     var heroType : HeroType!
     var heroDirection : String!
+    var upcomingDirection: String!
     var actionsLeft : UInt!
     
     init(type: HeroType, direction: String = "Back") {
@@ -32,6 +33,7 @@ class Hero: SKSpriteNode {
         heroType = type
         let imageName = ""
         heroDirection = direction
+        upcomingDirection = heroDirection
         actionsLeft = 3
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: heroSize)
         
@@ -48,13 +50,13 @@ class Hero: SKSpriteNode {
     
     func turn(direction: UInt) -> Bool {
         if ((direction == 8 && heroDirection == "Back") ||
-            (direction == 8 && heroDirection == "Front") ||
-            (direction == 4 && heroDirection == "Back") ||
+            (direction == 8 && upcomingDirection == "Front") ||
             (direction == 4 && heroDirection == "Front") ||
+            (direction == 4 && upcomingDirection == "Back") ||
             (direction == 2 && heroDirection == "Right") ||
-            (direction == 2 && heroDirection == "Left") ||
-            (direction == 1 && heroDirection == "Right") ||
-            (direction == 1 && heroDirection == "Left"))
+            (direction == 2 && upcomingDirection == "Left") ||
+            (direction == 1 && heroDirection == "Left") ||
+            (direction == 1 && upcomingDirection == "Right"))
         {
             // Don't allow turning 180 degrees
             return false
@@ -62,15 +64,15 @@ class Hero: SKSpriteNode {
         
         switch direction {
         case 1:
-            heroDirection = "Right"
+            upcomingDirection = "Right"
         case 2:
-            heroDirection = "Left"
+            upcomingDirection = "Left"
         case 4:
-            heroDirection = "Back"
+            upcomingDirection = "Back"
         case 8:
-            heroDirection = "Front"
+            upcomingDirection = "Front"
         default:
-            heroDirection = "Front"
+            upcomingDirection = "Front"
         }
         return true
 
@@ -85,6 +87,7 @@ class Hero: SKSpriteNode {
     }
     
     func getAtlas() -> String {
+        heroDirection = upcomingDirection
         return heroType.rawValue + heroDirection
     }
 }
