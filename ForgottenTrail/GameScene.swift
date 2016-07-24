@@ -19,6 +19,7 @@ class GameScene: SKScene {
     var tempTexture : SKTexture!
     var move : SKAction!
     var moving = false
+    var grid : Grid!
     
     override func didMoveToView(view: SKView) {
         
@@ -41,28 +42,26 @@ class GameScene: SKScene {
             self.overlay!.name = "overlay"
             addChild(self.overlay!)
             
-            
-            let grass = SKSpriteNode(imageNamed: "grass.png")
-            grass.size = CGSizeMake(tileSize, tileSize)
-            grass.position = CGPointMake(tileSize, 0)
-            grass.zPosition = -10
-            self.world?.addChild(grass)
-            let lava = SKSpriteNode(imageNamed: "lava.png")
-            lava.size = CGSizeMake(tileSize, tileSize)
-            lava.position = CGPointMake(0, tileSize)
-            lava.zPosition = -10
-            self.world?.addChild(lava)
-            let water = SKSpriteNode(imageNamed: "water")
-            water.size = CGSizeMake(tileSize, tileSize)
-            water.position = CGPointMake(0, 0)
-            water.zPosition = -10
-            self.world?.addChild(water)
-            let stone = SKSpriteNode(imageNamed: "stone")
-            stone.size = CGSizeMake(tileSize, tileSize)
-            stone.position = CGPointMake(tileSize, tileSize)
-            stone.zPosition = -10
-            self.world?.addChild(stone)
-
+            let gridSize = 10
+            grid = Grid(size: gridSize)
+            for row in 0 ..< gridSize {
+                for col in 0 ..< gridSize {
+                    let tile : SKSpriteNode!
+                    switch grid.tiles[row][col] {
+                    case 0:
+                        tile = SKSpriteNode(imageNamed: "stone.png")
+                    case 1:
+                        tile = SKSpriteNode(imageNamed: "lava.png")
+                    default:
+                        tile = SKSpriteNode(imageNamed: "grass.png")
+                    }
+                    tile.size = CGSizeMake(tileSize, tileSize)
+                    tile.zPosition = -10
+                    tile.position = CGPointMake(tileSize * CGFloat(col), tileSize * CGFloat(row))
+                    tile.name = "" + String(row) + "," + String(col)
+                    self.world?.addChild(tile)
+                }
+            }
         }
         
         //creates your current heros animation
@@ -140,7 +139,6 @@ class GameScene: SKScene {
     
     func updateTextureAtlas() {
         let atlasName = SKTextureAtlas(named: you.getAtlas())
-        print(atlasName.textureNames[0])
         var walkFrames = [SKTexture]()
         let numImages = atlasName.textureNames.count
         
@@ -161,7 +159,7 @@ class GameScene: SKScene {
         
         //deterines which way to move the sprite depending on which way it is facing
         let moveDist = tileSize / 2.0
-        let moveDur = Double(moveDist / 10.0)
+        let moveDur = decisionTime
 
         if you.upcomingDirection == "Right" {
             move = SKAction.moveByX(moveDist, y: 0, duration: moveDur)

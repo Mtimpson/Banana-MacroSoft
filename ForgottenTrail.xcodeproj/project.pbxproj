@@ -17,6 +17,7 @@
 		4C0373411D188AB50060A7D1 /* ForgottenTrailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373401D188AB50060A7D1 /* ForgottenTrailUITests.swift */; };
 		B52B01281D18A159005BDB77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B01271D18A159005BDB77 /* Constants.swift */; };
 		B52B012A1D18AC29005BDB77 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B01291D18AC29005BDB77 /* Hero.swift */; };
+		B587C2511D4539C300CB7D13 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587C2501D4539C300CB7D13 /* Grid.swift */; };
 		C9147C7A1D1C4AD100294AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9147C791D1C4AD100294AAB /* Main.storyboard */; };
 		C9147C7C1D1C7C2100294AAB /* HeroInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */; };
 		C9147C821D21D1DB00294AAB /* SelectHeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C811D21D1DB00294AAB /* SelectHeroController.swift */; };
@@ -57,6 +58,7 @@
 		4C0373421D188AB50060A7D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B52B01271D18A159005BDB77 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B52B01291D18AC29005BDB77 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		B587C2501D4539C300CB7D13 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		C9147C791D1C4AD100294AAB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroInfoController.swift; sourceTree = "<group>"; };
 		C9147C811D21D1DB00294AAB /* SelectHeroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHeroController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				4C03732C1D188AB50060A7D1 /* Info.plist */,
 				B52B01271D18A159005BDB77 /* Constants.swift */,
 				B52B01291D18AC29005BDB77 /* Hero.swift */,
+				B587C2501D4539C300CB7D13 /* Grid.swift */,
 			);
 			path = ForgottenTrail;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				C9147C7C1D1C7C2100294AAB /* HeroInfoController.swift in Sources */,
 				4C03731D1D188AB50060A7D1 /* AppDelegate.swift in Sources */,
 				B52B01281D18A159005BDB77 /* Constants.swift in Sources */,
+				B587C2511D4539C300CB7D13 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
