@@ -15,8 +15,19 @@ enum HeroType: String {
     case Orc = "orc"
     case Soldier0 = "soldier0"
     case Princess0 = "princess0"
+    case DarkElf0 = "darkelf0"
+    case DarkElf1 = "darkelf1"
+    case Pirate0 = "pirate0"
+    case Pirate1 = "pirate1"
+    case Princess1 = "princess1"
+    case Princess2 = "princess2"
+    case Skeleton = "skeleton"
+    case Soldier1 = "soldier1"
+    case Soldier2 = "soldier2"
+    case Traveler0 = "traveler0"
+    case Traveler1 = "traveler1"
     
-    static let allHeros = [GoldKnight, IcePrincess, Orc, Soldier0, Princess0]
+    static let allHeros = [GoldKnight, IcePrincess, Orc, Soldier0, Princess0, DarkElf0, DarkElf1, Pirate0, Pirate1, Princess1, Princess2, Skeleton, Soldier1, Soldier2, Traveler0, Traveler1]
     
 }
 
