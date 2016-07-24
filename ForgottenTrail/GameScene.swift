@@ -27,6 +27,7 @@ class GameScene: SKScene {
         
         // adds a 'world', 'camera' to that world and 'you' to that world
         if !isCreated {
+
             
             isCreated = true
             self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
