@@ -16,7 +16,9 @@ enum HeroType: String {
     case Soldier0 = "soldier0"
     case Princess0 = "princess0"
     
-    static let allHeros = [GoldKnight, IcePrincess, Orc, Soldier0, Princess0]
+    static let startingHeros = [GoldKnight, IcePrincess]
+    static let villans = [Orc]
+    static let genericHeros = [Soldier0, Princess0]
     
 }
 

@@ -12,13 +12,13 @@ import UIKit
 let heroSize: CGSize = CGSizeMake(CGFloat(64), CGFloat(64))
 
 let heroNames: [String:String] = [
-    "ice" : "Ice Princess", "gold" : "The Golden Knight"
+    "ice" : "Ice Princess", "gold" : "The Golden Knight", "orc" : "Orcs", "princess0" : "Princesses", "soldier0" : "Warriors"
 ]
 let heroDescriptions: [String:String] = [
-    "ice" : "She stole Ben's heart so that he would give her the key to each levels' exit", "gold" : "The only hero in the realm brave enought to kill those pesky skeletons"
+    "ice" : "Ben says shes too pretty to not have in the game", "gold" : "The only hero in the realm brave enought to kill those pesky Skeletons and Orcs", "orc" : "Beasts so vile even the realm's great warriors cower in fear", "princess0" : "They've stolen the prince's heart along with his key to each levels' exit"
 ]
 let heroVariants: [String:Int] = [
-    "ice" : 1, "gold" : 1,
+    "ice" : 1, "gold" : 1, "orc" : 1, "soldier0" : 3, "princess0" : 3
 ]
 
 

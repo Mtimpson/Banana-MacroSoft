@@ -14,7 +14,7 @@ class GameScene: SKScene {
     var isCreated = false
     var world : SKNode?
     var overlay : SKNode?
-    var sceneCamera : SKNode?
+    var sceneCamera : SKCameraNode?
     var heroWalkingFrames : [SKTexture]!
     var tempTexture : SKTexture!
     
@@ -28,14 +28,13 @@ class GameScene: SKScene {
         // adds a 'world', 'camera' to that world and 'you' to that world
         if !isCreated {
 
-            
             isCreated = true
             self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             self.world = SKNode()
             self.world?.name = "world"
             addChild(self.world!)
             
-            self.sceneCamera = SKNode()
+            self.sceneCamera = SKCameraNode()
             self.sceneCamera!.name = "sceneCamera"
             self.world?.addChild(self.sceneCamera!)
 

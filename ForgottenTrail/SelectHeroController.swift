@@ -44,7 +44,7 @@ class SelectHeroController : UIViewController {
     
     //called when 'nextBtn' pressed, moves array to the right
     @IBAction func nextAct(sender: UIButton) {
-        if indx == HeroType.allHeros.count - 1 {
+        if indx == HeroType.startingHeros.count - 1 {
             indx = 0
         } else {
             indx += 1
@@ -57,7 +57,7 @@ class SelectHeroController : UIViewController {
     //called when 'previousBtn' pressed, moves array to the left. code is different becasue pressing the prevBtn calls both this function AND the one above
     @IBAction func previousAct(sender: UIButton) {
         if indx == 0  {
-            indx = HeroType.allHeros.count - 1
+            indx = HeroType.startingHeros.count - 1
         } else {
             indx -= 1
         }
@@ -70,19 +70,19 @@ class SelectHeroController : UIViewController {
     //called to update the current heros animation
     func updateInfo() {
         
-        nameLabel.text = heroNames[HeroType.allHeros[indx].rawValue]
-        descriptionLabel.text = heroDescriptions[HeroType.allHeros[indx].rawValue]
+        nameLabel.text = heroNames[HeroType.startingHeros[indx].rawValue]
+        descriptionLabel.text = heroDescriptions[HeroType.startingHeros[indx].rawValue]
 
         
         //clear array of images
         imageList.removeAll()
         //load each image for the new hero into the array
         for i in 1...8 {
-            let imageName = HeroType.allHeros[indx].rawValue + "Front\(i)"
+            let imageName = HeroType.startingHeros[indx].rawValue + "Front\(i)"
             imageList.append(UIImage(named: imageName)!)
             
         }
-        heroChosen = HeroType.allHeros[indx]
+        heroChosen = HeroType.startingHeros[indx]
         // start the animation
         charImage.animationImages = imageList
         charImage.animationDuration = 1
