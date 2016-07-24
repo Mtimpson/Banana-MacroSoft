@@ -76,8 +76,10 @@ class SelectHeroController : UIViewController {
         
         //clear array of images
         imageList.removeAll()
+        let folderName = SKTextureAtlas(named: HeroType.startingHeros[indx].rawValue + "Front")
+        let numImages = folderName.textureNames.count
         //load each image for the new hero into the array
-        for i in 1...8 {
+        for i in 1 ..< numImages {
             let imageName = HeroType.startingHeros[indx].rawValue + "Front\(i)"
             imageList.append(UIImage(named: imageName)!)
             
