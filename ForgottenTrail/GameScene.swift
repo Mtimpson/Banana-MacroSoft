@@ -20,8 +20,14 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         
+        let bgImage = SKSpriteNode(imageNamed: "bground.png")
+        bgImage.position = CGPointMake(self.size.width/2, self.size.height/2)
+        bgImage.zPosition = -111
+        
+        
         // adds a 'world', 'camera' to that world and 'you' to that world
         if !isCreated {
+            
             isCreated = true
             self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             self.world = SKNode()
@@ -36,6 +42,8 @@ class GameScene: SKScene {
             self.overlay?.zPosition = 10
             self.overlay!.name = "overlay"
             addChild(self.overlay!)
+            
+            self.world?.addChild(bgImage)
         }
         
         //creates your current heros animation
@@ -74,6 +82,7 @@ class GameScene: SKScene {
         changeHeroPostion()
         //moves camera around the scene
         //self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(you.position.x, you.position.y), duration: 0))
+
        
 
         
@@ -87,14 +96,14 @@ class GameScene: SKScene {
             
                 you.removeFromParent()
                 updateTextureAtlas()
-                self.addChild(you)
+                self.world!.addChild(you)
             }
         }
     }
     
     override func didSimulatePhysics() {
         if self.sceneCamera != nil {
-           self.centerOnNode(self.sceneCamera!)
+           self.centerOnNode(self.you!)
         }
     }
     
@@ -127,16 +136,16 @@ class GameScene: SKScene {
         
         //deterines which way to move the sprite depending on which way it is facing
         if you.heroDirection == "Right" {
-            move = SKAction.moveByX(0.4, y: 0, duration: 0.1)
+            move = SKAction.moveByX(1, y: 0, duration: 0.1)
         }
         if you.heroDirection == "Left" {
-            move = SKAction.moveByX(-0.4, y: 0, duration: 0.1)
+            move = SKAction.moveByX(-1, y: 0, duration: 0.1)
         }
         if you.heroDirection == "Front" {
-            move = SKAction.moveByX(0, y: -0.4, duration: 0.1)
+            move = SKAction.moveByX(0, y: -1, duration: 0.1)
         }
         if you.heroDirection == "Back" {
-            move = SKAction.moveByX(0, y: 0.4, duration: 0.1)
+            move = SKAction.moveByX(0, y: 1, duration: 0.1)
         }
         you.runAction(move)
 
