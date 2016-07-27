@@ -18,6 +18,7 @@
 		B52B01281D18A159005BDB77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B01271D18A159005BDB77 /* Constants.swift */; };
 		B52B012A1D18AC29005BDB77 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B01291D18AC29005BDB77 /* Hero.swift */; };
 		B587C2511D4539C300CB7D13 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B587C2501D4539C300CB7D13 /* Grid.swift */; };
+		C908BE321D47ED87005879FD /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C908BE311D47ED87005879FD /* InfoController.swift */; };
 		C9147C7A1D1C4AD100294AAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9147C791D1C4AD100294AAB /* Main.storyboard */; };
 		C9147C7C1D1C7C2100294AAB /* HeroInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */; };
 		C9147C821D21D1DB00294AAB /* SelectHeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C811D21D1DB00294AAB /* SelectHeroController.swift */; };
@@ -59,6 +60,7 @@
 		B52B01271D18A159005BDB77 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B52B01291D18AC29005BDB77 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		B587C2501D4539C300CB7D13 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		C908BE311D47ED87005879FD /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		C9147C791D1C4AD100294AAB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
 		C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroInfoController.swift; sourceTree = "<group>"; };
 		C9147C811D21D1DB00294AAB /* SelectHeroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHeroController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				4C0373201D188AB50060A7D1 /* GameScene.swift */,
 				4C0373221D188AB50060A7D1 /* GameViewController.swift */,
 				C9147C791D1C4AD100294AAB /* Main.storyboard */,
+				C908BE311D47ED87005879FD /* InfoController.swift */,
 				C9147C811D21D1DB00294AAB /* SelectHeroController.swift */,
 				C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */,
 				C99040B61D35920100400192 /* StartScreenController.swift */,
@@ -217,6 +220,7 @@
 				TargetAttributes = {
 					4C0373181D188AB50060A7D1 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 4Z7A4R7B97;
 					};
 					4C0373301D188AB50060A7D1 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -290,6 +294,7 @@
 				4C03731D1D188AB50060A7D1 /* AppDelegate.swift in Sources */,
 				B52B01281D18A159005BDB77 /* Constants.swift in Sources */,
 				B587C2511D4539C300CB7D13 /* Grid.swift in Sources */,
+				C908BE321D47ED87005879FD /* InfoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,10 +430,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ForgottenTrail/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newBornSoftwareDevelopment.ForgottenTrail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -436,10 +444,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ForgottenTrail/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newBornSoftwareDevelopment.ForgottenTrail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

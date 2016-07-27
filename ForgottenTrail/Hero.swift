@@ -30,7 +30,7 @@ enum HeroType: String {
     case Banker0 = "banker"
     
     static let startingHeros = [Traveler0, Traveler1, IcePrincess, GoldKnight]
-    static let villans = [Orc, Skeleton, SilverSci]
+    static let villains = [Orc, Skeleton, SilverSci]
     static let genericHeros = [Soldier0, Soldier1, Soldier2, Princess0, Princess1, Princess2, DarkElf0, DarkElf1, Pirate0, Pirate1, Banker0]
 }
 

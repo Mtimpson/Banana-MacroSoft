@@ -20,6 +20,14 @@ class SelectHeroController : UIViewController {
     @IBOutlet weak var bground: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var stepsLabel: UILabel!
+    @IBOutlet weak var abilityUseLabel: UILabel!
+    @IBOutlet weak var abilityLabel: UILabel!
+    
+    var heroUses : Int!
+    var heroSteps : Int!
+    var heroAbility : String!
+    var descrip : String!
     
     ///buttons to cycle thru statring heros
     @IBOutlet weak var previousBtn: UIButton!
@@ -70,8 +78,16 @@ class SelectHeroController : UIViewController {
     //called to update the current heros animation
     func updateInfo() {
         
+        heroAbility = heroAbilities[HeroType.startingHeros[indx].rawValue]
+        heroUses = heroAilityUses[HeroType.startingHeros[indx].rawValue]
+        heroSteps = heroStepCount[HeroType.startingHeros[indx].rawValue]
+        descrip = heroDescriptions[HeroType.startingHeros[indx].rawValue]
+        
         nameLabel.text = heroNames[HeroType.startingHeros[indx].rawValue]
-        descriptionLabel.text = heroDescriptions[HeroType.startingHeros[indx].rawValue]
+        descriptionLabel.text = descrip
+        abilityLabel.text = "Ability: \(heroAbility)"
+        stepsLabel.text = "Steps: \(heroSteps)"
+        abilityUseLabel.text = "Uses: \(heroUses)"
 
         
         //clear array of images
