@@ -23,6 +23,10 @@
 		C9147C7C1D1C7C2100294AAB /* HeroInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */; };
 		C9147C821D21D1DB00294AAB /* SelectHeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C811D21D1DB00294AAB /* SelectHeroController.swift */; };
 		C99040B71D35920100400192 /* StartScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99040B61D35920100400192 /* StartScreenController.swift */; };
+		C9F066D71D494C500037639C /* AchaidhCheide.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066D61D494C500037639C /* AchaidhCheide.mp3 */; };
+		C9F066DA1D49B39F0037639C /* Angevin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066D91D49B39F0037639C /* Angevin.mp3 */; };
+		C9F066DC1D4A95D00037639C /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F066DB1D4A95D00037639C /* Music.swift */; };
+		C9F066DE1D4AA6D90037639C /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F066DD1D4AA6D90037639C /* OptionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +69,10 @@
 		C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroInfoController.swift; sourceTree = "<group>"; };
 		C9147C811D21D1DB00294AAB /* SelectHeroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHeroController.swift; sourceTree = "<group>"; };
 		C99040B61D35920100400192 /* StartScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenController.swift; sourceTree = "<group>"; };
+		C9F066D61D494C500037639C /* AchaidhCheide.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = AchaidhCheide.mp3; path = ../../../../Downloads/AchaidhCheide.mp3; sourceTree = "<group>"; };
+		C9F066D91D49B39F0037639C /* Angevin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Angevin.mp3; path = ../../../../Downloads/Angevin.mp3; sourceTree = "<group>"; };
+		C9F066DB1D4A95D00037639C /* Music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
+		C9F066DD1D4AA6D90037639C /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +126,8 @@
 				4C03731C1D188AB50060A7D1 /* AppDelegate.swift */,
 				4C03731E1D188AB50060A7D1 /* GameScene.sks */,
 				4C0373201D188AB50060A7D1 /* GameScene.swift */,
+				C9F066DB1D4A95D00037639C /* Music.swift */,
+				C9F066DD1D4AA6D90037639C /* OptionsViewController.swift */,
 				4C0373221D188AB50060A7D1 /* GameViewController.swift */,
 				C9147C791D1C4AD100294AAB /* Main.storyboard */,
 				C908BE311D47ED87005879FD /* InfoController.swift */,
@@ -130,6 +140,7 @@
 				B52B01271D18A159005BDB77 /* Constants.swift */,
 				B52B01291D18AC29005BDB77 /* Hero.swift */,
 				B587C2501D4539C300CB7D13 /* Grid.swift */,
+				C9F066D81D49B1A80037639C /* Soundtrack */,
 			);
 			path = ForgottenTrail;
 			sourceTree = "<group>";
@@ -150,6 +161,15 @@
 				4C0373421D188AB50060A7D1 /* Info.plist */,
 			);
 			path = ForgottenTrailUITests;
+			sourceTree = "<group>";
+		};
+		C9F066D81D49B1A80037639C /* Soundtrack */ = {
+			isa = PBXGroup;
+			children = (
+				C9F066D91D49B39F0037639C /* Angevin.mp3 */,
+				C9F066D61D494C500037639C /* AchaidhCheide.mp3 */,
+			);
+			name = Soundtrack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +278,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C03731F1D188AB50060A7D1 /* GameScene.sks in Resources */,
+				C9F066D71D494C500037639C /* AchaidhCheide.mp3 in Resources */,
 				4C03732B1D188AB50060A7D1 /* LaunchScreen.storyboard in Resources */,
+				C9F066DA1D49B39F0037639C /* Angevin.mp3 in Resources */,
 				4C0373281D188AB50060A7D1 /* Assets.xcassets in Resources */,
 				C9147C7A1D1C4AD100294AAB /* Main.storyboard in Resources */,
 			);
@@ -294,6 +316,8 @@
 				4C03731D1D188AB50060A7D1 /* AppDelegate.swift in Sources */,
 				B52B01281D18A159005BDB77 /* Constants.swift in Sources */,
 				B587C2511D4539C300CB7D13 /* Grid.swift in Sources */,
+				C9F066DE1D4AA6D90037639C /* OptionsViewController.swift in Sources */,
+				C9F066DC1D4A95D00037639C /* Music.swift in Sources */,
 				C908BE321D47ED87005879FD /* InfoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

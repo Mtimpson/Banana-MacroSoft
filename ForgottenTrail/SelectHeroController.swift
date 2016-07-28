@@ -97,7 +97,11 @@ class SelectHeroController : UIViewController {
         //load each image for the new hero into the array
         for i in 1 ..< numImages {
             let imageName = HeroType.startingHeros[indx].rawValue + "Front\(i)"
-            imageList.append(UIImage(named: imageName)!)
+            let originalImage = UIImage(named: imageName)
+            // scaling set to 2.0 makes the image 1/2 the size.
+            let scaledImage = UIImage(CGImage: (originalImage?.CGImage)!, scale: (originalImage?.scale)! * 0.5, orientation: (originalImage?.imageOrientation)!)
+            imageList.append(scaledImage)
+
             
         }
         heroChosen = HeroType.startingHeros[indx]

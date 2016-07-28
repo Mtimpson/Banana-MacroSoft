@@ -22,10 +22,6 @@ class InfoController : UIViewController {
     @IBOutlet weak var midChar: UIImageView!
     @IBOutlet weak var rightChar: UIImageView!
     
-    @IBOutlet weak var leftCharLeading: NSLayoutConstraint!
-    
-    @IBOutlet weak var rightCharTrailing: NSLayoutConstraint!
-    
     var variant1 : String!
     var variant2 : String!
     var variant3 : String!
@@ -74,6 +70,7 @@ class InfoController : UIViewController {
             getAnimation(midChar, variant: variant1)
             midChar.contentMode = .ScaleAspectFit
             
+            
         } else if numVariants == 3 {
             var2str = heroRawValue.stringByReplacingOccurrencesOfString("0", withString: "1")
             var3str = heroRawValue.stringByReplacingOccurrencesOfString("0", withString: "2")
@@ -103,7 +100,11 @@ class InfoController : UIViewController {
         //load each image for the new hero into the array
         for i in 1 ..< numImages {
             let imageName = variant + String(i)
-            imageList.append(UIImage(named: imageName)!)
+            // grab the original image
+            let originalImage = UIImage(named: imageName)
+            // scaling set to 2.0 makes the image 1/2 the size.
+            let scaledImage = UIImage(CGImage: (originalImage?.CGImage)!, scale: (originalImage?.scale)! * 0.5, orientation: (originalImage?.imageOrientation)!)
+            imageList.append(scaledImage)
             
         }
         // start the animation

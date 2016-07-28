@@ -14,12 +14,17 @@ class GameScene: SKScene {
     var isCreated = false
     var world : SKShapeNode?
     var overlay : SKNode?
+    var pauseBtn : UIButton!
     var sceneCamera : SKCameraNode?
     var heroWalkingFrames : [SKTexture]!
     var tempTexture : SKTexture!
     var move : SKAction!
     var moving = false
     var grid : Grid!
+    let pauseImage = UIImage(named: "pause")
+    var herosLeftLabel : UILabel!
+    var stepsLeftLabel : UILabel!
+    var usesLeftLabel : UILabel!
     
     override func didMoveToView(view: SKView) {
         
@@ -41,6 +46,23 @@ class GameScene: SKScene {
             self.overlay?.zPosition = 10
             self.overlay!.name = "overlay"
             addChild(self.overlay!)
+            
+            pauseBtn = UIButton(type: .Custom)
+            pauseBtn.frame = CGRectMake(0, 0, 50, 50)
+            pauseBtn.center = CGPointMake(self.frame.width / 2, self.frame.height - 30)
+            pauseBtn.layer.cornerRadius = 0.5 * pauseBtn.bounds.size.width
+            pauseBtn.setImage(pauseImage, forState: UIControlState.Normal)
+            pauseBtn.imageEdgeInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+            pauseBtn.layer.borderWidth = 2
+            pauseBtn.layer.borderColor = UIColor.whiteColor().CGColor
+            pauseBtn.backgroundColor = UIColor.lightTextColor()
+            pauseBtn.addTarget(self, action: #selector(GameScene.pausePressed), forControlEvents: UIControlEvents.TouchUpInside)
+            self.view?.addSubview(pauseBtn)
+            
+            if music {
+                Music.sharedHelper.playBackgroundMusic()
+            }
+
             
             let gridSize = 10
             grid = Grid(size: gridSize)
@@ -64,7 +86,7 @@ class GameScene: SKScene {
             }
         }
         
-        //creates your current heros animation
+        //cvartes your current heros animation
         
         self.you = Hero(type: heroChosen)
         updateTextureAtlas()
@@ -103,7 +125,7 @@ class GameScene: SKScene {
         /* Called before each frame is rendered */
         //moves camera around the scene
         //self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(you.position.x, you.position.y), duration: 0))
-
+        
         if !moving {
             moving = true
             if you.heroDirection != you.upcomingDirection {
@@ -175,5 +197,12 @@ class GameScene: SKScene {
         }
         
     }
-
+    
+    func pausePressed(){
+        moving = false
+        paused = true
+    
+        
+    }
+    
 }
