@@ -12,7 +12,7 @@
         <!--Start Screen Controller-->
         <scene sceneID="jdX-DZ-4cD">
             <objects>
-                <viewController id="Iu9-7p-lxc" customClass="StartScreenController" customModule="ForgottenTrail" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="start" id="Iu9-7p-lxc" customClass="StartScreenController" customModule="ForgottenTrail" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="b8x-hd-bdd"/>
                         <viewControllerLayoutGuide type="bottom" id="KS6-RB-vmS"/>
@@ -1844,7 +1844,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gvL-n8-x5r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="-461"/>
+            <point key="canvasLocation" x="1605" y="-581"/>
         </scene>
     </scenes>
     <resources>
@@ -1864,7 +1864,7 @@
         <image name="traveler1Front0" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="esH-Sg-J1t"/>
+        <segue reference="vkv-m2-dMC"/>
         <segue reference="NYp-fs-0C6"/>
         <segue reference="sw9-ev-A7n"/>
     </inferredMetricsTieBreakers>

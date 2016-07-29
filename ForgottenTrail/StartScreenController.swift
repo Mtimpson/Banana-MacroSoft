@@ -31,6 +31,8 @@ class StartScreenController : UIViewController {
             imageList.append(scaledImage)
                     
         }
+        
+        
         // start the animation
         traveler.animationImages = imageList
         traveler.animationDuration = 1
