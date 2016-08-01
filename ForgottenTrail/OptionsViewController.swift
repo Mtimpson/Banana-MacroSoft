@@ -17,8 +17,10 @@ class OptionsViewController : UIViewController {
     @IBAction func musicSwitchAct(sender: AnyObject) {
         if musicSwitch.on {
             music = true
+            Music.sharedHelper.playMenuMusic()
         } else {
             music = false
+            Music.sharedHelper.menuPlayer?.stop()
         }
     }
 }

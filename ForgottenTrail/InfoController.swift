@@ -46,7 +46,7 @@ class InfoController : UIViewController {
     
     override func viewDidLoad() {
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
-        heroRawValue = scrollViewPosition[scrollPosition]
+        heroRawValue = heroClicked
         name = heroNames[heroRawValue]
         descrip = heroDescriptions[heroRawValue]
         numVariants = heroVariants[heroRawValue]

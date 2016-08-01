@@ -71,6 +71,7 @@ class GameScene: SKScene {
             pauseBtn.addTarget(self, action: #selector(GameScene.pausePressed), forControlEvents: UIControlEvents.TouchUpInside)
             self.view?.addSubview(pauseBtn)
             
+            Music.sharedHelper.menuPlayer?.stop()
             if music {
                 Music.sharedHelper.playBackgroundMusic()
             }
@@ -238,7 +239,7 @@ class GameScene: SKScene {
             
             self.view?.addSubview(mainMenuBtn)
             
-            Music.sharedHelper.audioPlayer?.pause()
+            Music.sharedHelper.gamePlayer?.pause()
             btnWillPause = false
         } else {
             paused = false
@@ -246,7 +247,7 @@ class GameScene: SKScene {
             mainMenuBtn.removeFromSuperview()
             pauseBtn.setImage(pauseImage, forState: UIControlState.Normal)
             pauseBtn.backgroundColor = UIColor.lightTextColor()
-            Music.sharedHelper.audioPlayer?.play()
+            Music.sharedHelper.gamePlayer?.play()
             btnWillPause = true
 
         }
@@ -256,7 +257,7 @@ class GameScene: SKScene {
     
     func mainMenuPressed(){
         self.view?.presentScene(nil)
-        Music.sharedHelper.audioPlayer?.stop()
+        Music.sharedHelper.gamePlayer?.stop()
         self.gameOverDelegate?.launchViewController(self)
     }
     

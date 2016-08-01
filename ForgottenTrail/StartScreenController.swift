@@ -17,6 +17,16 @@ class StartScreenController : UIViewController {
     var imageList = [UIImage]()
     
     override func viewDidLoad() {
+        
+        if music {
+            Music.sharedHelper.shuffleSongs()
+            if Music.sharedHelper.menuPlayer == nil {
+                Music.sharedHelper.playMenuMusic()
+            } else if !(Music.sharedHelper.menuPlayer?.playing)! {
+                Music.sharedHelper.playMenuMusic()
+            }
+        }
+        
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
         imageList.removeAll()
         let folderName = SKTextureAtlas(named: "traveler0Front")

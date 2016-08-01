@@ -12,37 +12,73 @@ import AVFoundation
 
 class Music : NSObject, AVAudioPlayerDelegate {
     static let sharedHelper = Music()
-    var audioPlayer: AVAudioPlayer?
+    var gamePlayer: AVAudioPlayer?
+    var menuPlayer: AVAudioPlayer?
     var counter = 0
-    var song = ["AchaidhCheide", "Angevin"]
+    var gameSongs = ["AchaidhCheide", "Angevin", "Errigal", "Celtic Impulse", "Folk Round"]
+    var menuSongs = ["Hidden Past", "Skye Cuillin"]
+    var menuCounter = 0
+    
+    func shuffleSongs(){
+        gameSongs.shuffleInPlace()
+        menuSongs.shuffleInPlace()
+    }
+    
+    func playMenuMusic() {
+        print(menuSongs[menuCounter])
+        let aSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(menuSongs[menuCounter])", ofType: "mp3")!)
+        do {
+            menuPlayer = try AVAudioPlayer(contentsOfURL:aSound)
+            menuPlayer?.delegate = self
+            menuPlayer!.prepareToPlay()
+            menuPlayer!.play()
+        } catch {
+            print("Cannot play the file")
+        }
+
+    }
     
     func playBackgroundMusic() {
-        song.shuffleInPlace()
-        print(song)
-        let aSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(song[counter])", ofType: "mp3")!)
+        print(gameSongs)
+        let aSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(gameSongs[counter])", ofType: "mp3")!)
         do {
-            audioPlayer = try AVAudioPlayer(contentsOfURL:aSound)
-            audioPlayer?.delegate = self
-            audioPlayer!.prepareToPlay()
-            audioPlayer!.play()
+            gamePlayer = try AVAudioPlayer(contentsOfURL:aSound)
+            gamePlayer?.delegate = self
+            gamePlayer!.prepareToPlay()
+            gamePlayer!.play()
         } catch {
             print("Cannot play the file")
         }
     }
     
     func audioPlayerDidFinishPlaying(audioPlayer: AVAudioPlayer, successfully flag: Bool) {
-        
-        print("Called")
-        if flag {
-            counter += 1
+        if audioPlayer == menuPlayer {
+            print("menu player recognized")
+            if flag {
+                menuCounter += 1
+            }
+            
+            if ((menuCounter) == menuSongs.count) {
+                print("menu count reset")
+                menuCounter = 0
+            }
+            playMenuMusic()
         }
         
-        if ((counter) == song.count) {
-            counter = 0
+        if audioPlayer == gamePlayer {
+            if flag {
+                counter += 1
+            }
+            
+            if ((counter) == gameSongs.count) {
+                counter = 0
+            }
+            playBackgroundMusic()
         }
         
-        playBackgroundMusic()
+        
     }
+    
 
         
     
