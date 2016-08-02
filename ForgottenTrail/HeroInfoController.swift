@@ -11,6 +11,7 @@ import UIKit
 import SpriteKit
 
 var heroClicked : String!
+var typeClicked : HeroType!
 
 class HeroInfoController : UIViewController {
     
@@ -40,6 +41,8 @@ class HeroInfoController : UIViewController {
     @IBOutlet weak var btn9: UIButton!
     @IBOutlet weak var btn10: UIButton!
     
+    @IBOutlet weak var btn11: UIButton!
+    @IBOutlet weak var btn12: UIButton!
     var eachHerosImages = [UIImage]()
     var currentType : HeroType!
     var currentHero : Hero!
@@ -49,7 +52,19 @@ class HeroInfoController : UIViewController {
         
     override func viewDidLoad() {
         
-        //scroller.contentSize = preferredContentSize
+        btn0.tag = 0
+        btn1.tag = 1
+        btn2.tag = 2
+        btn3.tag = 3
+        btn4.tag = 4
+        btn5.tag = 5
+        btn6.tag = 6
+        btn7.tag = 7
+        btn8.tag = 8
+        btn9.tag = 9
+        btn10.tag = 10
+        btn11.tag = 11
+        btn12.tag = 12
         
         let allImageViews = [pic0, pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10, pic11, pic12]
 
@@ -85,12 +100,8 @@ class HeroInfoController : UIViewController {
     }
     
     @IBAction func allBtnFunc(sender: AnyObject) {
-        let allBtns = [btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10]
-        for i in 0..<allBtns.count {
-            if allBtns[i] == sender as! NSObject {
-                heroClicked = HeroType.allHerosTypes[i].rawValue
-            }
-        }
+        heroClicked = HeroType.allHerosTypes[sender.tag].rawValue
+        typeClicked = HeroType.allHerosTypes[sender.tag]
     }
     
     

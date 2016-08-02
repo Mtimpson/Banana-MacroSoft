@@ -31,14 +31,14 @@ enum HeroType: String {
     case Traveler0 = "traveler0"
     case Traveler1 = "traveler1"
     case SilverSci = "silverSci"
-    case Banker0 = "banker"
+    case Banker = "banker"
     
     
-    static let startingHeros = [Traveler0, Traveler1, IcePrincess, GoldKnight]
-    static let villains = [Orc, Skeleton]
-    static let commonHeros = [Soldier0, Soldier1, Soldier2, Princess0, Princess1, Princess2, DarkElf0, DarkElf1, Pirate0, Pirate1, Banker0]
+    static let startingHeros = [Traveler0, Traveler1, IcePrincess, Ranger, GoldKnight]
+    static let villains = [Orc, Skeleton, FallenRanger]
+    static let commonHeros = [Soldier0, Soldier1, Soldier2, Princess0, Princess1, Princess2, DarkElf0, DarkElf1, DarkElf2, Pirate0, Pirate1, Pirate2, Banker]
     //use this one for allHerosScreen
-    static let allHerosTypes = [Traveler0, Traveler1, IcePrincess, GoldKnight, Soldier1, Pirate0, Princess2, DarkElf1, Banker0, Orc, Skeleton, Ranger, FallenRanger]
+    static let allHerosTypes = [Traveler0, Traveler1, IcePrincess, Ranger, Soldier0, Pirate0, Princess0, DarkElf0, Banker, Orc, Skeleton, GoldKnight, FallenRanger]
     
 }
 

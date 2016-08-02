@@ -56,11 +56,23 @@ class InfoController : UIViewController {
         
         
         nameLabel.text = name
-        stepLabel.text = "Steps: \(stepCount)"
-        abilityUsesLabel.text = "Uses: \(abilUses)"
+        if stepCount != nil {
+            stepLabel.text = "Steps: \(stepCount)"
+        } else {
+            stepLabel.text = "Steps: ∞"
+        }
+
+        if abilUses != nil {
+            abilityUsesLabel.text = "Uses: \(abilUses)"
+        } else {
+            abilityUsesLabel.text = "Uses: ∞"
+        }
         descriptionLabel.text = descrip
-        abilityLabel.text = "Ability: \(abil)"
-        
+        if HeroType.villains.contains(typeClicked) {
+            abilityLabel.text = abil
+        } else {
+            abilityLabel.text = "Ability: \(abil)"
+        }
         
        
         

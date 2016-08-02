@@ -13,25 +13,27 @@ import SpriteKit
 let heroSize: CGSize = CGSizeMake(CGFloat(64), CGFloat(64))
 
 let heroNames: [String:String] = [
-    "ice" : "Ice Princess", "gold" : "The Golden Knight", "orc" : "Orcs", "princess0" : "Princesses", "soldier0" : "Warriors", "darkElf0" : "Dark Elves", "pirate0" : "Pirates", "skeleton" : "Skeletons", "traveler0" : "Male Traveler", "traveler1" : "Female Nomad", "banker" : "The Banker", "ranger" : "Ranger", "fallenRanger" : "Fallen Rangers"
+    "ice" : "Rhoslyn the Ice Princess", "gold" : "Valter the Golden Knight", "orc" : "Orcs", "princess0" : "Princesses", "soldier0" : "Warriors", "darkelf0" : "Dark Elves", "pirate0" : "Pirates", "skeleton" : "Skeletons", "traveler0" : "Hutch the Traveler", "traveler1" : "Aveline the Nomad", "banker" : "The Banker", "ranger" : "Leoril the Ranger", "fallenRanger" : "Fallen Rangers"
 ]
 let heroDescriptions: [String:String] = [
-    "ice" : "Ben says shes too pretty to not have in the game", "gold" : "The only hero in the realm brave enought to kill those pesky Skeletons and Orcs.", "orc" : "Beasts so vile even the realm's great warriors cower in fear.", "princess0" : "They've stolen the prince's heart along with his keys to the realm.", "soldier0" : "Brave defenders of the realm. Not yet worthy of the title of knight.", "darkElf0" : "Shady beings capable of powers not yet determined.", "pirate0" : "Skilled marauders of the high seas.", "skeleton" : "The undead, capable of unspeakable atrocities.", "traveler0" : "Your basic traveler. Normally spends as much time outdoors as your average Pokémon Go trainer.", "traveler1" : "Enjoys the outdoors. Gravely unprepared to fend off the realms enemies.", "banker0]" : "Everyone knows bankers love currency. 'Put him anywhere on God's green Earth, he'll triple his worth' - Jay-Z"
+    "ice" : "Versatile, through many years of training in all skills and crafts. ", "gold" : "The only hero in the realm brave enought to kill all those pesky enemines you encounter.", "orc" : "Beasts so vile even the realm's great warriors cower in fear.", "princess0" : "They've stolen the prince's heart along with his keys to the portals.", "soldier0" : "Brave defenders of the realm. Not yet worthy of the title of knight.", "darkelf0" : "Shady beings capable of mysterious powers. Known to walk in lava and emerge unscathed.", "pirate0" : "Skilled marauders of the high seas.", "skeleton" : "The undead, capable of unspeakable atrocities.", "traveler0" : "Your basic traveler. Normally spends as much time outdoors as your average Pokémon Go trainer.", "traveler1" : "Enjoys the outdoors. Gravely unprepared to fend off the realm's enemies.", "banker" : "Everyone knows bankers love currency. 'Put him anywhere on God's green Earth, he'll triple his worth' - Jay-Z", "ranger" : "Knows the wilderness like the back of his hand. Skilled in combat and trap making.", "fallenRanger" : "Former rangers, twisted by their death in the wild. Extremely formidable."
 ]
 let heroVariants: [String:Int] = [
-    "ice" : 1, "gold" : 1, "orc" : 1, "princess0" : 3, "soldier0" : 3, "darkElf0" : 3, "pirate0" : 3, "skeleton" :1, "traveler0" : 1, "traveler1" : 1, "banker" : 1, "fallenRanger" : 1, "ranger" : 1
+    "ice" : 1, "gold" : 1, "orc" : 1, "princess0" : 3, "soldier0" : 3, "darkelf0" : 3, "pirate0" : 3, "skeleton" :1, "traveler0" : 1, "traveler1" : 1, "banker" : 1, "fallenRanger" : 1, "ranger" : 1
 ]
 
 let heroAbilities: [String:String] = [
-    "ice" : "Something Icy"
+    "ice" : "Retains the ability of the hero used before her.", "gold" : "Can rid the realm of Fallen Rangers, Skeletons and Orcs.", "orc" : "Can only be destroyed by Valter the Gold Knight, Leoril the Ranger, or Warriors.", "princess0" : "Able to close the portal without collecting its key.", "soldier0" : "Strong enough to kill the vile Orcs.", "darkelf0" : "May cross lava tiles uninjured.", "pirate0" : "Capable of moving through water tiles.", "skeleton" : "Only Valter the Gold Knight and Leoril the Ranger may kill them.", "traveler0" : "None. You think Pokémon Go players have powers?", "traveler1" : "None. Might be able to construct a campfire.", "banker" : "Doubles the worth of coins collected.", "ranger" : "Bests Orcs and Skeletons in combat.", "fallenRanger" : "Vurnerable only to Valter the Gold Knight"
 ]
 
 let heroAilityUses: [String:Int] = [
-    "ice" : 5
+    "traveler0" : 0, "traveler1" : 0, "ice" : 1, "ranger" : 5,  "soldier0" : 3, "pirate0" : 3, "princess0" : 1, "darkelf0" : 3
 ]
 
 let heroStepCount : [String:Int] = [
-    "ice" : 30
+    "traveler0" : 30, "traveler1" : 40, "ice" : 40, "ranger" : 55, "gold" : 45, "soldier0" : 35, "pirate0" : 30, "princess0" : 25, "darkelf0" : 30
+
+
 ]
 
 let worldWidth: CGFloat = 1000

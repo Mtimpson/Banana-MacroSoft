@@ -86,8 +86,16 @@ class SelectHeroController : UIViewController {
         nameLabel.text = heroNames[HeroType.startingHeros[indx].rawValue]
         descriptionLabel.text = descrip
         abilityLabel.text = "Ability: \(heroAbility)"
-        stepsLabel.text = "Steps: \(heroSteps)"
-        abilityUseLabel.text = "Uses: \(heroUses)"
+        if heroSteps != nil {
+            stepsLabel.text = "Steps: \(heroSteps)"
+        } else {
+            stepsLabel.text = "Steps: ∞"
+        }
+        if heroUses != nil {
+            abilityUseLabel.text = "Uses: \(heroUses)"
+        } else {
+            abilityUseLabel.text = "Uses: ∞"
+        }
 
         
         //clear array of images
