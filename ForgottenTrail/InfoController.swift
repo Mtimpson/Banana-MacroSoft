@@ -127,6 +127,9 @@ class InfoController : UIViewController {
     }
     
     
+    @IBAction func backAct(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: {})
+    }
     
     
 }

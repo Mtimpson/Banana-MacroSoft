@@ -10,13 +10,31 @@ import Foundation
 import UIKit
 import SpriteKit
 
-class StartScreenController : UIViewController {
+var portalFrame : CGRect!
+
+class StartScreenController : UIViewController, UIViewControllerTransitioningDelegate {
     
+    @IBOutlet weak var portal: UIImageView!
     @IBOutlet weak var bground: UIImageView!
     @IBOutlet weak var traveler: UIImageView!
     var imageList = [UIImage]()
     
+    //for transitions
+    let transition = AnimationController()
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let controller = segue.destinationViewController   
+            transition.myTransitionMode = .present
+        
+            //set transition delegate and modal presentation style
+            controller.transitioningDelegate = self
+            controller.modalPresentationStyle = .Custom
+        
+    }
+    
     override func viewDidLoad() {
+        portalFrame = portal.frame
+        
         
         if music {
             Music.sharedHelper.shuffleSongs()
@@ -52,5 +70,24 @@ class StartScreenController : UIViewController {
         
     }
     
+    //called when presenting a view controller
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("present")
+        transition.myTransitionMode = .present
+        transition.origin = portal.center
+        transition.portalFrame = portal.frame
+        return transition
+        
+    }
+    
+    //called when dismissing a view controller 
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        print("diss")
+        
+        transition.myTransitionMode = .dismiss
+        transition.origin = portal.center
+        transition.portalFrame = portal.frame
+        return transition
+    }
     
 }

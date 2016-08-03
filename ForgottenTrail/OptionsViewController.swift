@@ -11,8 +11,10 @@ import SpriteKit
 
 var music = true
 
-class OptionsViewController : UIViewController {
+class OptionsViewController : UIViewController, UIViewControllerTransitioningDelegate {
     @IBOutlet weak var musicSwitch: UISwitch!
+    
+    var transition = AnimationController()
     
     @IBAction func musicSwitchAct(sender: AnyObject) {
         if musicSwitch.on {
@@ -22,5 +24,26 @@ class OptionsViewController : UIViewController {
             music = false
             Music.sharedHelper.menuPlayer?.stop()
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let controller = segue.destinationViewController as? StartScreenController {
+            
+            //set transition delegate and modal presentation style
+            controller.transitioningDelegate = self
+            controller.modalPresentationStyle = .Custom
+        }
+    }
+    
+    //called when dismissing a view controller
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        transition.myTransitionMode = .dismiss
+        transition.portalFrame = portalFrame
+        return transition
+    }
+
+    @IBAction func menuAct(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: {})
     }
 }

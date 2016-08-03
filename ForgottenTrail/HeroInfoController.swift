@@ -13,7 +13,7 @@ import SpriteKit
 var heroClicked : String!
 var typeClicked : HeroType!
 
-class HeroInfoController : UIViewController {
+class HeroInfoController : UIViewController, UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var pic0: UIImageView!
     @IBOutlet weak var pic1: UIImageView!
@@ -49,6 +49,8 @@ class HeroInfoController : UIViewController {
     var currentImageView : UIImageView!
 
     @IBOutlet weak var scroller: UIScrollView!
+    
+    var transition = AnimationController()
         
     override func viewDidLoad() {
         
@@ -104,6 +106,24 @@ class HeroInfoController : UIViewController {
         typeClicked = HeroType.allHerosTypes[sender.tag]
     }
     
-    
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let controller = segue.destinationViewController as? StartScreenController {
+        
+            //set transition delegate and modal presentation style
+            controller.transitioningDelegate = self
+            controller.modalPresentationStyle = .Custom
+        }
+    }
+
+    //called when dismissing a view controller
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        transition.myTransitionMode = .dismiss
+        transition.portalFrame = portalFrame
+        return transition
+    }
+
+    @IBAction func menuAct(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: {})
+    }
 }

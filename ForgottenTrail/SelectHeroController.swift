@@ -15,7 +15,7 @@ import SpriteKit
 var heroChosen : HeroType!
 
 
-class SelectHeroController : UIViewController {
+class SelectHeroController : UIViewController, UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var bground: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -40,10 +40,10 @@ class SelectHeroController : UIViewController {
     var imageList = [UIImage]()
 
     
-    
+    var transition = AnimationController()
     
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
         updateInfo()
         
         
@@ -120,5 +120,26 @@ class SelectHeroController : UIViewController {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let controller = segue.destinationViewController as? StartScreenController {
+            
+            //set transition delegate and modal presentation style
+            controller.transitioningDelegate = self
+            controller.modalPresentationStyle = .Custom
+        }
+    }
+    
+    //called when dismissing a view controller
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        transition.myTransitionMode = .dismiss
+        transition.portalFrame = portalFrame
+        return transition
+    }
+
+    
+    @IBAction func menuAct(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: {})
+    }
     
 }
