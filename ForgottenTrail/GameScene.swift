@@ -69,7 +69,7 @@ class GameScene: SKScene {
             pauseBtn.reversesTitleShadowWhenHighlighted = true
             pauseBtn.showsTouchWhenHighlighted = true
             pauseBtn.addTarget(self, action: #selector(GameScene.pausePressed), forControlEvents: UIControlEvents.TouchUpInside)
-            self.view?.addSubview(pauseBtn)
+            self.view?.addSubview(pauseBtn) 
             
             Music.sharedHelper.menuPlayer?.stop()
             if music {

@@ -26,8 +26,8 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
     var origin = CGPointZero
     
     //durations
-    var presentDuration = 1.0
-    var dismissDuration = 1.0
+    var presentDuration = 0.7
+    var dismissDuration = 0.7
     
     var presentedView : UIView!
     
@@ -72,11 +72,11 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
                 self.presentedView?.center = originalCenter!
             }) { (_) -> Void in
                 //on completion, fade the purple background to black
-                UIView.animateWithDuration(0.5, animations: {
-                    self.presentedView?.backgroundColor = UIColor.blackColor()
-                }) { (_) -> Void in
+                //UIView.animateWithDuration(0.5, animations: {
+                  //  self.presentedView?.backgroundColor = UIColor.blackColor()
+                //}) { (_) -> Void in
                     //nothing
-                }
+                //}
                 //on completion, complete transition
                 transitionContext.completeTransition(true)
             }
@@ -94,9 +94,9 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
             containerView?.addSubview(portal)
             containerView?.addSubview(presentedView)
             
-            UIView.animateWithDuration(0.5, animations: {
-                self.presentedView!.backgroundColor = UIColor.clearColor()
-            }) { (_) -> Void in
+            //UIView.animateWithDuration(0.5, animations: {
+                //self.presentedView!.backgroundColor = UIColor.clearColor()
+            //}) { (_) -> Void in
                 UIView.animateWithDuration(self.dismissDuration, animations: {
                     self.portal.transform = CGAffineTransformMakeScale(1.0, 1.0)
                     returningView?.transform = CGAffineTransformMakeScale(0.001, 0.001)
@@ -108,7 +108,7 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
                     transitionContext.completeTransition(true)
                     
                 }
-            }
+            //}
 
 
         }
