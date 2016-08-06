@@ -61,6 +61,20 @@ class GameScene: SKScene {
                 self.world?.addChild(tile)
             }
             
+            pauseBtn = UIButton(type: .Custom)
+            pauseBtn.frame = CGRectMake(0, 0, 50, 50)
+            pauseBtn.center = CGPointMake(self.frame.width / 2, self.frame.height - 30)
+            pauseBtn.layer.cornerRadius = 0.5 * pauseBtn.bounds.size.width
+            pauseBtn.setImage(pauseImage, forState: UIControlState.Normal)
+            pauseBtn.imageEdgeInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+            pauseBtn.layer.borderWidth = 2
+            pauseBtn.layer.borderColor = UIColor.whiteColor().CGColor
+            pauseBtn.backgroundColor = UIColor.lightTextColor()
+            pauseBtn.reversesTitleShadowWhenHighlighted = true
+            pauseBtn.showsTouchWhenHighlighted = true
+            pauseBtn.addTarget(self, action: #selector(GameScene.pausePressed), forControlEvents: UIControlEvents.TouchUpInside)
+            self.view?.addSubview(pauseBtn)
+            
             // creates your current heros animation
             self.you = Hero(type: heroChosen)
             you.anchorPoint = CGPointMake(0.5, 0.1)
