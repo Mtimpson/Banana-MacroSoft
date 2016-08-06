@@ -12,7 +12,6 @@
 		4C0373211D188AB50060A7D1 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373201D188AB50060A7D1 /* GameScene.swift */; };
 		4C0373231D188AB50060A7D1 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373221D188AB50060A7D1 /* GameViewController.swift */; };
 		4C0373281D188AB50060A7D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C0373271D188AB50060A7D1 /* Assets.xcassets */; };
-		4C03732B1D188AB50060A7D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C0373291D188AB50060A7D1 /* LaunchScreen.storyboard */; };
 		4C0373361D188AB50060A7D1 /* ForgottenTrailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373351D188AB50060A7D1 /* ForgottenTrailTests.swift */; };
 		4C0373411D188AB50060A7D1 /* ForgottenTrailUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0373401D188AB50060A7D1 /* ForgottenTrailUITests.swift */; };
 		B52B01281D18A159005BDB77 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52B01271D18A159005BDB77 /* Constants.swift */; };
@@ -24,16 +23,16 @@
 		C9147C821D21D1DB00294AAB /* SelectHeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C811D21D1DB00294AAB /* SelectHeroController.swift */; };
 		C98FEECE1D51214B00014F74 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FEECD1D51214B00014F74 /* AnimationController.swift */; };
 		C98FEEDB1D52E62600014F74 /* pixelFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C98FEEDA1D52E62600014F74 /* pixelFont.ttf */; };
+		C98FEF021D556C4800014F74 /* AchaidhCheide.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEEFB1D556C4800014F74 /* AchaidhCheide.mp3 */; };
+		C98FEF031D556C4800014F74 /* Angevin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEEFC1D556C4800014F74 /* Angevin.mp3 */; };
+		C98FEF041D556C4800014F74 /* Celtic Impulse.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEEFD1D556C4800014F74 /* Celtic Impulse.mp3 */; };
+		C98FEF051D556C4800014F74 /* Errigal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEEFE1D556C4800014F74 /* Errigal.mp3 */; };
+		C98FEF061D556C4800014F74 /* Folk Round.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEEFF1D556C4800014F74 /* Folk Round.mp3 */; };
+		C98FEF071D556C4800014F74 /* Hidden Past.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEF001D556C4800014F74 /* Hidden Past.mp3 */; };
+		C98FEF081D556C4800014F74 /* Skye Cuillin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEF011D556C4800014F74 /* Skye Cuillin.mp3 */; };
 		C99040B71D35920100400192 /* StartScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99040B61D35920100400192 /* StartScreenController.swift */; };
-		C9F066D71D494C500037639C /* AchaidhCheide.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066D61D494C500037639C /* AchaidhCheide.mp3 */; };
-		C9F066DA1D49B39F0037639C /* Angevin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066D91D49B39F0037639C /* Angevin.mp3 */; };
 		C9F066DC1D4A95D00037639C /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F066DB1D4A95D00037639C /* Music.swift */; };
 		C9F066DE1D4AA6D90037639C /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F066DD1D4AA6D90037639C /* OptionsViewController.swift */; };
-		C9F066E01D4BFD160037639C /* Errigal.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066DF1D4BFD160037639C /* Errigal.mp3 */; };
-		C9F066E21D4BFD1F0037639C /* Celtic Impulse.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066E11D4BFD1F0037639C /* Celtic Impulse.mp3 */; };
-		C9F066E41D4C01870037639C /* Folk Round.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066E31D4C01870037639C /* Folk Round.mp3 */; };
-		C9F066E61D4C02500037639C /* Skye Cuillin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066E51D4C02500037639C /* Skye Cuillin.mp3 */; };
-		C9F066E81D4C02560037639C /* Hidden Past.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066E71D4C02560037639C /* Hidden Past.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,16 +76,16 @@
 		C9147C811D21D1DB00294AAB /* SelectHeroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHeroController.swift; sourceTree = "<group>"; };
 		C98FEECD1D51214B00014F74 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		C98FEEDA1D52E62600014F74 /* pixelFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pixelFont.ttf; sourceTree = "<group>"; };
+		C98FEEFB1D556C4800014F74 /* AchaidhCheide.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = AchaidhCheide.mp3; path = ../Soundtracks/AchaidhCheide.mp3; sourceTree = "<group>"; };
+		C98FEEFC1D556C4800014F74 /* Angevin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Angevin.mp3; path = ../Soundtracks/Angevin.mp3; sourceTree = "<group>"; };
+		C98FEEFD1D556C4800014F74 /* Celtic Impulse.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Celtic Impulse.mp3"; path = "../Soundtracks/Celtic Impulse.mp3"; sourceTree = "<group>"; };
+		C98FEEFE1D556C4800014F74 /* Errigal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Errigal.mp3; path = ../Soundtracks/Errigal.mp3; sourceTree = "<group>"; };
+		C98FEEFF1D556C4800014F74 /* Folk Round.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Folk Round.mp3"; path = "../Soundtracks/Folk Round.mp3"; sourceTree = "<group>"; };
+		C98FEF001D556C4800014F74 /* Hidden Past.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Hidden Past.mp3"; path = "../Soundtracks/Hidden Past.mp3"; sourceTree = "<group>"; };
+		C98FEF011D556C4800014F74 /* Skye Cuillin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Skye Cuillin.mp3"; path = "../Soundtracks/Skye Cuillin.mp3"; sourceTree = "<group>"; };
 		C99040B61D35920100400192 /* StartScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenController.swift; sourceTree = "<group>"; };
-		C9F066D61D494C500037639C /* AchaidhCheide.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = AchaidhCheide.mp3; path = ../../../../Downloads/AchaidhCheide.mp3; sourceTree = "<group>"; };
-		C9F066D91D49B39F0037639C /* Angevin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Angevin.mp3; path = ../../../../Downloads/Angevin.mp3; sourceTree = "<group>"; };
 		C9F066DB1D4A95D00037639C /* Music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		C9F066DD1D4AA6D90037639C /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		C9F066DF1D4BFD160037639C /* Errigal.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Errigal.mp3; path = ../../../../Downloads/Errigal.mp3; sourceTree = "<group>"; };
-		C9F066E11D4BFD1F0037639C /* Celtic Impulse.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Celtic Impulse.mp3"; path = "../../../../Downloads/Celtic Impulse.mp3"; sourceTree = "<group>"; };
-		C9F066E31D4C01870037639C /* Folk Round.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Folk Round.mp3"; path = "../../../../Downloads/Folk Round.mp3"; sourceTree = "<group>"; };
-		C9F066E51D4C02500037639C /* Skye Cuillin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Skye Cuillin.mp3"; path = "../../../../Downloads/Skye Cuillin.mp3"; sourceTree = "<group>"; };
-		C9F066E71D4C02560037639C /* Hidden Past.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Hidden Past.mp3"; path = "../../../../Downloads/Hidden Past.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,8 +144,8 @@
 				C9F066DB1D4A95D00037639C /* Music.swift */,
 				C9F066DD1D4AA6D90037639C /* OptionsViewController.swift */,
 				4C0373221D188AB50060A7D1 /* GameViewController.swift */,
+				C98FEF091D556C5000014F74 /* Soundtracks */,
 				C9147C791D1C4AD100294AAB /* Main.storyboard */,
-				C908BE311D47ED87005879FD /* InfoController.swift */,
 				C9147C811D21D1DB00294AAB /* SelectHeroController.swift */,
 				C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */,
 				C99040B61D35920100400192 /* StartScreenController.swift */,
@@ -179,18 +178,18 @@
 			path = ForgottenTrailUITests;
 			sourceTree = "<group>";
 		};
-		C9F066D81D49B1A80037639C /* Soundtrack */ = {
+		C98FEF091D556C5000014F74 /* Soundtracks */ = {
 			isa = PBXGroup;
 			children = (
-				C9F066DF1D4BFD160037639C /* Errigal.mp3 */,
-				C9F066D91D49B39F0037639C /* Angevin.mp3 */,
-				C9F066E11D4BFD1F0037639C /* Celtic Impulse.mp3 */,
-				C9F066E71D4C02560037639C /* Hidden Past.mp3 */,
-				C9F066E31D4C01870037639C /* Folk Round.mp3 */,
-				C9F066E51D4C02500037639C /* Skye Cuillin.mp3 */,
-				C9F066D61D494C500037639C /* AchaidhCheide.mp3 */,
+				C98FEEFB1D556C4800014F74 /* AchaidhCheide.mp3 */,
+				C98FEEFC1D556C4800014F74 /* Angevin.mp3 */,
+				C98FEEFD1D556C4800014F74 /* Celtic Impulse.mp3 */,
+				C98FEEFE1D556C4800014F74 /* Errigal.mp3 */,
+				C98FEEFF1D556C4800014F74 /* Folk Round.mp3 */,
+				C98FEF001D556C4800014F74 /* Hidden Past.mp3 */,
+				C98FEF011D556C4800014F74 /* Skye Cuillin.mp3 */,
 			);
-			name = Soundtrack;
+			name = Soundtracks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,16 +297,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98FEF021D556C4800014F74 /* AchaidhCheide.mp3 in Resources */,
+				C98FEF031D556C4800014F74 /* Angevin.mp3 in Resources */,
+				C98FEF041D556C4800014F74 /* Celtic Impulse.mp3 in Resources */,
+				C98FEF051D556C4800014F74 /* Errigal.mp3 in Resources */,
+				C98FEF061D556C4800014F74 /* Folk Round.mp3 in Resources */,
+				C98FEF071D556C4800014F74 /* Hidden Past.mp3 in Resources */,
+				C98FEF081D556C4800014F74 /* Skye Cuillin.mp3 in Resources */,
 				4C03731F1D188AB50060A7D1 /* GameScene.sks in Resources */,
-				C9F066D71D494C500037639C /* AchaidhCheide.mp3 in Resources */,
-				C9F066E61D4C02500037639C /* Skye Cuillin.mp3 in Resources */,
-				4C03732B1D188AB50060A7D1 /* LaunchScreen.storyboard in Resources */,
-				C9F066E81D4C02560037639C /* Hidden Past.mp3 in Resources */,
-				C9F066E21D4BFD1F0037639C /* Celtic Impulse.mp3 in Resources */,
-				C9F066E41D4C01870037639C /* Folk Round.mp3 in Resources */,
-				C9F066DA1D49B39F0037639C /* Angevin.mp3 in Resources */,
 				4C0373281D188AB50060A7D1 /* Assets.xcassets in Resources */,
-				C9F066E01D4BFD160037639C /* Errigal.mp3 in Resources */,
 				C9147C7A1D1C4AD100294AAB /* Main.storyboard in Resources */,
 				C98FEEDB1D52E62600014F74 /* pixelFont.ttf in Resources */,
 			);
@@ -346,7 +344,6 @@
 				B587C2511D4539C300CB7D13 /* Grid.swift in Sources */,
 				C9F066DE1D4AA6D90037639C /* OptionsViewController.swift in Sources */,
 				C9F066DC1D4A95D00037639C /* Music.swift in Sources */,
-				C908BE321D47ED87005879FD /* InfoController.swift in Sources */,
 				C98FEECE1D51214B00014F74 /* AnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
