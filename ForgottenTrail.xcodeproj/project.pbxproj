@@ -23,6 +23,7 @@
 		C9147C7C1D1C7C2100294AAB /* HeroInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */; };
 		C9147C821D21D1DB00294AAB /* SelectHeroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9147C811D21D1DB00294AAB /* SelectHeroController.swift */; };
 		C98FEECE1D51214B00014F74 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FEECD1D51214B00014F74 /* AnimationController.swift */; };
+		C98FEEDB1D52E62600014F74 /* pixelFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C98FEEDA1D52E62600014F74 /* pixelFont.ttf */; };
 		C99040B71D35920100400192 /* StartScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99040B61D35920100400192 /* StartScreenController.swift */; };
 		C9F066D71D494C500037639C /* AchaidhCheide.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066D61D494C500037639C /* AchaidhCheide.mp3 */; };
 		C9F066DA1D49B39F0037639C /* Angevin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C9F066D91D49B39F0037639C /* Angevin.mp3 */; };
@@ -75,6 +76,7 @@
 		C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroInfoController.swift; sourceTree = "<group>"; };
 		C9147C811D21D1DB00294AAB /* SelectHeroController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHeroController.swift; sourceTree = "<group>"; };
 		C98FEECD1D51214B00014F74 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
+		C98FEEDA1D52E62600014F74 /* pixelFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = pixelFont.ttf; sourceTree = "<group>"; };
 		C99040B61D35920100400192 /* StartScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenController.swift; sourceTree = "<group>"; };
 		C9F066D61D494C500037639C /* AchaidhCheide.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = AchaidhCheide.mp3; path = ../../../../Downloads/AchaidhCheide.mp3; sourceTree = "<group>"; };
 		C9F066D91D49B39F0037639C /* Angevin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Angevin.mp3; path = ../../../../Downloads/Angevin.mp3; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		4C03731B1D188AB50060A7D1 /* ForgottenTrail */ = {
 			isa = PBXGroup;
 			children = (
+				C98FEEDA1D52E62600014F74 /* pixelFont.ttf */,
 				4C03731C1D188AB50060A7D1 /* AppDelegate.swift */,
 				C98FEECD1D51214B00014F74 /* AnimationController.swift */,
 				4C03731E1D188AB50060A7D1 /* GameScene.sks */,
@@ -306,6 +309,7 @@
 				4C0373281D188AB50060A7D1 /* Assets.xcassets in Resources */,
 				C9F066E01D4BFD160037639C /* Errigal.mp3 in Resources */,
 				C9147C7A1D1C4AD100294AAB /* Main.storyboard in Resources */,
+				C98FEEDB1D52E62600014F74 /* pixelFont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
