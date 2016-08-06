@@ -29,6 +29,9 @@ class GameScene: SKScene {
     var grid : Grid!
     var currentRow : Double!
     var currentColumn : Double!
+    var btnWillPause = true
+    var playImage = UIImage(named: "play")
+    var pauseImage = UIImage(named: "pause")
     
        
     override func didMoveToView(view: SKView) {
