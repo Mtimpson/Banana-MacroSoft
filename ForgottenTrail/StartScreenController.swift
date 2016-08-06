@@ -35,7 +35,6 @@ class StartScreenController : UIViewController, UIViewControllerTransitioningDel
     override func viewDidLoad() {
         portalFrame = portal.frame
         
-        
         if music {
             Music.sharedHelper.shuffleSongs()
             if Music.sharedHelper.menuPlayer == nil {
