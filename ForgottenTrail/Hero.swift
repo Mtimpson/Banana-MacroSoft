@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 
 enum HeroType: String {
+    case Ranger = "ranger"
     case IcePrincess = "ice"
     case GoldKnight = "gold"
     case Orc = "orc"
@@ -17,21 +18,28 @@ enum HeroType: String {
     case Princess0 = "princess0"
     case DarkElf0 = "darkelf0"
     case DarkElf1 = "darkelf1"
+    case DarkElf2 = "darkelf2"
     case Pirate0 = "pirate0"
     case Pirate1 = "pirate1"
+    case Pirate2 = "pirate2"
     case Princess1 = "princess1"
     case Princess2 = "princess2"
     case Skeleton = "skeleton"
+    case FallenRanger = "fallenRanger"
     case Soldier1 = "soldier1"
     case Soldier2 = "soldier2"
     case Traveler0 = "traveler0"
     case Traveler1 = "traveler1"
     case SilverSci = "silverSci"
-    case Banker0 = "banker"
+    case Banker = "banker"
     
-    static let startingHeros = [Traveler0, Traveler1, IcePrincess, GoldKnight]
-    static let villans = [Orc, Skeleton, SilverSci]
-    static let genericHeros = [Soldier0, Soldier1, Soldier2, Princess0, Princess1, Princess2, DarkElf0, DarkElf1, Pirate0, Pirate1, Banker0]
+    
+    static let startingHeros = [Traveler0, Traveler1, IcePrincess, Ranger, GoldKnight]
+    static let villains = [Orc, Skeleton, FallenRanger]
+    static let commonHeros = [Soldier0, Soldier1, Soldier2, Princess0, Princess1, Princess2, DarkElf0, DarkElf1, DarkElf2, Pirate0, Pirate1, Pirate2, Banker]
+    //use this one for allHerosScreen
+    static let allHerosTypes = [Traveler0, Traveler1, IcePrincess, Ranger, Soldier0, Pirate0, Princess0, DarkElf0, Banker, Orc, Skeleton, GoldKnight, FallenRanger]
+    
 }
 
 

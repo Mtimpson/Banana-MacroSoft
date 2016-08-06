@@ -15,11 +15,19 @@ import SpriteKit
 var heroChosen : HeroType!
 
 
-class SelectHeroController : UIViewController {
+class SelectHeroController : UIViewController, UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var bground: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var stepsLabel: UILabel!
+    @IBOutlet weak var abilityUseLabel: UILabel!
+    @IBOutlet weak var abilityLabel: UILabel!
+    
+    var heroUses : Int!
+    var heroSteps : Int!
+    var heroAbility : String!
+    var descrip : String!
     
     ///buttons to cycle thru statring heros
     @IBOutlet weak var previousBtn: UIButton!
@@ -32,10 +40,10 @@ class SelectHeroController : UIViewController {
     var imageList = [UIImage]()
 
     
-    
+    var transition = AnimationController()
     
     override func viewDidLoad() {
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
+        //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
         updateInfo()
         
         
@@ -70,8 +78,24 @@ class SelectHeroController : UIViewController {
     //called to update the current heros animation
     func updateInfo() {
         
+        heroAbility = heroAbilities[HeroType.startingHeros[indx].rawValue]
+        heroUses = heroAilityUses[HeroType.startingHeros[indx].rawValue]
+        heroSteps = heroStepCount[HeroType.startingHeros[indx].rawValue]
+        descrip = heroDescriptions[HeroType.startingHeros[indx].rawValue]
+        
         nameLabel.text = heroNames[HeroType.startingHeros[indx].rawValue]
-        descriptionLabel.text = heroDescriptions[HeroType.startingHeros[indx].rawValue]
+        descriptionLabel.text = descrip
+        abilityLabel.text = "Ability: \(heroAbility)"
+        if heroSteps != nil {
+            stepsLabel.text = "Steps: \(heroSteps)"
+        } else {
+            stepsLabel.text = "Steps: ∞"
+        }
+        if heroUses != nil {
+            abilityUseLabel.text = "Uses: \(heroUses)"
+        } else {
+            abilityUseLabel.text = "Uses: ∞"
+        }
 
         
         //clear array of images
@@ -81,7 +105,11 @@ class SelectHeroController : UIViewController {
         //load each image for the new hero into the array
         for i in 1 ..< numImages {
             let imageName = HeroType.startingHeros[indx].rawValue + "Front\(i)"
-            imageList.append(UIImage(named: imageName)!)
+            let originalImage = UIImage(named: imageName)
+            // scaling set to 2.0 makes the image 1/2 the size.
+            let scaledImage = UIImage(CGImage: (originalImage?.CGImage)!, scale: (originalImage?.scale)! * 0.5, orientation: (originalImage?.imageOrientation)!)
+            imageList.append(scaledImage)
+
             
         }
         heroChosen = HeroType.startingHeros[indx]
@@ -92,5 +120,26 @@ class SelectHeroController : UIViewController {
         
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let controller = segue.destinationViewController as? StartScreenController {
+            
+            //set transition delegate and modal presentation style
+            controller.transitioningDelegate = self
+            controller.modalPresentationStyle = .Custom
+        }
+    }
+    
+    //called when dismissing a view controller
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        transition.myTransitionMode = .dismiss
+        transition.portalFrame = portalFrame
+        return transition
+    }
+
+    
+    @IBAction func menuAct(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: {})
+    }
     
 }

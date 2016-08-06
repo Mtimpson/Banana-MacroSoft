@@ -9,10 +9,21 @@
 import UIKit
 import SpriteKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, GameSceneDelegate {
+    
+    func launchViewController(scene: SKScene) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = mainStoryboard.instantiateViewControllerWithIdentifier("start")
+        
+        presentViewController(vc, animated: true, completion: nil)
+        // note that you don't need to go through a bunch of optionals to call presentViewController
+    
+    }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Configure the view.
         let skView = self.view as! SKView
         let scene = GameScene(size: skView.bounds.size)
@@ -24,7 +35,9 @@ class GameViewController: UIViewController {
         scene.scaleMode = .AspectFill
         
         skView.multipleTouchEnabled = false
-            
+        
+        scene.gameOverDelegate = self
+
         skView.presentScene(scene)
         
     }
@@ -49,4 +62,5 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
 }

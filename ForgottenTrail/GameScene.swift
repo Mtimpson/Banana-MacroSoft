@@ -9,11 +9,18 @@
 import SpriteKit
 import UIKit
 
+protocol GameSceneDelegate {
+    func launchViewController(scene: SKScene)
+}
 class GameScene: SKScene {
+    var gameOverDelegate : GameSceneDelegate?
     var you : Hero!
+    var blur : UIView!
     var isCreated = false
     var world : SKNode?
     var overlay : SKNode?
+    var pauseBtn : UIButton!
+    var mainMenuBtn : UIButton!
     var sceneCamera : SKCameraNode?
     var heroWalkingFrames : [SKTexture]!
     var tempTexture : SKTexture!
@@ -23,6 +30,7 @@ class GameScene: SKScene {
     var currentRow : Double!
     var currentColumn : Double!
     
+       
     override func didMoveToView(view: SKView) {
         
         
@@ -158,5 +166,55 @@ class GameScene: SKScene {
         move = SKAction.repeatActionForever(move)
         
     }
+    
+    func pausePressed(){
+        if btnWillPause {
+            paused = true
+            
+            blur = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+            blur.center = CGPointMake(self.frame.width / 2, self.size.height / 2)
+            blur.backgroundColor = UIColor.lightTextColor()
+            blur.layer.zPosition = -10
+            view?.addSubview(blur)
+            
+            pauseBtn.setImage(playImage, forState: UIControlState.Normal)
+            pauseBtn.backgroundColor = UIColor.lightGrayColor()
+            pauseBtn.removeFromSuperview()
+            self.view?.addSubview(pauseBtn)
+            mainMenuBtn = UIButton(type: .Custom)
+            mainMenuBtn.frame = CGRectMake(0, 0, 120, 70)
+            mainMenuBtn.center = CGPointMake(self.frame.width / 2, self.frame.height / 2 - 100)
+            mainMenuBtn.layer.cornerRadius = 0.5 * pauseBtn.bounds.size.width
+            mainMenuBtn.setTitle("Main Menu", forState: UIControlState.Normal)
+            mainMenuBtn.layer.borderWidth = 2
+            mainMenuBtn.layer.borderColor = UIColor.whiteColor().CGColor
+            mainMenuBtn.backgroundColor = UIColor.lightGrayColor()
+            mainMenuBtn.reversesTitleShadowWhenHighlighted = true
+            mainMenuBtn.showsTouchWhenHighlighted = true
+            mainMenuBtn.addTarget(self, action: #selector(GameScene.mainMenuPressed), forControlEvents: UIControlEvents.TouchUpInside)
+            
+            self.view?.addSubview(mainMenuBtn)
+            
+            Music.sharedHelper.gamePlayer?.pause()
+            btnWillPause = false
+        } else {
+            paused = false
+            blur.removeFromSuperview()
+            mainMenuBtn.removeFromSuperview()
+            pauseBtn.setImage(pauseImage, forState: UIControlState.Normal)
+            pauseBtn.backgroundColor = UIColor.lightTextColor()
+            Music.sharedHelper.gamePlayer?.play()
+            btnWillPause = true
 
+        }
+    
+        
+    }
+    
+    func mainMenuPressed(){
+        self.view?.presentScene(nil)
+        Music.sharedHelper.gamePlayer?.stop()
+        self.gameOverDelegate?.launchViewController(self)
+    }
+    
 }
