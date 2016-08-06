@@ -12,7 +12,7 @@ import UIKit
 class GameScene: SKScene {
     var you : Hero!
     var isCreated = false
-    var world : SKShapeNode?
+    var world : SKNode?
     var overlay : SKNode?
     var sceneCamera : SKCameraNode?
     var heroWalkingFrames : [SKTexture]!
@@ -20,6 +20,8 @@ class GameScene: SKScene {
     var move : SKAction!
     var moving = false
     var grid : Grid!
+    var currentRow : Double!
+    var currentColumn : Double!
     
     override func didMoveToView(view: SKView) {
         
@@ -29,7 +31,7 @@ class GameScene: SKScene {
             
             isCreated = true
             self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            self.world = SKShapeNode(rectOfSize: CGSizeMake(worldWidth, worldHeight))
+            self.world = SKNode()
             self.world?.name = "world"
             addChild(self.world!)
             
@@ -42,35 +44,23 @@ class GameScene: SKScene {
             self.overlay!.name = "overlay"
             addChild(self.overlay!)
             
-            let gridSize = 10
+            let gridSize = 11
             grid = Grid(size: gridSize)
-            for row in 0 ..< gridSize {
-                for col in 0 ..< gridSize {
-                    let tile : SKSpriteNode!
-                    switch grid.tiles[row][col] {
-                    case 0:
-                        tile = SKSpriteNode(imageNamed: "stone.png")
-                    case 1:
-                        tile = SKSpriteNode(imageNamed: "lava.png")
-                    default:
-                        tile = SKSpriteNode(imageNamed: "grass.png")
-                    }
-                    tile.size = CGSizeMake(tileSize, tileSize)
-                    tile.zPosition = -10
-                    tile.position = CGPointMake(tileSize * CGFloat(col), tileSize * CGFloat(row))
-                    tile.name = "" + String(row) + "," + String(col)
-                    self.world?.addChild(tile)
-                }
+            for tile in grid.tiles {
+                self.world?.addChild(tile)
             }
+            
+            // creates your current heros animation
+            self.you = Hero(type: heroChosen)
+            you.anchorPoint = CGPointMake(0.5, 0.1)
+            let startX = CGFloat(Int(gridSize / 2)) * tileSize
+            let startY = CGFloat(0.0)
+            you.position = CGPointMake(startX, startY)
+            self.world!.addChild(self.you)
+            you.turn(UISwipeGestureRecognizerDirection.Up.rawValue)
+            changeHeroPostion()
+
         }
-        
-        //creates your current heros animation
-        
-        self.you = Hero(type: heroChosen)
-        updateTextureAtlas()
-        //you.texture = heroWalkingFrames[0]
-        you.anchorPoint = CGPointMake(0.5, 0.1)
-        self.world!.addChild(self.you)
         
         //changes direction upon recognition of a swipe
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GameScene.respondToSwipeGesture(_:)))
@@ -90,8 +80,6 @@ class GameScene: SKScene {
         self.view!.addGestureRecognizer(swipeUp)
         
         
-        
-        changeHeroPostion()
 
     }
     
@@ -104,16 +92,12 @@ class GameScene: SKScene {
         //moves camera around the scene
         //self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(you.position.x, you.position.y), duration: 0))
 
-        if !moving {
-            moving = true
-            if you.heroDirection != you.upcomingDirection {
-                you.removeFromParent()
-                updateTextureAtlas()
-                self.world!.addChild(you)
-            }
-            you.runAction(move) {
-                self.moving = false
-            }
+        if you.heroDirection != you.upcomingDirection {
+            you.removeAllActions()
+            you.runAction(move)
+            you.removeFromParent()
+            updateTextureAtlas()
+            self.world!.addChild(you)
         }
         
         if self.sceneCamera != nil {
@@ -158,21 +142,20 @@ class GameScene: SKScene {
     func changeHeroPostion() {
         
         //deterines which way to move the sprite depending on which way it is facing
-        let moveDist = tileSize / 2.0
-        let moveDur = decisionTime
 
         if you.upcomingDirection == "Right" {
             move = SKAction.moveByX(moveDist, y: 0, duration: moveDur)
         }
-        if you.upcomingDirection == "Left" {
+        else if you.upcomingDirection == "Left" {
             move = SKAction.moveByX(-moveDist, y: 0, duration: moveDur)
         }
-        if you.upcomingDirection == "Front" {
+        else if you.upcomingDirection == "Front" {
             move = SKAction.moveByX(0, y: -moveDist, duration: moveDur)
         }
-        if you.upcomingDirection == "Back" {
+        else if you.upcomingDirection == "Back" {
             move = SKAction.moveByX(0, y: moveDist, duration: moveDur)
         }
+        move = SKAction.repeatActionForever(move)
         
     }
 

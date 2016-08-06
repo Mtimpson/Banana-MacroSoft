@@ -7,22 +7,23 @@
 //
 
 import Foundation
+import UIKit
 
 
 class Grid {
-    
-    var tiles: [[Int]]
-    init(size: Int) {
-        tiles = Array(count: size, repeatedValue:[Int](count: size, repeatedValue: 0))
 
+    var tiles: [Tile]
+    
+    init(size: Int) {
+        
+        tiles = [Tile]()
         for row in 0 ..< size {
             for col in 0 ..< size {
-                if arc4random_uniform(5) == 0 {
-                    tiles[row][col] = 1
-                }
-                else {
-                    tiles[row][col] =  0
-                }
+                var tile = Tile(tileType: Int(arc4random_uniform(2)))
+                tile.zPosition = -10
+                tile.position = CGPointMake(tileSize * CGFloat(col), tileSize * CGFloat(row))
+                tile.name = "" + String(row) + "," + String(col)
+                tiles.append(tile)
             }
         }
     }

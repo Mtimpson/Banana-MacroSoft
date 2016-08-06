@@ -23,8 +23,9 @@ let heroVariants: [String:Int] = [
 
 let worldWidth: CGFloat = 1000
 let worldHeight: CGFloat = 2000
-let tileSize: CGFloat = 200
-let decisionTime = 1.0
+let tileSize: CGFloat = 100
+let moveDist = tileSize
+let moveDur = 1.0
 
 
 

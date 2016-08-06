@@ -41,8 +41,9 @@ class Hero: SKSpriteNode {
     var heroDirection : String!
     var upcomingDirection: String!
     var actionsLeft : UInt!
+    var currentTile : Tile!
     
-    init(type: HeroType, direction: String = "Back") {
+    init(type: HeroType, direction: String = "Right") {
         
         heroType = type
         let imageName = ""
