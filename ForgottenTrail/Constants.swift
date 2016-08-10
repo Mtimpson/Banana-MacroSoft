@@ -12,26 +12,26 @@ import SpriteKit
 
 let heroSize: CGSize = CGSizeMake(CGFloat(64), CGFloat(64))
 
-let heroNames: [String:String] = [
-    "ice" : "Rhoslyn the Ice Princess", "gold" : "Valter the Golden Knight", "orc" : "Orcs", "princess0" : "Princesses", "soldier0" : "Warriors", "darkelf0" : "Dark Elves", "pirate0" : "Pirates", "skeleton" : "Skeletons", "traveler0" : "Hutch the Traveler", "traveler1" : "Aveline the Nomad", "banker" : "The Banker", "ranger" : "Leoril the Ranger", "fallenRanger" : "Fallen Rangers"
+let heroNames: [HeroType:String] = [
+    HeroType.IcePrincess : "Rhoslyn the Ice Princess", HeroType.GoldKnight : "Valter the Golden Knight", HeroType.Orc : "Orcs", HeroType.Princess0 : "Princesses", HeroType.Soldier0 : "Warriors", HeroType.DarkElf0 : "Dark Elves", HeroType.Pirate0 : "Pirates", HeroType.Skeleton : "Skeletons", HeroType.Traveler0 : "Hutch the Traveler", HeroType.Traveler1 : "Aveline the Nomad", HeroType.Banker : "The Banker", HeroType.Ranger : "Leoril the Ranger", HeroType.FallenRanger : "Fallen Rangers"
 ]
-let heroDescriptions: [String:String] = [
-    "ice" : "Versatile, through many years of training in all skills and crafts. ", "gold" : "The only hero in the realm brave enought to kill all those pesky enemines you encounter.", "orc" : "Beasts so vile even the realm's great warriors cower in fear.", "princess0" : "They've stolen the prince's heart along with his keys to the portals.", "soldier0" : "Brave defenders of the realm. Not yet worthy of the title of knight.", "darkelf0" : "Shady beings capable of mysterious powers. Known to enter lava and emerge unscathed.", "pirate0" : "Skilled marauders of the high seas.", "skeleton" : "The undead, capable of unspeakable atrocities.", "traveler0" : "Your basic traveler. Normally spends as much time outdoors as your average Pokémon Go trainer.", "traveler1" : "Enjoys the outdoors. Gravely unprepared to fend off the realm's enemies.", "banker" : "Everyone knows bankers love currency. 'Put him anywhere on God's green Earth, he'll triple his worth' - Jay-Z", "ranger" : "Knows the wilderness like the back of his hand. Skilled in combat and trap making.", "fallenRanger" : "Former rangers, twisted by their death in the wild. Extremely formidable."
+let heroDescriptions: [HeroType:String] = [
+    HeroType.IcePrincess : "Versatile, through many years of training in all skills and crafts. ", HeroType.GoldKnight : "The only hero in the realm brave enought to kill all those pesky enemines you encounter.", HeroType.Orc : "Beasts so vile even the realm's great warriors cower in fear.", HeroType.Princess0 : "They've stolen the prince's heart along with his keys to the portals.", HeroType.Soldier0 : "Brave defenders of the realm. Not yet worthy of the title of knight.", HeroType.DarkElf0 : "Shady beings capable of mysterious powers. Known to enter lava and emerge unscathed.", HeroType.Pirate0 : "Skilled marauders of the high seas.", HeroType.Skeleton : "The undead, capable of unspeakable atrocities.", HeroType.Traveler0 : "Your basic traveler. Normally spends as much time outdoors as your average Pokémon Go trainer.", HeroType.Traveler1 : "Enjoys the outdoors. Gravely unprepared to fend off the realm's enemies.", HeroType.Banker : "Everyone knows bankers love currency. 'Put him anywhere on God's green Earth, he'll triple his worth' - Jay-Z", HeroType.Ranger : "Knows the wilderness like the back of his hand. Skilled in combat and trap making.", HeroType.FallenRanger : "Former rangers, twisted by their death in the wild. Extremely formidable."
 ]
-let heroVariants: [String:Int] = [
-    "ice" : 1, "gold" : 1, "orc" : 1, "princess0" : 3, "soldier0" : 3, "darkelf0" : 3, "pirate0" : 3, "skeleton" :1, "traveler0" : 1, "traveler1" : 1, "banker" : 1, "fallenRanger" : 1, "ranger" : 1
-]
-
-let heroAbilities: [String:String] = [
-    "ice" : "Retains the ability of the hero used before her.", "gold" : "Can rid the realm of Fallen Rangers, Skeletons and Orcs.", "orc" : "Can only be destroyed by Valter the Gold Knight, Leoril the Ranger, or Warriors.", "princess0" : "Able to close the portal without collecting its key.", "soldier0" : "Strong enough to kill the vile Orcs.", "darkelf0" : "May cross lava tiles uninjured.", "pirate0" : "Capable of moving through water tiles.", "skeleton" : "Only Valter the Gold Knight and Leoril the Ranger may kill them.", "traveler0" : "None. You think Pokémon Go players have powers?", "traveler1" : "None. Might be able to construct a campfire.", "banker" : "Doubles the worth of coins collected.", "ranger" : "Bests Orcs and Skeletons in combat.", "fallenRanger" : "Vurnerable only to Valter the Gold Knight"
+let heroVariants: [HeroType:Int] = [
+    HeroType.IcePrincess : 1, HeroType.GoldKnight : 1, HeroType.Orc : 1, HeroType.Princess0 : 3, HeroType.Soldier0 : 3, HeroType.DarkElf0 : 3, HeroType.Pirate0 : 3, HeroType.Skeleton :1, HeroType.Traveler0 : 1, HeroType.Traveler1 : 1, HeroType.Banker : 1, HeroType.FallenRanger : 1, HeroType.Ranger : 1
 ]
 
-let heroActions: [String:Int] = [
-    "traveler0" : 0, "traveler1" : 0, "ice" : 1, "ranger" : 5,  "soldier0" : 3, "pirate0" : 3, "princess0" : 1, "darkelf0" : 3
+let heroAbilities: [HeroType:String] = [
+    HeroType.IcePrincess : "Retains the ability of the hero used before her.", HeroType.GoldKnight : "Can rid the realm of Fallen Rangers, Skeletons and Orcs.", HeroType.Orc : "Can only be destroyed by Valter the Gold Knight, Leoril the Ranger, or Warriors.", HeroType.Princess0 : "Able to close the portal without collecting its key.", HeroType.Soldier0 : "Strong enough to kill the vile Orcs.", HeroType.DarkElf0 : "May cross lava tiles uninjured.", HeroType.Pirate0 : "Capable of moving through water tiles.", HeroType.Skeleton : "Only Valter the Gold Knight and Leoril the Ranger may kill them.", HeroType.Traveler0 : "None. You think Pokémon Go players have powers?", HeroType.Traveler1 : "None. Might be able to construct a campfire.", HeroType.Banker : "Doubles the worth of coins collected.", HeroType.Ranger : "Bests Orcs and Skeletons in combat.", HeroType.FallenRanger : "Vurnerable only to Valter the Gold Knight"
 ]
 
-let heroStepCount : [String:Int] = [
-    "traveler0" : 10, "traveler1" : 40, "ice" : 40, "ranger" : 55, "gold" : 45, "soldier0" : 35, "pirate0" : 30, "princess0" : 25, "darkelf0" : 30
+let heroActions: [HeroType:Int] = [
+    HeroType.Traveler0 : 0, HeroType.Traveler1 : 0, HeroType.IcePrincess : 1, HeroType.Ranger : 5,  HeroType.Soldier0 : 3, HeroType.Pirate0 : 3, HeroType.Princess0 : 1, HeroType.DarkElf0 : 3
+]
+
+let heroSteps : [HeroType:Int] = [
+    HeroType.Traveler0 : 10, HeroType.Traveler1 : 40, HeroType.IcePrincess : 40, HeroType.Ranger : 55, HeroType.GoldKnight : 45, HeroType.Soldier0 : 35, HeroType.Pirate0 : 30, HeroType.Princess0 : 25, HeroType.DarkElf0 : 30
 
 
 ]

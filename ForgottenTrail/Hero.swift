@@ -48,16 +48,25 @@ class Hero: SKSpriteNode {
     var heroType : HeroType!
     var heroDirection : String!
     var upcomingDirection: String!
-    var actionsLeft : UInt!
-    var currentTile : Tile!
+    var actionsLeft : Int!
+    var steps : Int = 0
     
-    init(type: HeroType, direction: String = "Right") {
+    init(type: HeroType, direction: String = "", upcoming: String = "") {
         
         heroType = type
         let imageName = ""
         heroDirection = direction
-        upcomingDirection = heroDirection
-        actionsLeft = 3
+        upcomingDirection = upcoming
+        if heroActions[heroType] == nil {
+            actionsLeft = 0
+        } else {
+            actionsLeft = heroActions[heroType]
+        }
+        if heroSteps[heroType] == nil {
+            steps = 0
+        } else {
+            steps = heroSteps[heroType]!
+        }
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: heroSize)
         
     }
@@ -101,12 +110,16 @@ class Hero: SKSpriteNode {
 
     }
     
+    func step() {
+        steps -= 1
+    }
+    
     func getName() -> String {
-        return heroNames[heroType.rawValue]!
+        return heroNames[heroType]!
     }
     
     func getDescription () -> String {
-        return heroDescriptions[heroType.rawValue]!
+        return heroDescriptions[heroType]!
     }
     
     func getAtlas() -> String {

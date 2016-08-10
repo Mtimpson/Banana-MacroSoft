@@ -26,7 +26,6 @@ class InfoController : UIViewController {
     var variant2 : String!
     var variant3 : String!
     
-    //var heroRawValue : String!
     var name : String!
     var descrip : String!
     var numVariants : Int!
@@ -37,7 +36,7 @@ class InfoController : UIViewController {
     var var2str : String!
     var var3str : String!
     
-    var heroRawValue : String!
+    var heroChosen : HeroType!
     
     var indx = 0
     //array to store the images used to animate each hero
@@ -46,13 +45,13 @@ class InfoController : UIViewController {
     
     override func viewDidLoad() {
         //self.view.backgroundColor = UIColor(patternImage: UIImage(named: "bground.png")!)
-        heroRawValue = heroClicked
-        name = heroNames[heroRawValue]
-        descrip = heroDescriptions[heroRawValue]
-        numVariants = heroVariants[heroRawValue]
-        abil = heroAbilities[heroRawValue]
-        abilUses = heroActions[heroRawValue]
-        stepCount = heroStepCount[heroRawValue]
+        heroChosen = heroClicked
+        name = heroNames[heroChosen]
+        descrip = heroDescriptions[heroChosen]
+        numVariants = heroVariants[heroChosen]
+        abil = heroAbilities[heroChosen]
+        abilUses = heroActions[heroChosen]
+        stepCount = heroSteps[heroChosen]
         
         
         nameLabel.text = name
@@ -68,7 +67,7 @@ class InfoController : UIViewController {
             abilityUsesLabel.text = "Actions: ∞"
         }
         descriptionLabel.text = descrip
-        if HeroType.villains.contains(typeClicked) {
+        if HeroType.villains.contains(heroChosen) {
             abilityLabel.text = abil
         } else {
             abilityLabel.text = "Ability: \(abil)"
@@ -77,21 +76,18 @@ class InfoController : UIViewController {
        
         
         if numVariants == 1 {
-            variant1 = "\(heroRawValue)Front"
+            variant1 = "\(heroChosen.rawValue)Front"
             //midChar.image = UIImage(named: variant1)
             getAnimation(midChar, variant: variant1)
             midChar.contentMode = .ScaleAspectFit
             
             
         } else if numVariants == 3 {
-            var2str = heroRawValue.stringByReplacingOccurrencesOfString("0", withString: "1")
-            var3str = heroRawValue.stringByReplacingOccurrencesOfString("0", withString: "2")
-            variant1 = "\(heroRawValue)Front"
+            var2str = heroChosen.rawValue.stringByReplacingOccurrencesOfString("0", withString: "1")
+            var3str = heroChosen.rawValue.stringByReplacingOccurrencesOfString("0", withString: "2")
+            variant1 = "\(heroChosen.rawValue)Front"
             variant2 = "\(var2str)Front"
             variant3 = "\(var3str)Front"
-            //leftChar.image = UIImage(named: variant1)
-            //midChar.image = UIImage(named: variant2)
-            //rightChar.image = UIImage(named: variant3)
             
             getAnimation(leftChar, variant: variant1)
             getAnimation(midChar, variant: variant2)
