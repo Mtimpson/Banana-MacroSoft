@@ -25,7 +25,7 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
     @IBOutlet weak var abilityLabel: UILabel!
     
     var heroUses : Int!
-    var heroSteps : Int!
+    var steps : Int!
     var heroAbility : String!
     var descrip : String!
     
@@ -78,16 +78,16 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
     //called to update the current heros animation
     func updateInfo() {
         
-        heroAbility = heroAbilities[HeroType.startingHeros[indx].rawValue]
-        heroUses = heroAilityUses[HeroType.startingHeros[indx].rawValue]
-        heroSteps = heroStepCount[HeroType.startingHeros[indx].rawValue]
-        descrip = heroDescriptions[HeroType.startingHeros[indx].rawValue]
+        heroAbility = heroAbilities[HeroType.startingHeros[indx]]
+        heroUses = heroActions[HeroType.startingHeros[indx]]
+        steps = heroSteps[HeroType.startingHeros[indx]]
+        descrip = heroDescriptions[HeroType.startingHeros[indx]]
         
-        nameLabel.text = heroNames[HeroType.startingHeros[indx].rawValue]
+        nameLabel.text = heroNames[HeroType.startingHeros[indx]]
         descriptionLabel.text = descrip
         abilityLabel.text = "Ability: \(heroAbility)"
-        if heroSteps != nil {
-            stepsLabel.text = "Steps: \(heroSteps)"
+        if steps != nil {
+            stepsLabel.text = "Steps: \(steps)"
         } else {
             stepsLabel.text = "Steps: ∞"
         }

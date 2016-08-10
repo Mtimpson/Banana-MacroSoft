@@ -34,9 +34,8 @@ class GameScene: SKScene {
     var pauseImage = UIImage(named: "pause")
     var stepLabel : UILabel!
     var usesLabel : UILabel!
-    var stepsLeft = Int()
     var usesLeft = Int()
-    var heroStack = Stack<HeroType>()
+    var heroStack = Stack<Hero>()
     
     override func didMoveToView(view: SKView) {
         
@@ -46,41 +45,37 @@ class GameScene: SKScene {
             
             isCreated = true
             self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            self.world = SKNode()
-            self.world?.name = "world"
+            world = SKNode()
+            world?.name = "world"
             addChild(self.world!)
             
             self.sceneCamera = SKCameraNode()
             self.sceneCamera!.name = "sceneCamera"
-            self.world?.addChild(self.sceneCamera!)
+            world?.addChild(self.sceneCamera!)
 
-            self.overlay = SKNode()
-            self.overlay?.zPosition = 10
-            self.overlay!.name = "overlay"
-            addChild(self.overlay!)
-            
-            let gridSize = 11
+                        let gridSize = 11
             grid = Grid(size: gridSize, type: Int(arc4random_uniform(2)))
             for tile in grid.tiles {
-                self.world?.addChild(tile)
+                world?.addChild(tile)
             }
+            NSTimer.scheduledTimerWithTimeInterval(frameTime * 4, target: self, selector: #selector(GameScene.updateStepLabel), userInfo: nil, repeats: true)
             
-            addOverlayItems()
             
-           NSTimer.scheduledTimerWithTimeInterval(frameTime * 4, target: self, selector: #selector(GameScene.updateStepLabel), userInfo: nil, repeats: true)
-            
-            heroStack.push(heroChosen)
-            heroStack.push(HeroType.Soldier0)
             // creates your current heros animation
-            self.you = Hero(type: heroChosen)
+            you = Hero(type: heroChosen)
             you.anchorPoint = CGPointMake(0.5, 0.1)
             let startX = CGFloat(Int(gridSize / 2)) * tileSize
             let startY = CGFloat(0.0)
             you.position = CGPointMake(startX, startY)
-            self.world!.addChild(self.you)
+            world!.addChild(you)
             you.turn(UISwipeGestureRecognizerDirection.Up.rawValue)
             changeHeroPostion()
 
+            heroStack.push(Hero(type: HeroType.Soldier0))
+            heroStack.push(Hero(type: HeroType.Soldier0))
+            
+            addOverlayItems()
+            
         }
         
         //changes direction upon recognition of a swipe
@@ -110,9 +105,8 @@ class GameScene: SKScene {
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        //moves camera around the scene
-        //self.sceneCamera?.runAction(SKAction.moveTo(CGPointMake(you.position.x, you.position.y), duration: 0))
-
+        
+        // Change the movement if a new direction is swiped
         if you.heroDirection != you.upcomingDirection {
             you.removeAllActions()
             you.runAction(move)
@@ -143,6 +137,7 @@ class GameScene: SKScene {
     }
     
     func updateTextureAtlas() {
+        // Get the new TextureAtlas
         let atlasName = SKTextureAtlas(named: you.getAtlas())
         var walkFrames = [SKTexture]()
         let numImages = atlasName.textureNames.count
@@ -162,8 +157,7 @@ class GameScene: SKScene {
     
     func changeHeroPostion() {
         
-        //deterines which way to move the sprite depending on which way it is facing
-
+        // Deterines which way to move the sprite depending on which way it is facing
         if you.upcomingDirection == "Right" {
             move = SKAction.moveByX(moveDist, y: 0, duration: moveDur)
         }
@@ -247,10 +241,9 @@ class GameScene: SKScene {
         pauseBtn.addTarget(self, action: #selector(GameScene.pausePressed), forControlEvents: UIControlEvents.TouchUpInside)
         self.view?.addSubview(pauseBtn)
         
-        stepsLeft = heroStepCount[heroChosen.rawValue]!
         stepLabel = UILabel(frame: CGRectMake(2, 2, 150, 20))
         stepLabel.font = UIFont(name: "PerfectDOSVGA437Win", size: 16.0)
-        stepLabel.text = "Steps: \(stepsLeft)"
+        stepLabel.text = "Steps: \(you.steps)"
         stepLabel.textColor = UIColor.whiteColor()
         self.view?.addSubview(stepLabel)
         
@@ -265,31 +258,32 @@ class GameScene: SKScene {
     
     func updateStepLabel(){
         if !paused {
-            stepsLeft -= 1
-            stepLabel.text = "Steps: \(stepsLeft)"
-            if stepsLeft == 0 {
-                heroChosen = heroStack.pop()
-                you.removeFromParent()
-                let direction = you.heroDirection
-                let position = you.position
-                self.you = Hero(type: heroChosen)
-                you.position = position
-                self.world?.addChild(self.you)
-                centerOnNode(you)
-                updateTextureAtlas()
-                if direction == "Back" {
-                    you.turn(UISwipeGestureRecognizerDirection.Up.rawValue)
-                } else if direction == "Left" {
-                    you.turn(UISwipeGestureRecognizerDirection.Left.rawValue)
-                } else if direction == "Right" {
-                    you.turn(UISwipeGestureRecognizerDirection.Right.rawValue)
-                } else {
-                    you.turn(UISwipeGestureRecognizerDirection.Down.rawValue)
-                }
-                //changeHeroPostion()
-                stepsLeft = heroStepCount[heroChosen.rawValue]!
-            }
+            // Decrement step count
+            you.step()
+            stepLabel.text = "Steps: \(you.steps)"
+            if you.steps == 0 { heroOutOfSteps() }
         }
+    }
+        
+    func heroOutOfSteps() {
+        // Retrieve current hero info
+        let position = you.position
+        let upcoming = you.upcomingDirection
+        you.removeFromParent()
+        // Change to new hero
+        you = heroStack.pop()
+        you.heroDirection = ""
+        you.upcomingDirection = upcoming
+        you.position = position
+        you.anchorPoint = CGPointMake(0.5, 0.1)
+        self.world?.addChild(self.you)
+        centerOnNode(you)
+        // Prepare movement and textures
+        changeHeroPostion()
+        updateTextureAtlas()
+        // Reset heroDirection to trigger movement in the update function
+        you.heroDirection = ""
+        stepLabel.text = "Steps: \(you.steps)"
     }
     
     
