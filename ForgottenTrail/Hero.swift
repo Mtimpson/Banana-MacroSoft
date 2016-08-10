@@ -57,8 +57,16 @@ class Hero: SKSpriteNode {
         let imageName = ""
         heroDirection = direction
         upcomingDirection = upcoming
-        actionsLeft = heroActions[heroType]
-        steps = heroSteps[heroType]!
+        if heroActions[heroType] == nil {
+            actionsLeft = 0
+        } else {
+            actionsLeft = heroActions[heroType]
+        }
+        if heroSteps[heroType] == nil {
+            steps = 0
+        } else {
+            steps = heroSteps[heroType]!
+        }
         super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: heroSize)
         
     }

@@ -61,13 +61,12 @@ class GameScene: SKScene {
             
             
             // creates your current heros animation
-            you = Hero(type: heroChosen)
+            you = Hero(type: heroChosen, upcoming: "Back")
             you.anchorPoint = CGPointMake(0.5, 0.1)
             let startX = CGFloat(Int(gridSize / 2)) * tileSize
             let startY = CGFloat(0.0)
             you.position = CGPointMake(startX, startY)
             world!.addChild(you)
-            you.turn(UISwipeGestureRecognizerDirection.Up.rawValue)
             changeHeroPostion()
 
             heroStack.push(Hero(type: HeroType.Soldier0))
@@ -246,7 +245,7 @@ class GameScene: SKScene {
         stepLabel.textColor = UIColor.whiteColor()
         self.view?.addSubview(stepLabel)
         
-        usesLeft = heroActions[heroChosen.rawValue]!
+        usesLeft = heroActions[you.heroType]!
         usesLabel = UILabel(frame: CGRectMake(2, 2, 150, self.frame.size.width / 2))
         usesLabel.font = UIFont(name: "PerfectDOSVGA437Win", size: 16.0)
         usesLabel.text = "Actions: \(usesLeft)"

@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 import SpriteKit
 
-var heroClicked : String!
-var typeClicked : HeroType!
-
+var heroClicked : HeroType!
 class HeroInfoController : UIViewController, UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var pic0: UIImageView!
@@ -73,7 +71,7 @@ class HeroInfoController : UIViewController, UIViewControllerTransitioningDelega
         for i in 0..<allImageViews.count {
             currentType = HeroType.allHerosTypes[i]
             currentImageView = allImageViews[i]
-            currentHero = Hero(type: currentType, direction: "Front")
+            currentHero = Hero(type: currentType, direction: "Front", upcoming: "Front")
             
             eachHerosImages.removeAll()
             let folderName = SKTextureAtlas(named: currentHero.getAtlas())
@@ -102,8 +100,7 @@ class HeroInfoController : UIViewController, UIViewControllerTransitioningDelega
     }
     
     @IBAction func allBtnFunc(sender: AnyObject) {
-        heroClicked = HeroType.allHerosTypes[sender.tag].rawValue
-        typeClicked = HeroType.allHerosTypes[sender.tag]
+        heroClicked = HeroType.allHerosTypes[sender.tag]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
