@@ -92,9 +92,9 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
             stepsLabel.text = "Steps: ∞"
         }
         if heroUses != nil {
-            abilityUseLabel.text = "Uses: \(heroUses)"
+            abilityUseLabel.text = "Actions: \(heroUses)"
         } else {
-            abilityUseLabel.text = "Uses: ∞"
+            abilityUseLabel.text = "Actions: ∞"
         }
 
         

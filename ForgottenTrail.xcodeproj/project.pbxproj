@@ -30,6 +30,7 @@
 		C98FEF061D556C4800014F74 /* Folk Round.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEEFF1D556C4800014F74 /* Folk Round.mp3 */; };
 		C98FEF071D556C4800014F74 /* Hidden Past.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEF001D556C4800014F74 /* Hidden Past.mp3 */; };
 		C98FEF081D556C4800014F74 /* Skye Cuillin.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C98FEF011D556C4800014F74 /* Skye Cuillin.mp3 */; };
+		C98FEF0B1D5BB53B00014F74 /* InfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98FEF0A1D5BB53B00014F74 /* InfoController.swift */; };
 		C99040B71D35920100400192 /* StartScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99040B61D35920100400192 /* StartScreenController.swift */; };
 		C9F066DC1D4A95D00037639C /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F066DB1D4A95D00037639C /* Music.swift */; };
 		C9F066DE1D4AA6D90037639C /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F066DD1D4AA6D90037639C /* OptionsViewController.swift */; };
@@ -83,6 +84,7 @@
 		C98FEEFF1D556C4800014F74 /* Folk Round.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Folk Round.mp3"; path = "../Soundtracks/Folk Round.mp3"; sourceTree = "<group>"; };
 		C98FEF001D556C4800014F74 /* Hidden Past.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Hidden Past.mp3"; path = "../Soundtracks/Hidden Past.mp3"; sourceTree = "<group>"; };
 		C98FEF011D556C4800014F74 /* Skye Cuillin.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Skye Cuillin.mp3"; path = "../Soundtracks/Skye Cuillin.mp3"; sourceTree = "<group>"; };
+		C98FEF0A1D5BB53B00014F74 /* InfoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoController.swift; sourceTree = "<group>"; };
 		C99040B61D35920100400192 /* StartScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenController.swift; sourceTree = "<group>"; };
 		C9F066DB1D4A95D00037639C /* Music.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
 		C9F066DD1D4AA6D90037639C /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				4C0373221D188AB50060A7D1 /* GameViewController.swift */,
 				C98FEF091D556C5000014F74 /* Soundtracks */,
 				C9147C791D1C4AD100294AAB /* Main.storyboard */,
+				C98FEF0A1D5BB53B00014F74 /* InfoController.swift */,
 				C9147C811D21D1DB00294AAB /* SelectHeroController.swift */,
 				C9147C7B1D1C7C2100294AAB /* HeroInfoController.swift */,
 				C99040B61D35920100400192 /* StartScreenController.swift */,
@@ -341,6 +344,7 @@
 				4C03731D1D188AB50060A7D1 /* AppDelegate.swift in Sources */,
 				B587C2531D4841AE00CB7D13 /* Tile.swift in Sources */,
 				B52B01281D18A159005BDB77 /* Constants.swift in Sources */,
+				C98FEF0B1D5BB53B00014F74 /* InfoController.swift in Sources */,
 				B587C2511D4539C300CB7D13 /* Grid.swift in Sources */,
 				C9F066DE1D4AA6D90037639C /* OptionsViewController.swift in Sources */,
 				C9F066DC1D4A95D00037639C /* Music.swift in Sources */,

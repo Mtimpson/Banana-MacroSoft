@@ -51,7 +51,7 @@ class InfoController : UIViewController {
         descrip = heroDescriptions[heroRawValue]
         numVariants = heroVariants[heroRawValue]
         abil = heroAbilities[heroRawValue]
-        abilUses = heroAilityUses[heroRawValue]
+        abilUses = heroActions[heroRawValue]
         stepCount = heroStepCount[heroRawValue]
         
         
@@ -63,9 +63,9 @@ class InfoController : UIViewController {
         }
 
         if abilUses != nil {
-            abilityUsesLabel.text = "Uses: \(abilUses)"
+            abilityUsesLabel.text = "Actions: \(abilUses)"
         } else {
-            abilityUsesLabel.text = "Uses: ∞"
+            abilityUsesLabel.text = "Actions: ∞"
         }
         descriptionLabel.text = descrip
         if HeroType.villains.contains(typeClicked) {
