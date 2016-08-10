@@ -79,7 +79,7 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
     func updateInfo() {
         
         heroAbility = heroAbilities[HeroType.startingHeros[indx].rawValue]
-        heroUses = heroAilityUses[HeroType.startingHeros[indx].rawValue]
+        heroUses = heroActions[HeroType.startingHeros[indx].rawValue]
         heroSteps = heroStepCount[HeroType.startingHeros[indx].rawValue]
         descrip = heroDescriptions[HeroType.startingHeros[indx].rawValue]
         

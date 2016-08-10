@@ -26,7 +26,7 @@ let heroAbilities: [String:String] = [
     "ice" : "Retains the ability of the hero used before her.", "gold" : "Can rid the realm of Fallen Rangers, Skeletons and Orcs.", "orc" : "Can only be destroyed by Valter the Gold Knight, Leoril the Ranger, or Warriors.", "princess0" : "Able to close the portal without collecting its key.", "soldier0" : "Strong enough to kill the vile Orcs.", "darkelf0" : "May cross lava tiles uninjured.", "pirate0" : "Capable of moving through water tiles.", "skeleton" : "Only Valter the Gold Knight and Leoril the Ranger may kill them.", "traveler0" : "None. You think Pokémon Go players have powers?", "traveler1" : "None. Might be able to construct a campfire.", "banker" : "Doubles the worth of coins collected.", "ranger" : "Bests Orcs and Skeletons in combat.", "fallenRanger" : "Vurnerable only to Valter the Gold Knight"
 ]
 
-let heroAilityUses: [String:Int] = [
+let heroActions: [String:Int] = [
     "traveler0" : 0, "traveler1" : 0, "ice" : 1, "ranger" : 5,  "soldier0" : 3, "pirate0" : 3, "princess0" : 1, "darkelf0" : 3
 ]
 

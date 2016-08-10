@@ -51,7 +51,7 @@ class InfoController : UIViewController {
         descrip = heroDescriptions[heroRawValue]
         numVariants = heroVariants[heroRawValue]
         abil = heroAbilities[heroRawValue]
-        abilUses = heroAilityUses[heroRawValue]
+        abilUses = heroActions[heroRawValue]
         stepCount = heroStepCount[heroRawValue]
         
         

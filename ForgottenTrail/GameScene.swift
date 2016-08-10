@@ -40,7 +40,6 @@ class GameScene: SKScene {
     
     override func didMoveToView(view: SKView) {
         
-        
         // adds a 'world', 'camera' to that world and 'you' to that world
         if !isCreated {
             
@@ -63,6 +62,11 @@ class GameScene: SKScene {
             grid = Grid(size: gridSize, type: Int(arc4random_uniform(2)))
             for tile in grid.tiles {
                 self.world?.addChild(tile)
+            }
+            
+            if music {
+                Music.sharedHelper.menuPlayer?.stop()
+                Music.sharedHelper.playBackgroundMusic()
             }
             
             addOverlayItems()
