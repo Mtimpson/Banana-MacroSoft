@@ -259,11 +259,11 @@ class GameScene: SKScene {
         self.view?.addSubview(stepLabel)
         
         usesLeft = heroActions[heroChosen.rawValue]!
-        usesLabel = UILabel(frame: CGRectMake(2, 2, 150, self.frame.size.width / 2))
+        //usesLabel = UILabel(frame: CGRect(origin: CGPointMake(CGRectGetMidX(self.frame), 2), size: CGSizeMake(150, 20)))
         usesLabel.font = UIFont(name: "PerfectDOSVGA437Win", size: 16.0)
         usesLabel.text = "Actions: \(usesLeft)"
         usesLabel.textColor = UIColor.whiteColor()
-        view?.addSubview(usesLabel)
+       // view?.addSubview(usesLabel)
         
         
     }
