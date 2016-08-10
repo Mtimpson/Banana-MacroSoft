@@ -22,7 +22,7 @@
 	<string>1</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>pixel-love.ttf</string>
+		<string>pixelFont.ttf</string>
 	</array>
 </dict>
 </plist>

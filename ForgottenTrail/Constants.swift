@@ -31,7 +31,7 @@ let heroAilityUses: [String:Int] = [
 ]
 
 let heroStepCount : [String:Int] = [
-    "traveler0" : 30, "traveler1" : 40, "ice" : 40, "ranger" : 55, "gold" : 45, "soldier0" : 35, "pirate0" : 30, "princess0" : 25, "darkelf0" : 30
+    "traveler0" : 10, "traveler1" : 40, "ice" : 40, "ranger" : 55, "gold" : 45, "soldier0" : 35, "pirate0" : 30, "princess0" : 25, "darkelf0" : 30
 
 
 ]
@@ -41,6 +41,17 @@ let worldHeight: CGFloat = 2000
 let tileSize: CGFloat = 100
 let moveDist = tileSize
 let moveDur = 1.0
+let frameTime = 0.1
+
+struct Stack<Element> {
+    var items = [Element]()
+    mutating func push(item: Element) {
+        items.append(item)
+    }
+    mutating func pop() -> Element {
+        return items.removeLast()
+    }
+}
 
 extension CollectionType {
     /// Return a copy of `self` with its elements shuffled

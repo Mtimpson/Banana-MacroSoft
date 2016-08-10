@@ -26,19 +26,21 @@ class GameViewController: UIViewController, GameSceneDelegate {
         
         // Configure the view.
         let skView = self.view as! SKView
-        let scene = GameScene(size: skView.bounds.size)
+        if skView.scene == nil {
+            let scene = GameScene(size: skView.bounds.size)
 
-        /* Sprite Kit applies additional optimizations to improve rendering performance */
-        skView.ignoresSiblingOrder = true
+            /* Sprite Kit applies additional optimizations to improve rendering performance */
+            skView.ignoresSiblingOrder = true
         
-        /* Set the scale mode to scale to fit the window */
-        scene.scaleMode = .AspectFill
+            /* Set the scale mode to scale to fit the window */
+            scene.scaleMode = .AspectFill
         
-        skView.multipleTouchEnabled = false
+            skView.multipleTouchEnabled = false
         
-        scene.gameOverDelegate = self
+            scene.gameOverDelegate = self
 
-        skView.presentScene(scene)
+            skView.presentScene(scene)
+        }
         
     }
 

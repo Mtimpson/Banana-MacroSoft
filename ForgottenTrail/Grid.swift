@@ -14,12 +14,15 @@ class Grid {
 
     var tiles: [Tile]
     
-    init(size: Int) {
+    // type = 0 for grass/water,1 for stone/lava
+    init(size: Int, type: Int) {
         
         tiles = [Tile]()
+        var addition = 0
+        if (type == 1) { addition = 2 }
         for row in 0 ..< size {
             for col in 0 ..< size {
-                var tile = Tile(tileType: Int(arc4random_uniform(2)))
+                var tile = Tile(tileType: Int(arc4random_uniform(2)) + addition)
                 tile.zPosition = -10
                 tile.position = CGPointMake(tileSize * CGFloat(col), tileSize * CGFloat(row))
                 tile.name = "" + String(row) + "," + String(col)

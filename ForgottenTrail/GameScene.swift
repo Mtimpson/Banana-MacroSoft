@@ -32,8 +32,12 @@ class GameScene: SKScene {
     var btnWillPause = true
     var playImage = UIImage(named: "play")
     var pauseImage = UIImage(named: "pause")
+    var stepLabel : UILabel!
+    var usesLabel : UILabel!
+    var stepsLeft = Int()
+    var usesLeft = Int()
+    var heroStack = Stack<HeroType>()
     
-       
     override func didMoveToView(view: SKView) {
         
         
@@ -56,25 +60,17 @@ class GameScene: SKScene {
             addChild(self.overlay!)
             
             let gridSize = 11
-            grid = Grid(size: gridSize)
+            grid = Grid(size: gridSize, type: Int(arc4random_uniform(2)))
             for tile in grid.tiles {
                 self.world?.addChild(tile)
             }
             
-            pauseBtn = UIButton(type: .Custom)
-            pauseBtn.frame = CGRectMake(0, 0, 50, 50)
-            pauseBtn.center = CGPointMake(self.frame.width / 2, self.frame.height - 30)
-            pauseBtn.layer.cornerRadius = 0.5 * pauseBtn.bounds.size.width
-            pauseBtn.setImage(pauseImage, forState: UIControlState.Normal)
-            pauseBtn.imageEdgeInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
-            pauseBtn.layer.borderWidth = 2
-            pauseBtn.layer.borderColor = UIColor.whiteColor().CGColor
-            pauseBtn.backgroundColor = UIColor.lightTextColor()
-            pauseBtn.reversesTitleShadowWhenHighlighted = true
-            pauseBtn.showsTouchWhenHighlighted = true
-            pauseBtn.addTarget(self, action: #selector(GameScene.pausePressed), forControlEvents: UIControlEvents.TouchUpInside)
-            self.view?.addSubview(pauseBtn)
+            addOverlayItems()
             
+           NSTimer.scheduledTimerWithTimeInterval(frameTime * 4, target: self, selector: #selector(GameScene.updateStepLabel), userInfo: nil, repeats: true)
+            
+            heroStack.push(heroChosen)
+            heroStack.push(HeroType.Soldier0)
             // creates your current heros animation
             self.you = Hero(type: heroChosen)
             you.anchorPoint = CGPointMake(0.5, 0.1)
@@ -161,7 +157,7 @@ class GameScene: SKScene {
     }
     
     func walkHero() {
-        you.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: 0.1)))
+        you.runAction(SKAction.repeatActionForever(SKAction.animateWithTextures(heroWalkingFrames, timePerFrame: frameTime)))
     }
     
     func changeHeroPostion() {
@@ -199,7 +195,7 @@ class GameScene: SKScene {
             pauseBtn.removeFromSuperview()
             self.view?.addSubview(pauseBtn)
             mainMenuBtn = UIButton(type: .Custom)
-            mainMenuBtn.frame = CGRectMake(0, 0, 120, 70)
+            mainMenuBtn.frame = CGRectMake(0, 0, 100, 50)
             mainMenuBtn.center = CGPointMake(self.frame.width / 2, self.frame.height / 2 - 100)
             mainMenuBtn.layer.cornerRadius = 0.5 * pauseBtn.bounds.size.width
             mainMenuBtn.setTitle("Main Menu", forState: UIControlState.Normal)
@@ -208,8 +204,8 @@ class GameScene: SKScene {
             mainMenuBtn.backgroundColor = UIColor.lightGrayColor()
             mainMenuBtn.reversesTitleShadowWhenHighlighted = true
             mainMenuBtn.showsTouchWhenHighlighted = true
+            mainMenuBtn.titleLabel?.font = UIFont(name: "PerfectDOSVGA437Win", size: 16.0)
             mainMenuBtn.addTarget(self, action: #selector(GameScene.mainMenuPressed), forControlEvents: UIControlEvents.TouchUpInside)
-            
             self.view?.addSubview(mainMenuBtn)
             
             Music.sharedHelper.gamePlayer?.pause()
@@ -231,7 +227,70 @@ class GameScene: SKScene {
     func mainMenuPressed(){
         self.view?.presentScene(nil)
         Music.sharedHelper.gamePlayer?.stop()
+        self.removeFromParent()
+        self.view?.presentScene(nil)
         self.gameOverDelegate?.launchViewController(self)
     }
+    
+    func addOverlayItems(){
+        pauseBtn = UIButton(type: .Custom)
+        pauseBtn.frame = CGRectMake(0, 0, 50, 50)
+        pauseBtn.center = CGPointMake(self.frame.width / 2, self.frame.height - 30)
+        pauseBtn.layer.cornerRadius = 0.5 * pauseBtn.bounds.size.width
+        pauseBtn.setImage(pauseImage, forState: UIControlState.Normal)
+        pauseBtn.imageEdgeInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+        pauseBtn.layer.borderWidth = 2
+        pauseBtn.layer.borderColor = UIColor.whiteColor().CGColor
+        pauseBtn.backgroundColor = UIColor.lightTextColor()
+        pauseBtn.reversesTitleShadowWhenHighlighted = true
+        pauseBtn.showsTouchWhenHighlighted = true
+        pauseBtn.addTarget(self, action: #selector(GameScene.pausePressed), forControlEvents: UIControlEvents.TouchUpInside)
+        self.view?.addSubview(pauseBtn)
+        
+        stepsLeft = heroStepCount[heroChosen.rawValue]!
+        stepLabel = UILabel(frame: CGRectMake(2, 2, 150, 20))
+        stepLabel.font = UIFont(name: "PerfectDOSVGA437Win", size: 16.0)
+        stepLabel.text = "Steps: \(stepsLeft)"
+        stepLabel.textColor = UIColor.whiteColor()
+        self.view?.addSubview(stepLabel)
+        
+        //usesLabel = UILabel(frame: CGRectMake(2, 2, 150, 20))
+        //usesLabel.font = UIFont(name: "PerfectDOSVGA437Win", size: 16.0)
+        //stepLabel.text = "Steps: \(stepsLeft)"
+        //stepLabel.textColor = UIColor.whiteColor()
+        //self.view?.addSubview(stepLabel)
+        
+        
+    }
+    
+    func updateStepLabel(){
+        if !paused {
+            stepsLeft -= 1
+            stepLabel.text = "Steps: \(stepsLeft)"
+            if stepsLeft == 0 {
+                heroChosen = heroStack.pop()
+                you.removeFromParent()
+                let direction = you.heroDirection
+                let position = you.position
+                self.you = Hero(type: heroChosen)
+                you.position = position
+                self.world?.addChild(self.you)
+                centerOnNode(you)
+                updateTextureAtlas()
+                if direction == "Back" {
+                    you.turn(UISwipeGestureRecognizerDirection.Up.rawValue)
+                } else if direction == "Left" {
+                    you.turn(UISwipeGestureRecognizerDirection.Left.rawValue)
+                } else if direction == "Right" {
+                    you.turn(UISwipeGestureRecognizerDirection.Right.rawValue)
+                } else {
+                    you.turn(UISwipeGestureRecognizerDirection.Down.rawValue)
+                }
+                //changeHeroPostion()
+                stepsLeft = heroStepCount[heroChosen.rawValue]!
+            }
+        }
+    }
+    
     
 }
