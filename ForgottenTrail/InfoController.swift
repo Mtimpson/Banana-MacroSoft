@@ -63,9 +63,9 @@ class InfoController : UIViewController {
         }
 
         if abilUses != nil {
-            abilityUsesLabel.text = "Uses: \(abilUses)"
+            abilityUsesLabel.text = "Actions: \(abilUses)"
         } else {
-            abilityUsesLabel.text = "Uses: ∞"
+            abilityUsesLabel.text = "Actions: ∞"
         }
         descriptionLabel.text = descrip
         if HeroType.villains.contains(typeClicked) {
