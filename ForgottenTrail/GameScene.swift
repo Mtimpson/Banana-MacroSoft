@@ -245,7 +245,11 @@ class GameScene: SKScene {
         stepLabel.textColor = UIColor.white
         self.view?.addSubview(stepLabel)
         
-        usesLeft = heroActions[you.heroType]!
+        if heroActions[you.heroType] != nil {
+            usesLeft = heroActions[you.heroType]!
+        } else {
+            usesLeft = 1000
+        }
         usesLabel = UILabel(frame: CGRect(x: 2, y: 2, width: 150, height: self.frame.size.width / 2))
         usesLabel.font = UIFont(name: "PerfectDOSVGA437Win", size: 16.0)
         usesLabel.text = "Actions: \(usesLeft)"
