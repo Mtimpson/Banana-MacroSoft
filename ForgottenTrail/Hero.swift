@@ -67,7 +67,7 @@ class Hero: SKSpriteNode {
         } else {
             steps = heroSteps[heroType]!
         }
-        super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clearColor(), size: heroSize)
+        super.init(texture: SKTexture(imageNamed: imageName), color: UIColor.clear, size: heroSize)
         
     }
     
@@ -75,12 +75,12 @@ class Hero: SKSpriteNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func moveDown(starSpeed: CGFloat) {
-        let moveDown = SKAction.moveByX(0, y: starSpeed, duration: 1)
-        runAction(SKAction.repeatActionForever(moveDown))
+    func moveDown(_ starSpeed: CGFloat) {
+        let moveDown = SKAction.moveBy(x: 0, y: starSpeed, duration: 1)
+        run(SKAction.repeatForever(moveDown))
     }
     
-    func turn(direction: UInt) -> Bool {
+    func turn(_ direction: UInt) -> Bool {
         if ((direction == 8 && heroDirection == "Back") ||
             (direction == 8 && upcomingDirection == "Front") ||
             (direction == 4 && heroDirection == "Front") ||

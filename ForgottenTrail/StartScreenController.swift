@@ -22,13 +22,13 @@ class StartScreenController : UIViewController, UIViewControllerTransitioningDel
     //for transitions
     let transition = AnimationController()
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let controller = segue.destinationViewController   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let controller = segue.destination   
             transition.myTransitionMode = .present
         
             //set transition delegate and modal presentation style
             controller.transitioningDelegate = self
-            controller.modalPresentationStyle = .Custom
+            controller.modalPresentationStyle = .custom
         
     }
     
@@ -39,7 +39,7 @@ class StartScreenController : UIViewController, UIViewControllerTransitioningDel
             Music.sharedHelper.shuffleSongs()
             if Music.sharedHelper.menuPlayer == nil {
                 Music.sharedHelper.playMenuMusic()
-            } else if !(Music.sharedHelper.menuPlayer?.playing)! {
+            } else if !(Music.sharedHelper.menuPlayer?.isPlaying)! {
                 Music.sharedHelper.playMenuMusic()
             }
         }
@@ -54,7 +54,7 @@ class StartScreenController : UIViewController, UIViewControllerTransitioningDel
             // grab the original image
             let originalImage = UIImage(named: imageName)
             // scaling set to 2.0 makes the image 1/2 the size.
-            let scaledImage = UIImage(CGImage: (originalImage?.CGImage)!, scale: (originalImage?.scale)! * 0.5, orientation: (originalImage?.imageOrientation)!)
+            let scaledImage = UIImage(cgImage: (originalImage?.cgImage)!, scale: (originalImage?.scale)! * 0.5, orientation: (originalImage?.imageOrientation)!)
             imageList.append(scaledImage)
                     
         }
@@ -64,13 +64,13 @@ class StartScreenController : UIViewController, UIViewControllerTransitioningDel
         traveler.animationImages = imageList
         traveler.animationDuration = 1
         traveler.startAnimating()
-        traveler.contentMode = .ScaleAspectFit
+        traveler.contentMode = .scaleAspectFit
 
         
     }
     
     //called when presenting a view controller
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         print("present")
         transition.myTransitionMode = .present
         transition.origin = portal.center
@@ -80,7 +80,7 @@ class StartScreenController : UIViewController, UIViewControllerTransitioningDel
     }
     
     //called when dismissing a view controller 
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         print("diss")
         
         transition.myTransitionMode = .dismiss

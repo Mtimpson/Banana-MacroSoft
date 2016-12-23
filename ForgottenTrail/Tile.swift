@@ -27,7 +27,7 @@ class Tile: SKSpriteNode {
             image = ""
         }
         type = tileType
-        super.init(texture: SKTexture(imageNamed: image), color: UIColor.clearColor(), size: CGSizeMake(tileSize, tileSize))
+        super.init(texture: SKTexture(imageNamed: image), color: UIColor.clear, size: CGSize(width: tileSize, height: tileSize))
     }
     
     required init?(coder aDecoder: NSCoder) {

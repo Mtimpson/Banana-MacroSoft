@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SpriteKit
 
-let heroSize: CGSize = CGSizeMake(CGFloat(64), CGFloat(64))
+let heroSize: CGSize = CGSize(width: CGFloat(64), height: CGFloat(64))
 
 let heroNames: [HeroType:String] = [
     HeroType.IcePrincess : "Rhoslyn the Ice Princess", HeroType.GoldKnight : "Valter the Golden Knight", HeroType.Orc : "Orcs", HeroType.Princess0 : "Princesses", HeroType.Soldier0 : "Warriors", HeroType.DarkElf0 : "Dark Elves", HeroType.Pirate0 : "Pirates", HeroType.Skeleton : "Skeletons", HeroType.Traveler0 : "Hutch the Traveler", HeroType.Traveler1 : "Aveline the Nomad", HeroType.Banker : "The Banker", HeroType.Ranger : "Leoril the Ranger", HeroType.FallenRanger : "Fallen Rangers"
@@ -45,7 +45,7 @@ let frameTime = 0.1
 
 struct Stack<Element> {
     var items = [Element]()
-    mutating func push(item: Element) {
+    mutating func push(_ item: Element) {
         items.append(item)
     }
     mutating func pop() -> Element {
@@ -53,29 +53,29 @@ struct Stack<Element> {
     }
 }
 
-extension CollectionType {
+extension Collection {
     /// Return a copy of `self` with its elements shuffled
-    func shuffle() -> [Generator.Element] {
+    func shuffle() -> [Iterator.Element] {
         var list = Array(self)
         list.shuffleInPlace()
         return list
     }
 }
 
-extension MutableCollectionType where Index == Int {
+extension MutableCollection where Index == Int {
     /// Shuffle the elements of `self` in-place.
     mutating func shuffleInPlace() {
         // empty and single-element collections don't shuffle
         if count < 2 { return }
         
-        for i in 0..<count - 1 {
-            let j = Int(arc4random_uniform(UInt32(count - i))) + i
-            guard i != j else { continue }
-            swap(&self[i], &self[j])
+        for i in startIndex ..< endIndex - 1 {
+            let j = Int(arc4random_uniform(UInt32(endIndex - i))) + i
+            if i != j {
+                swap(&self[i], &self[j])
+            }
         }
     }
 }
-
 
 
 

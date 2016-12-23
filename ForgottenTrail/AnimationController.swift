@@ -23,7 +23,7 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
     var portalFrame : CGRect!
     
     //starting point of transition
-    var origin = CGPointZero
+    var origin = CGPoint.zero
     
     //durations
     var presentDuration = 0.7
@@ -31,7 +31,7 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
     
     var presentedView : UIView!
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         //sets duration based on if it's presenting or dismissing
         if myTransitionMode == .present {
             return presentDuration
@@ -40,12 +40,12 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
         }
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        let containerView = transitionContext.containerView()
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        let containerView = transitionContext.containerView
         
         if myTransitionMode == .present {
             // get view of view controller bring presented
-            presentedView = transitionContext.viewForKey(UITransitionContextToViewKey)
+            presentedView = transitionContext.view(forKey: UITransitionContextViewKey.to)
             let originalCenter = presentedView?.center
             
             //get frame of portal
@@ -54,23 +54,23 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
             portal.center = origin
             
             //add portal to container view so it can be animated later
-            containerView?.addSubview(portal)
+            containerView.addSubview(portal)
             
             //make presented view very small and transparent
             presentedView?.center = origin
-            presentedView?.transform = CGAffineTransformMakeScale(0.001, 0.001)
-            presentedView?.backgroundColor = UIColor.clearColor()
+            presentedView?.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+            presentedView?.backgroundColor = UIColor.clear
             
             //add presented view to container view
-            containerView?.addSubview(presentedView!)
+            containerView.addSubview(presentedView!)
             
             
             //animate both views
-            UIView.animateWithDuration(presentDuration, animations: {
-                self.portal.transform = CGAffineTransformMakeScale(200, 200)
-                self.presentedView?.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            UIView.animate(withDuration: presentDuration, animations: {
+                self.portal.transform = CGAffineTransform(scaleX: 200, y: 200)
+                self.presentedView?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                 self.presentedView?.center = originalCenter!
-            }) { (_) -> Void in
+            }, completion: { (_) -> Void in
                 //on completion, fade the purple background to black
                 //UIView.animateWithDuration(0.5, animations: {
                   //  self.presentedView?.backgroundColor = UIColor.blackColor()
@@ -79,9 +79,9 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
                 //}
                 //on completion, complete transition
                 transitionContext.completeTransition(true)
-            }
+            }) 
         } else {
-            let returningView = transitionContext.viewForKey(UITransitionContextFromViewKey)
+            let returningView = transitionContext.view(forKey: UITransitionContextViewKey.from)
             
             self.presentedView.removeFromSuperview()
             
@@ -89,25 +89,25 @@ class AnimationController : NSObject, UIViewControllerAnimatedTransitioning {
             portal = UIImageView(frame: portalFrame)
             portal.image = UIImage(named: "stonePortal")
             portal.center = origin
-            self.portal.transform = CGAffineTransformMakeScale(200, 200)
+            self.portal.transform = CGAffineTransform(scaleX: 200, y: 200)
             //add portal to container view so it can be animated later
-            containerView?.addSubview(portal)
-            containerView?.addSubview(presentedView)
+            containerView.addSubview(portal)
+            containerView.addSubview(presentedView)
             
             //UIView.animateWithDuration(0.5, animations: {
                 //self.presentedView!.backgroundColor = UIColor.clearColor()
             //}) { (_) -> Void in
-                UIView.animateWithDuration(self.dismissDuration, animations: {
-                    self.portal.transform = CGAffineTransformMakeScale(1.0, 1.0)
-                    returningView?.transform = CGAffineTransformMakeScale(0.001, 0.001)
+                UIView.animate(withDuration: self.dismissDuration, animations: {
+                    self.portal.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+                    returningView?.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
                     returningView?.center = self.origin
                     returningView?.alpha = 0
-                }) { (_) -> Void in
+                }, completion: { (_) -> Void in
                     returningView?.removeFromSuperview()
                     self.portal.removeFromSuperview()
                     transitionContext.completeTransition(true)
                     
-                }
+                }) 
             //}
 
 

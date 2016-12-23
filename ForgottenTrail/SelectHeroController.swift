@@ -51,7 +51,7 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
     }
     
     //called when 'nextBtn' pressed, moves array to the right
-    @IBAction func nextAct(sender: UIButton) {
+    @IBAction func nextAct(_ sender: UIButton) {
         if indx == HeroType.startingHeros.count - 1 {
             indx = 0
         } else {
@@ -63,7 +63,7 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
     }
     
     //called when 'previousBtn' pressed, moves array to the left. code is different becasue pressing the prevBtn calls both this function AND the one above
-    @IBAction func previousAct(sender: UIButton) {
+    @IBAction func previousAct(_ sender: UIButton) {
         if indx == 0  {
             indx = HeroType.startingHeros.count - 1
         } else {
@@ -107,7 +107,7 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
             let imageName = HeroType.startingHeros[indx].rawValue + "Front\(i)"
             let originalImage = UIImage(named: imageName)
             // scaling set to 2.0 makes the image 1/2 the size.
-            let scaledImage = UIImage(CGImage: (originalImage?.CGImage)!, scale: (originalImage?.scale)! * 0.5, orientation: (originalImage?.imageOrientation)!)
+            let scaledImage = UIImage(cgImage: (originalImage?.cgImage)!, scale: (originalImage?.scale)! * 0.5, orientation: (originalImage?.imageOrientation)!)
             imageList.append(scaledImage)
 
             
@@ -120,17 +120,17 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let controller = segue.destinationViewController as? StartScreenController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? StartScreenController {
             
             //set transition delegate and modal presentation style
             controller.transitioningDelegate = self
-            controller.modalPresentationStyle = .Custom
+            controller.modalPresentationStyle = .custom
         }
     }
     
     //called when dismissing a view controller
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         transition.myTransitionMode = .dismiss
         transition.portalFrame = portalFrame
@@ -138,8 +138,8 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
     }
 
     
-    @IBAction func menuAct(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: {})
+    @IBAction func menuAct(_ sender: AnyObject) {
+        dismiss(animated: true, completion: {})
     }
     
 }
