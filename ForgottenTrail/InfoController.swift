@@ -56,13 +56,13 @@ class InfoController : UIViewController {
         
         nameLabel.text = name
         if stepCount != nil {
-            stepLabel.text = "Steps: \(stepCount)"
+            stepLabel.text = "Steps: \(stepCount!)"
         } else {
             stepLabel.text = "Steps: ∞"
         }
 
         if abilUses != nil {
-            abilityUsesLabel.text = "Actions: \(abilUses)"
+            abilityUsesLabel.text = "Actions: \(abilUses!)"
         } else {
             abilityUsesLabel.text = "Actions: ∞"
         }
@@ -70,7 +70,7 @@ class InfoController : UIViewController {
         if HeroType.villains.contains(heroChosen) {
             abilityLabel.text = abil
         } else {
-            abilityLabel.text = "Ability: \(abil)"
+            abilityLabel.text = "Ability: \(abil!)"
         }
         
        
@@ -83,12 +83,9 @@ class InfoController : UIViewController {
             
             
         } else if numVariants == 3 {
-            var2str = heroChosen.rawValue.replacingOccurrences(of: "0", with: "1")
-            var3str = heroChosen.rawValue.replacingOccurrences(of: "0", with: "2")
             variant1 = "\(heroChosen.rawValue)Front"
-            variant2 = "\(var2str)Front"
-            variant3 = "\(var3str)Front"
-            
+            variant2 = variant1.replacingOccurrences(of: "0", with: "1")
+            variant3 = variant1.replacingOccurrences(of: "0", with: "2")
             getAnimation(leftChar, variant: variant1)
             getAnimation(midChar, variant: variant2)
             getAnimation(rightChar, variant: variant3)

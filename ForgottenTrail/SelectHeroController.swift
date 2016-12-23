@@ -85,14 +85,14 @@ class SelectHeroController : UIViewController, UIViewControllerTransitioningDele
         
         nameLabel.text = heroNames[HeroType.startingHeros[indx]]
         descriptionLabel.text = descrip
-        abilityLabel.text = "Ability: \(heroAbility)"
+        abilityLabel.text = "Ability: \(heroAbility!)"
         if steps != nil {
-            stepsLabel.text = "Steps: \(steps)"
+            stepsLabel.text = "Steps: \(steps!)"
         } else {
             stepsLabel.text = "Steps: ∞"
         }
         if heroUses != nil {
-            abilityUseLabel.text = "Actions: \(heroUses)"
+            abilityUseLabel.text = "Actions: \(heroUses!)"
         } else {
             abilityUseLabel.text = "Actions: ∞"
         }
