@@ -10,7 +10,7 @@ import Foundation
 import SpriteKit
 
 var music = true
-var optionsDefault = NSUserDefaults.standardUserDefaults()
+var optionsDefault = UserDefaults.standard
 
 class OptionsViewController : UIViewController, UIViewControllerTransitioningDelegate {
     @IBOutlet weak var musicSwitch: UISwitch!

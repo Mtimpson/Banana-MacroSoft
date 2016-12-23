@@ -74,6 +74,17 @@ class GameScene: SKScene {
             
             addOverlayItems()
             
+            if music {
+                Music.sharedHelper.shuffleSongs()
+                if Music.sharedHelper.gamePlayer == nil {
+                    Music.sharedHelper.playBackgroundMusic()
+                }
+                if (Music.sharedHelper.menuPlayer?.isPlaying)! {
+                    Music.sharedHelper.menuPlayer?.stop()
+                }
+            }
+
+            
         }
         
         //changes direction upon recognition of a swipe
@@ -246,9 +257,9 @@ class GameScene: SKScene {
         self.view?.addSubview(stepLabel)
         
         //usesLeft = heroActions[you.heroType]!
-        usesLabel = UILabel(frame: CGRectMake(2, 2, 150, self.frame.size.width / 2))
+        usesLabel = UILabel(frame: CGRect(x: 2, y: 2, width: 150, height: self.frame.size.width / 2))
         usesLabel.text = "Actions: \(usesLeft)"
-        usesLabel.textColor = UIColor.whiteColor()
+        usesLabel.textColor = UIColor.white
        // view?.addSubview(usesLabel)
         
         
