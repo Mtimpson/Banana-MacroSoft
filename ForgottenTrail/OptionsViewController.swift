@@ -10,11 +10,13 @@ import Foundation
 import SpriteKit
 
 var music = true
+var optionsDefault = NSUserDefaults.standardUserDefaults()
 
 class OptionsViewController : UIViewController, UIViewControllerTransitioningDelegate {
     @IBOutlet weak var musicSwitch: UISwitch!
     
     var transition = AnimationController()
+    var musicBool = true 
     
     @IBAction func musicSwitchAct(sender: AnyObject) {
         if musicSwitch.on {
