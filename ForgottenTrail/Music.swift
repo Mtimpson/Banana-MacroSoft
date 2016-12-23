@@ -26,9 +26,9 @@ class Music : NSObject, AVAudioPlayerDelegate {
     
     func playMenuMusic() {
         print(menuSongs[menuCounter])
-        let aSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(menuSongs[menuCounter])", ofType: "mp3")!)
+        let aSound = URL(fileURLWithPath: Bundle.main.path(forResource: "\(menuSongs[menuCounter])", ofType: "mp3")!)
         do {
-            menuPlayer = try AVAudioPlayer(contentsOfURL:aSound)
+            menuPlayer = try AVAudioPlayer(contentsOf:aSound)
             menuPlayer?.delegate = self
             menuPlayer!.prepareToPlay()
             menuPlayer!.play()
@@ -40,9 +40,9 @@ class Music : NSObject, AVAudioPlayerDelegate {
     
     func playBackgroundMusic() {
         print(gameSongs)
-        let aSound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("\(gameSongs[counter])", ofType: "mp3")!)
+        let aSound = URL(fileURLWithPath: Bundle.main.path(forResource: "\(gameSongs[counter])", ofType: "mp3")!)
         do {
-            gamePlayer = try AVAudioPlayer(contentsOfURL:aSound)
+            gamePlayer = try AVAudioPlayer(contentsOf:aSound)
             gamePlayer?.delegate = self
             gamePlayer!.prepareToPlay()
             gamePlayer!.play()
@@ -51,7 +51,7 @@ class Music : NSObject, AVAudioPlayerDelegate {
         }
     }
     
-    func audioPlayerDidFinishPlaying(audioPlayer: AVAudioPlayer, successfully flag: Bool) {
+    func audioPlayerDidFinishPlaying(_ audioPlayer: AVAudioPlayer, successfully flag: Bool) {
         if audioPlayer == menuPlayer {
             print("menu player recognized")
             if flag {

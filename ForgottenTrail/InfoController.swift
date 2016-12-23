@@ -79,12 +79,12 @@ class InfoController : UIViewController {
             variant1 = "\(heroChosen.rawValue)Front"
             //midChar.image = UIImage(named: variant1)
             getAnimation(midChar, variant: variant1)
-            midChar.contentMode = .ScaleAspectFit
+            midChar.contentMode = .scaleAspectFit
             
             
         } else if numVariants == 3 {
-            var2str = heroChosen.rawValue.stringByReplacingOccurrencesOfString("0", withString: "1")
-            var3str = heroChosen.rawValue.stringByReplacingOccurrencesOfString("0", withString: "2")
+            var2str = heroChosen.rawValue.replacingOccurrences(of: "0", with: "1")
+            var3str = heroChosen.rawValue.replacingOccurrences(of: "0", with: "2")
             variant1 = "\(heroChosen.rawValue)Front"
             variant2 = "\(var2str)Front"
             variant3 = "\(var3str)Front"
@@ -93,13 +93,13 @@ class InfoController : UIViewController {
             getAnimation(midChar, variant: variant2)
             getAnimation(rightChar, variant: variant3)
             
-            leftChar.contentMode = .ScaleAspectFit
-            midChar.contentMode = .ScaleAspectFit
-            rightChar.contentMode = .ScaleAspectFit
+            leftChar.contentMode = .scaleAspectFit
+            midChar.contentMode = .scaleAspectFit
+            rightChar.contentMode = .scaleAspectFit
         }
     }
     
-    func getAnimation(charImage : UIImageView, variant : String) {
+    func getAnimation(_ charImage : UIImageView, variant : String) {
         
         //clear array of images
         imageList.removeAll()
@@ -111,7 +111,7 @@ class InfoController : UIViewController {
             // grab the original image
             let originalImage = UIImage(named: imageName)
             // scaling set to 2.0 makes the image 1/2 the size.
-            let scaledImage = UIImage(CGImage: (originalImage?.CGImage)!, scale: (originalImage?.scale)! * 0.5, orientation: (originalImage?.imageOrientation)!)
+            let scaledImage = UIImage(cgImage: (originalImage?.cgImage)!, scale: (originalImage?.scale)! * 0.5, orientation: (originalImage?.imageOrientation)!)
             imageList.append(scaledImage)
             
         }
@@ -123,8 +123,8 @@ class InfoController : UIViewController {
     }
     
     
-    @IBAction func backAct(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: {})
+    @IBAction func backAct(_ sender: AnyObject) {
+        dismiss(animated: true, completion: {})
     }
     
     

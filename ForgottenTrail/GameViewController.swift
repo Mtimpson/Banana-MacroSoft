@@ -11,11 +11,11 @@ import SpriteKit
 
 class GameViewController: UIViewController, GameSceneDelegate {
     
-    func launchViewController(scene: SKScene) {
+    func launchViewController(_ scene: SKScene) {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = mainStoryboard.instantiateViewControllerWithIdentifier("start")
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "start")
         
-        presentViewController(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
         // note that you don't need to go through a bunch of optionals to call presentViewController
     
     }
@@ -33,9 +33,9 @@ class GameViewController: UIViewController, GameSceneDelegate {
             skView.ignoresSiblingOrder = true
         
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .aspectFill
         
-            skView.multipleTouchEnabled = false
+            skView.isMultipleTouchEnabled = false
         
             scene.gameOverDelegate = self
 
@@ -44,15 +44,15 @@ class GameViewController: UIViewController, GameSceneDelegate {
         
     }
 
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return false
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .allButUpsideDown
         } else {
-            return .All
+            return .all
         }
     }
 
@@ -61,7 +61,7 @@ class GameViewController: UIViewController, GameSceneDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
     

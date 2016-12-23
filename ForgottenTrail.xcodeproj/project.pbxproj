@@ -264,13 +264,16 @@
 					4C0373181D188AB50060A7D1 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = GCVQCSE572;
+						LastSwiftMigration = 0810;
 					};
 					4C0373301D188AB50060A7D1 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 4C0373181D188AB50060A7D1;
 					};
 					4C03733B1D188AB50060A7D1 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 						TestTargetID = 4C0373181D188AB50060A7D1;
 					};
 				};
@@ -492,6 +495,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.newBornSoftwareDevelopment.ForgottenTrail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -507,6 +511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.newBornSoftwareDevelopment.ForgottenTrail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -519,6 +524,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newBornSoftwareDevelopment.ForgottenTrailTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ForgottenTrail.app/ForgottenTrail";
 			};
 			name = Debug;
@@ -531,6 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newBornSoftwareDevelopment.ForgottenTrailTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ForgottenTrail.app/ForgottenTrail";
 			};
 			name = Release;
@@ -543,6 +550,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newBornSoftwareDevelopment.ForgottenTrailUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ForgottenTrail;
 			};
 			name = Debug;
@@ -554,6 +562,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.newBornSoftwareDevelopment.ForgottenTrailUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = ForgottenTrail;
 			};
 			name = Release;

@@ -16,8 +16,8 @@ class OptionsViewController : UIViewController, UIViewControllerTransitioningDel
     
     var transition = AnimationController()
     
-    @IBAction func musicSwitchAct(sender: AnyObject) {
-        if musicSwitch.on {
+    @IBAction func musicSwitchAct(_ sender: AnyObject) {
+        if musicSwitch.isOn {
             music = true
             Music.sharedHelper.playMenuMusic()
         } else {
@@ -26,24 +26,24 @@ class OptionsViewController : UIViewController, UIViewControllerTransitioningDel
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let controller = segue.destinationViewController as? StartScreenController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? StartScreenController {
             
             //set transition delegate and modal presentation style
             controller.transitioningDelegate = self
-            controller.modalPresentationStyle = .Custom
+            controller.modalPresentationStyle = .custom
         }
     }
     
     //called when dismissing a view controller
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         transition.myTransitionMode = .dismiss
         transition.portalFrame = portalFrame
         return transition
     }
 
-    @IBAction func menuAct(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: {})
+    @IBAction func menuAct(_ sender: AnyObject) {
+        dismiss(animated: true, completion: {})
     }
 }
